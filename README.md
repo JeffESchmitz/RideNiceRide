@@ -84,11 +84,9 @@ SwipeIt
 
 ### Utilities
 
-- [KeychainSwift](https://github.com/marketplacer/keychain-swift): Helper functions for saving text in Keychain securely for iOS, OS X, tvOS and watchOS
-- [Kanna](https://github.com/tid-kijyun/Kanna): Kanna is an XML/HTML parser for macOS / iOS / tvOS.
-- [Device](https://github.com/Ekhoo/Device): Light weight tool for detecting the current device and screen size written in swift
+~~- [KeychainSwift](https://github.com/marketplacer/keychain-swift): Helper functions for saving text in Keychain securely for iOS, OS X, tvOS and watchOS~~
+~~- [Device](https://github.com/Ekhoo/Device): Light weight tool for detecting the current device and screen size written in swift~~
 - [AsyncSwift](https://github.com/duemunk/Async): Syntactic sugar in Swift for asynchronous dispatches in Grand Central Dispatch
-- [SnapKit](https://github.com/SnapKit/SnapKit): SnapKit is a DSL to make Auto Layout easy on both iOS and OS X
 
 ### Environment
 
@@ -96,7 +94,6 @@ SwipeIt
 - [SwiftGen](https://github.com/AliSoftware/SwiftGen): A collection of Swift tools to generate Swift code (enums for your assets, storyboards, Localizable.strings, …)
 - [Fabric](https://docs.fabric.io/apple/fabric/overview.html): Fabric is a mobile platform with modular kits you can mix and match to build the best apps
 - [Crashlytics](https://fabric.io/kits/ios/crashlytics/install): The most powerful, yet lightest weight crash reporting solution
-- [Synx](https://github.com/venmo/synx): A command-line tool that reorganizes your Xcode project folder to match your Xcode groups
 - [Fastlane](https://github.com/fastlane/fastlane): The easiest way to automate building and releasing your iOS and Android apps
 
 ~~### Environment variables
@@ -124,11 +121,11 @@ SwipeIt
 - `SWIPEIT_ITUNES_TEAM_ID`: Team ID from [iTunes Connect](https://itunesconnect.apple.com/). (`$ pilot list` to check the number)
 - `SWIPEIT_TEAM_NAME`: Your Company Name
 - `SWIPEIT_APPLE_ID`: Your Apple ID (e.g. john@apple.com)
-- `SWIPEIT_ITUNES_PASSWORD`: The password for your Apple ID
+- `SWIPEIT_ITUNES_PASSWORD`: The password for your Apple ID~~
 
-~~#### Misc
+~~#### Misc~~
 
-~~- `SWIPEIT_SLACK_URL`: https://hooks.slack.com/services/...
+~~- `SWIPEIT_SLACK_URL`: https://hooks.slack.com/services/...~~
 
 ### Deployment
 
