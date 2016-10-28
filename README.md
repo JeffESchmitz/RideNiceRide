@@ -26,26 +26,20 @@ The project follows this folder structure:
 SwipeIt
 ├── AppDelegate.swift
 ├── Models
+│   ├── RideNiceRide.xcmodel
+├── Views
+│   ├── TableViewCell
+├── ViewControllers
+│   ├── SlideMenu
+│   ├── PullUpView
+├── Storyboards
+├── API
 ├── Enums
 ├── Extensions
-├── Externals
-├── Globals
-├── Helpers
-├── Models
 ├── Networking
-├── Protocols
-├── Resources
-│   ├── LaunchScreen.storyboard
-│   ├── Localizable.strings
-│   └── Info.plist
-├── Structs
-├── ViewControllers
-│   ├── Onboarding
-│   │     └── Onboarding.storyboard
-│   └── Main
-│         └── Main.storyboard
-├── ViewModels
-└── Views
+└── Resources
+    ├── Localizable.strings
+    └── Info.plist
 ```
 
 
@@ -76,9 +70,7 @@ SwipeIt
 - [Dollar](https://github.com/ankurp/Dollar): A functional tool-belt for Swift Language similar to Lo-Dash or Underscore.js in Javascript
 - [Device](https://github.com/Ekhoo/Device): Light weight tool for detecting the current device and screen size written in swift
 - [Willow](https://github.com/Nike-Inc/Willow): Willo is a powerful, yet lightweight logging library written in Swift
-
-~~- [KeychainSwift](https://github.com/marketplacer/keychain-swift): Helper functions for saving text in Keychain securely for iOS, OS X, tvOS and watchOS~~
-~~- [AsyncSwift](https://github.com/duemunk/Async): Syntactic sugar in Swift for asynchronous dispatches in Grand Central Dispatch~~
+- [AsyncSwift](https://github.com/duemunk/Async): Syntactic sugar in Swift for asynchronous dispatches in Grand Central Dispatch
 
 ### Environment
 
