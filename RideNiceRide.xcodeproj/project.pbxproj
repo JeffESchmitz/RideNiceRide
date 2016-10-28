@@ -618,7 +618,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFD9861FA88A6161EA9CD943 /* Pods-RideNiceRide.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3Q3NT65HWY;
 				INFOPLIST_FILE = RideNiceRide/Info.plist;
@@ -634,7 +633,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AE686DD1349C0D1A20AAE675 /* Pods-RideNiceRide.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3Q3NT65HWY;
 				INFOPLIST_FILE = RideNiceRide/Info.plist;

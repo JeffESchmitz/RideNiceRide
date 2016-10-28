@@ -17,6 +17,8 @@ target 'RideNiceRide' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'Cent'
+  pod 'SwiftGen'
+  pod "Device", '~> 2.0.0'
   # Add more pods here...
 
   target 'RideNiceRideTests' do
