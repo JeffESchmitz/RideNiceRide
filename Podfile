@@ -13,6 +13,7 @@ target 'RideNiceRide' do
   pod 'ISHPullUp'
   pod 'SlideMenuControllerSwift'
   pod 'GoogleMaps'
+  pod 'GooglePlaces'
   pod 'PKHUD_Swift_3'
   pod 'Fabric'
   pod 'Crashlytics'
