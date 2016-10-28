@@ -16,6 +16,7 @@ target 'RideNiceRide' do
   pod 'PKHUD_Swift_3'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'Cent'
   # Add more pods here...
 
   target 'RideNiceRideTests' do
