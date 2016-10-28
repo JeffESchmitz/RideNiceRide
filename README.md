@@ -58,6 +58,9 @@ SwipeIt
 
 ### Networking
 
+- [Alamofire](https://github.com/Alamofire/Alamofire): HTTP networking library written in Swift.
+- [Alamofire](https://github.com/Alamofire/Alamofire): HTTP networking library written in Swift.
+
 - [Moya](https://github.com/Moya/Moya): Network abstraction layer written in Swift
 - [Moya-ObjectMapper](https://github.com/ivanbruel/Moya-ObjectMapper): ObjectMapper bindings for Moya and RxSwift
 - [Result](https://github.com/antitypical/Result): This is a Swift µframework providing Result
@@ -71,8 +74,9 @@ SwipeIt
 
 ### Utilities
 
-~~- [KeychainSwift](https://github.com/marketplacer/keychain-swift): Helper functions for saving text in Keychain securely for iOS, OS X, tvOS and watchOS~~
 - [Device](https://github.com/Ekhoo/Device): Light weight tool for detecting the current device and screen size written in swift
+
+~~- [KeychainSwift](https://github.com/marketplacer/keychain-swift): Helper functions for saving text in Keychain securely for iOS, OS X, tvOS and watchOS~~
 ~~- [AsyncSwift](https://github.com/duemunk/Async): Syntactic sugar in Swift for asynchronous dispatches in Grand Central Dispatch~~
 
 ### Environment
