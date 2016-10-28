@@ -1,0 +1,6 @@
+framework module Pods_RideNiceRideTests {
+  umbrella header "Pods-RideNiceRideTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
