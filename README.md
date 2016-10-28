@@ -23,7 +23,7 @@ In order to enforce this, the project will also have a [Swiftlint](https://githu
 The project follows this folder structure:
 
 ```
-SwipeIt
+RideNiceRide
 ├── AppDelegate.swift
 ├── Models
 │   ├── RideNiceRide.xcmodel
