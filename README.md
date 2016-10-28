@@ -72,6 +72,8 @@ SwipeIt
 
 ### Utilities
 
+- [Cent](https://github.com/ankurp/Cent): Library that extends certain Swift object types using the extension feature and gives its two cents to Swift language
+- [Dollar](https://github.com/ankurp/Dollar): A functional tool-belt for Swift Language similar to Lo-Dash or Underscore.js in Javascript
 - [Device](https://github.com/Ekhoo/Device): Light weight tool for detecting the current device and screen size written in swift
 
 ~~- [KeychainSwift](https://github.com/marketplacer/keychain-swift): Helper functions for saving text in Keychain securely for iOS, OS X, tvOS and watchOS~~
