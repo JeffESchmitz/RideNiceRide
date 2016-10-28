@@ -5,7 +5,7 @@ RideNiceRide is the best way to enjoy Minneapolis/St.Paul's bike sharing system 
 
 ## Getting Started
 
-Run the following command in the root directory of the repository to populate the dependent CocoaPods needed to build and run.
+Run the following command in root directory to populate CocoaPods.
 ```bash
 pod install
 ```
@@ -24,8 +24,8 @@ The project follows this folder structure:
 
 ```
 SwipeIt
-├── App
-│   └── AppDelegate
+├── AppDelegate.swift
+├── Models
 ├── Enums
 ├── Extensions
 ├── Externals
@@ -56,17 +56,6 @@ SwipeIt
 - [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper): Simple JSON Object mapping written in Swift
 - [DateTools](https://github.com/MatthewYork/DateTools): Dates and times made easy in Objective-C
 
-### Functional Reactive Programming
-
-- [RxSwift](https://github.com/ReactiveX/RxSwift): Reactive Programming in Swift
-- [NSObject+Rx](https://github.com/RxSwiftCommunity/NSObject-Rx): Handy RxSwift extensions on NSObject, including rx_disposeBag
-- [Cell+Rx](https://github.com/ivanbruel/Cell-Rx): Handy RxSwift extensions on UITableViewCell and UICollectionViewCell, including rx_reusableDisposeBag
-- [RxOptional](https://github.com/RxSwiftCommunity/RxOptional): RxSwift extensions for Swift optionals and "Occupiable" types
-- [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources): Table and Collection View Data Sources for RxSwift
-- [RxTimer](https://github.com/ivanbruel/RxTimer): RxTimer adds RxSwift Timer bindings.
-- [RxResult](https://github.com/ivanbruel/RxResult): Result bindings for RxSwift.
-- [RxColor](https://github.com/ivanbruel/RxColor): RxSwift bindings for common UIColor setters
-
 ### Networking
 
 - [Moya](https://github.com/Moya/Moya): Network abstraction layer written in Swift
@@ -77,8 +66,6 @@ SwipeIt
 
 ### UI
 
-- [GPUImage2](https://github.com/BradLarson/GPUImage2): GPUImage 2 is a BSD-licensed Swift framework for GPU-accelerated video and image processing.
-- [ZLSwipeableViewSwift](https://github.com/zhxnlai/ZLSwipeableViewSwift): A simple view for building card like interface inspired by Tinder and Potluck.
 - [TTTAttributedLabel](https://github.com/TTTAttributedLabel/TTTAttributedLabel): A drop-in replacement for UILabel that supports attributes, data detectors, links, and more
 - [MarkdownKit](https://github.com/ivanbruel/MarkdownKit): A simple and customizable Markdown Parser for Swift
 
