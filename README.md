@@ -2,6 +2,7 @@
 RideNiceRide is the best way to enjoy Minneapolis/St.Paul's bike sharing system on iOS
 
 
+
 ## Getting Started
 
 Run the following command in the root directory of the repository to populate the dependent CocoaPods needed to build and run.
@@ -97,15 +98,6 @@ SwipeIt
 - [Crashlytics](https://fabric.io/kits/ios/crashlytics/install): The most powerful, yet lightest weight crash reporting solution
 - [Synx](https://github.com/venmo/synx): A command-line tool that reorganizes your Xcode project folder to match your Xcode groups
 - [Fastlane](https://github.com/fastlane/fastlane): The easiest way to automate building and releasing your iOS and Android apps
-
-### Testing
-
-- [Quick](https://github.com/Quick/Quick): The Swift (and Objective-C) testing framework.
-- [Nimble](https://github.com/Quick/Nimble): A Matcher Framework for Swift and Objective-C
-
-## Continuous Integration
-
-We are using [Travis](https://travis-ci.org/ivanbruel/MVVM-Benchmark) alongside [Fastlane](https://fastlane.tools/) to perform continuous integration both by unit testing and deploying to [Fabric](https://fabric.io) or [iTunes Connect](https://itunesconnect.apple.com) later on.
 
 ### Environment variables
 
