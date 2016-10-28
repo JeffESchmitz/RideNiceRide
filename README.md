@@ -58,8 +58,8 @@ SwipeIt
 
 ### Networking
 
-- [Alamofire](https://github.com/Alamofire/Alamofire): HTTP networking library written in Swift.
-- [Alamofire](https://github.com/Alamofire/Alamofire): HTTP networking library written in Swift.
+- [Alamofire](https://github.com/Alamofire/Alamofire): HTTP networking library written in Swift
+- [Alamofire](https://github.com/Alamofire/Alamofire): HTTP networking library written in Swift
 
 - [Moya](https://github.com/Moya/Moya): Network abstraction layer written in Swift
 - [Moya-ObjectMapper](https://github.com/ivanbruel/Moya-ObjectMapper): ObjectMapper bindings for Moya and RxSwift
