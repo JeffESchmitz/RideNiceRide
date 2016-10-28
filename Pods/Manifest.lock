@@ -1,7 +1,10 @@
 PODS:
   - Alamofire (4.0.1)
+  - Crashlytics (3.8.3):
+    - Fabric (~> 1.6.3)
   - DATASource (6.1.1)
   - DATAStack (6.1.2)
+  - Fabric (1.6.10)
   - GoogleMaps (2.1.0):
     - GoogleMaps/Maps (= 2.1.0)
   - GoogleMaps/Base (2.1.0)
@@ -18,7 +21,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - Crashlytics
   - DATASource (~> 6)
+  - Fabric
   - GoogleMaps
   - ISHPullUp
   - PKHUD_Swift_3
@@ -37,8 +42,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   DATASource: fa895931841523f62c1378cbc53ef2de87e5cf30
   DATAStack: a45fc144e15193f1b22c26b507cc46655ce96a71
+  Fabric: c73f371ee543e3f0b80608f2674750e4910d1669
   GoogleMaps: 06589b9a38097bce0cd6e90f0fd9b5e4b4a9344c
   ISHPullUp: b98a286f3e85dc885a3bf20bf75853947984277d
   PKHUD_Swift_3: 17939eb3ce41c9afaecada7d83b2bdd94e6bb85a
@@ -47,6 +54,6 @@ SPEC CHECKSUMS:
   SYNCPropertyMapper: e4cf0f851aa3a1307a42985ab8600787b3382427
   Willow: 96581516a6382c7541b5e125f4e15804e6915ad9
 
-PODFILE CHECKSUM: bc4fd60c3974aac9a3e8588e0d79703fa850918a
+PODFILE CHECKSUM: 8d3934a1d2d43c4184f3b23122fbff5b61ad606c
 
 COCOAPODS: 1.1.0.rc.2

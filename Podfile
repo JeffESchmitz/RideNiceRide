@@ -14,7 +14,9 @@ target 'RideNiceRide' do
   pod 'SlideMenuControllerSwift'
   pod 'GoogleMaps'
   pod 'PKHUD_Swift_3'
-
+  pod 'Fabric'
+  pod 'Crashlytics'
+  # Add more pods here...
 
   target 'RideNiceRideTests' do
     inherit! :search_paths
