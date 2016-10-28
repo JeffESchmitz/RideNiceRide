@@ -85,8 +85,8 @@ SwipeIt
 ### Utilities
 
 ~~- [KeychainSwift](https://github.com/marketplacer/keychain-swift): Helper functions for saving text in Keychain securely for iOS, OS X, tvOS and watchOS~~
-~~- [Device](https://github.com/Ekhoo/Device): Light weight tool for detecting the current device and screen size written in swift~~
-- [AsyncSwift](https://github.com/duemunk/Async): Syntactic sugar in Swift for asynchronous dispatches in Grand Central Dispatch
+- [Device](https://github.com/Ekhoo/Device): Light weight tool for detecting the current device and screen size written in swift
+~~- [AsyncSwift](https://github.com/duemunk/Async): Syntactic sugar in Swift for asynchronous dispatches in Grand Central Dispatch~~
 
 ### Environment
 
