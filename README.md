@@ -53,28 +53,29 @@ SwipeIt
 
 ### Model
 
-- [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper): Simple JSON Object mapping written in Swift
-- [DateTools](https://github.com/MatthewYork/DateTools): Dates and times made easy in Objective-C
+- [Sync](https://github.com/SyncDB/Sync): Modern Swift JSON synchronization to Core Data
+- [DATAStack](https://github.com/SyncDB/DATAStack): 100% Swift Simple Boilerplate Free Core Data Stack
+- [DATASource](https://github.com/SyncDB/DATASource): Core Data's NSFetchedResultsController wrapper for UITableView and UICollectionView
+- [SYNCPropertyMapper](https://github.com/SyncDB/SYNCPropertyMapper): Map your Core Data properties with ease
 
 ### Networking
 
 - [Alamofire](https://github.com/Alamofire/Alamofire): HTTP networking library written in Swift
-- [Moya](https://github.com/Moya/Moya): Network abstraction layer written in Swift
-- [Moya-ObjectMapper](https://github.com/ivanbruel/Moya-ObjectMapper): ObjectMapper bindings for Moya and RxSwift
-- [Result](https://github.com/antitypical/Result): This is a Swift µframework providing Result
-- [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire): RxSwift wrapper around the elegant HTTP networking in Swift Alamofire
-- [Kingfisher](https://github.com/onevcat/Kingfisher): A lightweight and pure Swift implemented library for downloading and caching image from the web.
 
 ### UI
 
-- [TTTAttributedLabel](https://github.com/TTTAttributedLabel/TTTAttributedLabel): A drop-in replacement for UILabel that supports attributes, data detectors, links, and more
-- [MarkdownKit](https://github.com/ivanbruel/MarkdownKit): A simple and customizable Markdown Parser for Swift
+- [ISHPullUp](https://github.com/iosphere/ISHPullUp): Vertical split view controller with pull up gesture as seen in the iOS 10 Maps app
+- [SlideMenuControllerSwift](https://github.com/dekatotoro/SlideMenuControllerSwift): iOS Slide Menu View based on Google+, iQON, Feedly, Ameba iOS app. It is written in pure swift
+- [GoogleMaps](https://developers.google.com/maps/documentation/ios-sdk/): Enrich your app with interactive maps and immersive street view panoramas
+- [GooglePlaces](https://developers.google.com/places/ios-api/): Add up-to-date information about millions of locations to your iOS App
+- [PKHUD](https://github.com/pkluz/PKHUD): A Swift based reimplementation of the Apple HUD (Volume, Ringer, Rotation,…)
 
 ### Utilities
 
 - [Cent](https://github.com/ankurp/Cent): Library that extends certain Swift object types using the extension feature and gives its two cents to Swift language
 - [Dollar](https://github.com/ankurp/Dollar): A functional tool-belt for Swift Language similar to Lo-Dash or Underscore.js in Javascript
 - [Device](https://github.com/Ekhoo/Device): Light weight tool for detecting the current device and screen size written in swift
+- [Willow](https://github.com/Nike-Inc/Willow): Willo is a powerful, yet lightweight logging library written in Swift
 
 ~~- [KeychainSwift](https://github.com/marketplacer/keychain-swift): Helper functions for saving text in Keychain securely for iOS, OS X, tvOS and watchOS~~
 ~~- [AsyncSwift](https://github.com/duemunk/Async): Syntactic sugar in Swift for asynchronous dispatches in Grand Central Dispatch~~
