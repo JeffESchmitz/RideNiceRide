@@ -18,7 +18,6 @@
 		9579A6C61DC56D1A0010F621 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579A6BF1DC56D1A0010F621 /* UIView.swift */; };
 		9579A6C71DC56D1A0010F621 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579A6C01DC56D1A0010F621 /* UIViewController.swift */; };
 		95BA8B8E1DC2F1B700E60586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */; };
-		95BA8B901DC2F1B700E60586 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8B8F1DC2F1B700E60586 /* ViewController.swift */; };
 		95BA8B931DC2F1B700E60586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BA8B911DC2F1B700E60586 /* Main.storyboard */; };
 		95BA8B951DC2F1B700E60586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BA8B941DC2F1B700E60586 /* Assets.xcassets */; };
 		95BA8B981DC2F1B700E60586 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BA8B961DC2F1B700E60586 /* LaunchScreen.storyboard */; };
@@ -61,7 +60,6 @@
 		9579A6C01DC56D1A0010F621 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		95BA8B8A1DC2F1B700E60586 /* RideNiceRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideNiceRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95BA8B8F1DC2F1B700E60586 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		95BA8B921DC2F1B700E60586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95BA8B941DC2F1B700E60586 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95BA8B971DC2F1B700E60586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -133,6 +131,8 @@
 		9579A6C81DC5A0990010F621 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				95BA8B941DC2F1B700E60586 /* Assets.xcassets */,
+				95BA8B991DC2F1B700E60586 /* Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -154,6 +154,8 @@
 		9579A6CB1DC7594B0010F621 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				95BA8B911DC2F1B700E60586 /* Main.storyboard */,
+				95BA8B961DC2F1B700E60586 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -229,11 +231,6 @@
 				9579A6B71DC558F20010F621 /* Extensions */,
 				9579A6C81DC5A0990010F621 /* Resources */,
 				95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */,
-				95BA8B8F1DC2F1B700E60586 /* ViewController.swift */,
-				95BA8B911DC2F1B700E60586 /* Main.storyboard */,
-				95BA8B941DC2F1B700E60586 /* Assets.xcassets */,
-				95BA8B961DC2F1B700E60586 /* LaunchScreen.storyboard */,
-				95BA8B991DC2F1B700E60586 /* Info.plist */,
 			);
 			path = RideNiceRide;
 			sourceTree = "<group>";
@@ -572,7 +569,6 @@
 				9579A6C41DC56D1A0010F621 /* UIImageView.swift in Sources */,
 				9579A6C51DC56D1A0010F621 /* UITableViewExtension.swift in Sources */,
 				9579A6C71DC56D1A0010F621 /* UIViewController.swift in Sources */,
-				95BA8B901DC2F1B700E60586 /* ViewController.swift in Sources */,
 				9579A6C31DC56D1A0010F621 /* UIImage.swift in Sources */,
 				95BA8B8E1DC2F1B700E60586 /* AppDelegate.swift in Sources */,
 				9579A6C61DC56D1A0010F621 /* UIView.swift in Sources */,
