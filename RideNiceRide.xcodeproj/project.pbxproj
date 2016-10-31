@@ -144,6 +144,57 @@
 			name = Enums;
 			sourceTree = "<group>";
 		};
+		9579A6CA1DC759450010F621 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		9579A6CB1DC7594B0010F621 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		9579A6CC1DC759540010F621 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9579A6D01DC75F9F0010F621 /* SlideMenu */,
+				9579A6CF1DC75F810010F621 /* PullUp */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9579A6CD1DC7595E0010F621 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9579A6CE1DC759650010F621 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9579A6CF1DC75F810010F621 /* PullUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PullUp;
+			sourceTree = "<group>";
+		};
+		9579A6D01DC75F9F0010F621 /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SlideMenu;
+			sourceTree = "<group>";
+		};
 		95BA8B811DC2F1B700E60586 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +220,11 @@
 		95BA8B8C1DC2F1B700E60586 /* RideNiceRide */ = {
 			isa = PBXGroup;
 			children = (
+				9579A6CE1DC759650010F621 /* Models */,
+				9579A6CD1DC7595E0010F621 /* Views */,
+				9579A6CC1DC759540010F621 /* ViewControllers */,
+				9579A6CB1DC7594B0010F621 /* Storyboards */,
+				9579A6CA1DC759450010F621 /* API */,
 				9579A6C91DC5A0BA0010F621 /* Enums */,
 				9579A6B71DC558F20010F621 /* Extensions */,
 				9579A6C81DC5A0990010F621 /* Resources */,
