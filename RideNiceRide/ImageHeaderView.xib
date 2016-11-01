@@ -7,10 +7,32 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageHeaderView" customModule="RideNiceRide" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" userLabel="Image Header View" customClass="ImageHeaderView" customModule="RideNiceRide" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hkb-fw-y6b" userLabel="Background Image"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ANy-xh-sEI" userLabel="Profile Image">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="9FX-2Y-37C"/>
+                        <constraint firstAttribute="width" constant="80" id="flQ-Uj-UZK"/>
+                    </constraints>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ANy-xh-sEI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="hff-zr-PFi"/>
+                <constraint firstItem="hkb-fw-y6b" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="iz6-G3-yMG"/>
+                <constraint firstAttribute="bottom" secondItem="ANy-xh-sEI" secondAttribute="bottom" constant="8" id="trg-jB-Oo2"/>
+                <constraint firstAttribute="bottom" secondItem="hkb-fw-y6b" secondAttribute="bottom" id="uTl-1I-q6D"/>
+                <constraint firstItem="hkb-fw-y6b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xmW-sD-JaY"/>
+                <constraint firstAttribute="trailing" secondItem="hkb-fw-y6b" secondAttribute="trailing" id="zt0-5r-KRQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backgroundImage" destination="hkb-fw-y6b" id="9mE-DI-XH8"/>
+                <outlet property="profileImage" destination="ANy-xh-sEI" id="2QU-9v-xOe"/>
+            </connections>
         </view>
     </objects>
 </document>
