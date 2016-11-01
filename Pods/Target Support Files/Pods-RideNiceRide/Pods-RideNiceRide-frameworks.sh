@@ -94,6 +94,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/PKHUD_Swift_3/PKHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SYNCPropertyMapper/SYNCPropertyMapper.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SlideMenuControllerSwift/SlideMenuControllerSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Sugar/Sugar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Sync/Sync.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Willow/Willow.framework"
 fi
@@ -108,6 +109,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/PKHUD_Swift_3/PKHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SYNCPropertyMapper/SYNCPropertyMapper.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SlideMenuControllerSwift/SlideMenuControllerSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Sugar/Sugar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Sync/Sync.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Willow/Willow.framework"
 fi

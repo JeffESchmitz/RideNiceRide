@@ -19,6 +19,7 @@ PODS:
   - ISHPullUp (1.0.4)
   - PKHUD_Swift_3 (4.0.0)
   - SlideMenuControllerSwift (3.0.0)
+  - Sugar (3.0.0)
   - SwiftGen (3.0.0)
   - Sync (2.3.4):
     - DATAStack (~> 6.1.2)
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - ISHPullUp
   - PKHUD_Swift_3
   - SlideMenuControllerSwift
+  - Sugar
   - SwiftGen
   - Sync (from `git@github.com:hyperoslo/Sync.git`)
   - Willow (~> 2.0)
@@ -65,11 +67,12 @@ SPEC CHECKSUMS:
   ISHPullUp: b98a286f3e85dc885a3bf20bf75853947984277d
   PKHUD_Swift_3: 17939eb3ce41c9afaecada7d83b2bdd94e6bb85a
   SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
+  Sugar: 079e1375b76c8f0693474417836ef098f507ac50
   SwiftGen: f679cd0ed4173a5da3b01efd0da23542bf82f6ab
   Sync: 50c2ea874bd6b8d6b414efbc8e882179aa4194d2
   SYNCPropertyMapper: e4cf0f851aa3a1307a42985ab8600787b3382427
   Willow: 96581516a6382c7541b5e125f4e15804e6915ad9
 
-PODFILE CHECKSUM: 72c1485649308e137189cd51c5293640ee8bb62b
+PODFILE CHECKSUM: f3fbd7860869eea0dfa6f3a5af82827560e6ac17
 
 COCOAPODS: 1.1.0.rc.2
