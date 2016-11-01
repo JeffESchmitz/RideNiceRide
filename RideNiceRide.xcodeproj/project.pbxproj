@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		540B6CF1D1DBEDCA3ABC7B09 /* Pods_RideNiceRideUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDC30CA0D96D8D58301DD3B /* Pods_RideNiceRideUITests.framework */; };
 		6275BB5297329121C3B4D33E /* Pods_RideNiceRide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E137CE4677B2FF345E515300 /* Pods_RideNiceRide.framework */; };
+		9503DDFD1DC8B4D90056E731 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9503DDFC1DC8B4D90056E731 /* BaseTableViewCell.swift */; };
 		9579A6B91DC559520010F621 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579A6B81DC559520010F621 /* String.swift */; };
 		9579A6C11DC56D1A0010F621 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579A6BA1DC56D1A0010F621 /* UIApplication.swift */; };
 		9579A6C21DC56D1A0010F621 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579A6BB1DC56D1A0010F621 /* UIColor.swift */; };
@@ -52,6 +53,7 @@
 		4F5F0F2780110C8436656AE5 /* Pods-RideNiceRideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideNiceRideTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RideNiceRideTests/Pods-RideNiceRideTests.release.xcconfig"; sourceTree = "<group>"; };
 		51F791ADF308A9989CCB0E7A /* Pods-RideNiceRideUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideNiceRideUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RideNiceRideUITests/Pods-RideNiceRideUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		79D39A267472A538A414C839 /* Pods-RideNiceRideUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideNiceRideUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RideNiceRideUITests/Pods-RideNiceRideUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9503DDFC1DC8B4D90056E731 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		9579A6B81DC559520010F621 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9579A6BA1DC56D1A0010F621 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		9579A6BB1DC56D1A0010F621 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				9579A6D11DC76F360010F621 /* ImageHeaderView.swift */,
 				9579A6D31DC78F010010F621 /* ImageHeaderView.xib */,
+				9503DDFC1DC8B4D90056E731 /* BaseTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				9579A6C41DC56D1A0010F621 /* UIImageView.swift in Sources */,
 				9579A6D21DC76F360010F621 /* ImageHeaderView.swift in Sources */,
 				9579A6C51DC56D1A0010F621 /* UITableViewExtension.swift in Sources */,
+				9503DDFD1DC8B4D90056E731 /* BaseTableViewCell.swift in Sources */,
 				9579A6C71DC56D1A0010F621 /* UIViewController.swift in Sources */,
 				9579A6C31DC56D1A0010F621 /* UIImage.swift in Sources */,
 				95BA8B8E1DC2F1B700E60586 /* AppDelegate.swift in Sources */,
