@@ -2,7 +2,7 @@ disabled_rules:
   # - opening_brace
   - line_length
   # - todo
-#   - variable_name #doesn't allow underscores
+  # - variable_name #doesn't allow underscores
 opt_in_rules:
   - empty_count
   - missing_docs
