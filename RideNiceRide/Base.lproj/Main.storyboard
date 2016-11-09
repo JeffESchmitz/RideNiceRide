@@ -5,6 +5,38 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="r8I-MW-reK">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="sZS-VH-XPx" customClass="MainViewController" customModule="RideNiceRide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OuN-52-gFe"/>
+                        <viewControllerLayoutGuide type="bottom" id="zXV-wT-Fje"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KVG-mb-zHn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPh-WD-RiO">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UPh-WD-RiO" firstAttribute="centerX" secondItem="KVG-mb-zHn" secondAttribute="centerX" id="BdN-IB-S5s"/>
+                            <constraint firstItem="UPh-WD-RiO" firstAttribute="centerY" secondItem="KVG-mb-zHn" secondAttribute="centerY" id="XSS-R8-lAQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="paN-fj-VsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-340" y="170"/>
+        </scene>
+    </scenes>
 </document>
