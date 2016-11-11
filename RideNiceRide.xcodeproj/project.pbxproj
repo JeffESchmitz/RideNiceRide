@@ -27,6 +27,7 @@
 		95BA8BA31DC2F1B700E60586 /* RideNiceRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8BA21DC2F1B700E60586 /* RideNiceRideTests.swift */; };
 		95BA8BAE1DC2F1B700E60586 /* RideNiceRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8BAD1DC2F1B700E60586 /* RideNiceRideUITests.swift */; };
 		95CAAF291DD362BB00809AB7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CAAF281DD362BB00809AB7 /* MainViewController.swift */; };
+		95E475041DD5EB550027765C /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E475031DD5EB550027765C /* LeftViewController.swift */; };
 		AB4EBF1AF87110BDC3AD1C4D /* Pods_RideNiceRideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC24E9C012D42CE7219BBE5 /* Pods_RideNiceRideTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		95BA8BAD1DC2F1B700E60586 /* RideNiceRideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideNiceRideUITests.swift; sourceTree = "<group>"; };
 		95BA8BAF1DC2F1B700E60586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95CAAF281DD362BB00809AB7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		95E475031DD5EB550027765C /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		AE686DD1349C0D1A20AAE675 /* Pods-RideNiceRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideNiceRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-RideNiceRide/Pods-RideNiceRide.release.xcconfig"; sourceTree = "<group>"; };
 		E137CE4677B2FF345E515300 /* Pods_RideNiceRide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RideNiceRide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD9861FA88A6161EA9CD943 /* Pods-RideNiceRide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideNiceRide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RideNiceRide/Pods-RideNiceRide.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				95CAAF281DD362BB00809AB7 /* MainViewController.swift */,
+				95E475031DD5EB550027765C /* LeftViewController.swift */,
 			);
 			name = SlideMenu;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				9579A6B91DC559520010F621 /* String.swift in Sources */,
 				9579A6C41DC56D1A0010F621 /* UIImageView.swift in Sources */,
 				95CAAF291DD362BB00809AB7 /* MainViewController.swift in Sources */,
+				95E475041DD5EB550027765C /* LeftViewController.swift in Sources */,
 				9579A6D21DC76F360010F621 /* ImageHeaderView.swift in Sources */,
 				9579A6C51DC56D1A0010F621 /* UITableViewExtension.swift in Sources */,
 				9503DDFD1DC8B4D90056E731 /* BaseTableViewCell.swift in Sources */,

@@ -8,6 +8,43 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Left View Controller-->
+        <scene sceneID="hH1-fo-eDx">
+            <objects>
+                <viewController id="qaI-cc-cpH" customClass="LeftViewController" customModule="RideNiceRide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L2F-Fy-ScT"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vna-a7-ZfH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dxW-T3-X72">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TDe-nA-vHO">
+                                <rect key="frame" x="0.0" y="180" width="375" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qaI-cc-cpH" id="BdD-oD-ogA"/>
+                                    <outlet property="delegate" destination="qaI-cc-cpH" id="ffm-tK-jRm"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TDe-nA-vHO" firstAttribute="bottom" secondItem="Vna-a7-ZfH" secondAttribute="top" id="NQI-3v-kGa"/>
+                            <constraint firstItem="TDe-nA-vHO" firstAttribute="top" secondItem="L2F-Fy-ScT" secondAttribute="bottom" constant="160" id="bMN-x8-yLh"/>
+                            <constraint firstAttribute="trailing" secondItem="TDe-nA-vHO" secondAttribute="trailing" id="pHC-NB-bT1"/>
+                            <constraint firstItem="TDe-nA-vHO" firstAttribute="leading" secondItem="dxW-T3-X72" secondAttribute="leading" id="rXr-5z-jE5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="TDe-nA-vHO" id="zZZ-Bh-hNC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JlE-lO-d1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1133.5999999999999" y="169.56521739130437"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="r8I-MW-reK">
             <objects>
