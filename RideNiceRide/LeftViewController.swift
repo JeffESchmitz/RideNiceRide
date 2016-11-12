@@ -42,14 +42,14 @@ class LeftViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    tableView.separatorColor = UIColor(hex: "#FFDEDEDE")
+    tableView.separatorColor = UIColor(hex: "e0e0e0")
 
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//    let favoritesVC = storyboard.instantiateViewController(withIdentifier: "SwiftViewController") as! SwiftViewController
-//    self.favoritesViewController = UINavigationController(rootViewController: favoritesVC)
+    let favoritesVC = storyboard.instantiateViewController(withIdentifier: "FavoritesViewController") as? FavoritesViewController
+    self.favoritesViewController = UINavigationController(rootViewController: favoritesVC!)
 
-//    let rentalHistoryVC = storyboard.instantiateViewController(withIdentifier: "RentalHistoryViewController") as! RentalHistoryViewController
-//    self.favoritesViewController = UINavigationController(rootViewController: rentalHistoryVC)
+    let rentalHistoryVC = storyboard.instantiateViewController(withIdentifier: "RentalHistoryViewController") as? RentalHistoryViewController
+    self.rentalHistoryViewController = UINavigationController(rootViewController: rentalHistoryVC!)
 
     tableView.registerCellClass(BaseTableViewCell.self)
 
@@ -89,7 +89,7 @@ extension LeftViewController: UITableViewDelegate {
     }
     return 0
   }
-  
+
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if let menu = LeftMenu(rawValue: indexPath.row) {
       self.changeViewController(menu)
