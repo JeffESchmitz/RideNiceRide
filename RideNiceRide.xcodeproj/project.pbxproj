@@ -20,6 +20,9 @@
 		9579A6C71DC56D1A0010F621 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579A6C01DC56D1A0010F621 /* UIViewController.swift */; };
 		9579A6D21DC76F360010F621 /* ImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579A6D11DC76F360010F621 /* ImageHeaderView.swift */; };
 		9579A6D41DC78F010010F621 /* ImageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9579A6D31DC78F010010F621 /* ImageHeaderView.xib */; };
+		957B91841DD754A1000AE432 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B91831DD754A1000AE432 /* ExSlideMenuController.swift */; };
+		957B91861DD75ADB000AE432 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B91851DD75ADB000AE432 /* FavoritesViewController.swift */; };
+		957B91881DD75F88000AE432 /* RentalHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B91871DD75F88000AE432 /* RentalHistoryViewController.swift */; };
 		95BA8B8E1DC2F1B700E60586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */; };
 		95BA8B931DC2F1B700E60586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BA8B911DC2F1B700E60586 /* Main.storyboard */; };
 		95BA8B951DC2F1B700E60586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BA8B941DC2F1B700E60586 /* Assets.xcassets */; };
@@ -67,6 +70,9 @@
 		9579A6C01DC56D1A0010F621 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9579A6D11DC76F360010F621 /* ImageHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHeaderView.swift; sourceTree = "<group>"; };
 		9579A6D31DC78F010010F621 /* ImageHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageHeaderView.xib; sourceTree = "<group>"; };
+		957B91831DD754A1000AE432 /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
+		957B91851DD75ADB000AE432 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		957B91871DD75F88000AE432 /* RentalHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentalHistoryViewController.swift; sourceTree = "<group>"; };
 		95BA8B8A1DC2F1B700E60586 /* RideNiceRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideNiceRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95BA8B921DC2F1B700E60586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -207,6 +213,9 @@
 			children = (
 				95CAAF281DD362BB00809AB7 /* MainViewController.swift */,
 				95E475031DD5EB550027765C /* LeftViewController.swift */,
+				957B91831DD754A1000AE432 /* ExSlideMenuController.swift */,
+				957B91851DD75ADB000AE432 /* FavoritesViewController.swift */,
+				957B91871DD75F88000AE432 /* RentalHistoryViewController.swift */,
 			);
 			name = SlideMenu;
 			sourceTree = "<group>";
@@ -236,6 +245,7 @@
 		95BA8B8C1DC2F1B700E60586 /* RideNiceRide */ = {
 			isa = PBXGroup;
 			children = (
+				95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */,
 				9579A6CE1DC759650010F621 /* Models */,
 				9579A6CD1DC7595E0010F621 /* Views */,
 				9579A6CC1DC759540010F621 /* ViewControllers */,
@@ -244,7 +254,6 @@
 				9579A6C91DC5A0BA0010F621 /* Enums */,
 				9579A6B71DC558F20010F621 /* Extensions */,
 				9579A6C81DC5A0990010F621 /* Resources */,
-				95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */,
 				95BA8B941DC2F1B700E60586 /* Assets.xcassets */,
 			);
 			path = RideNiceRide;
@@ -589,9 +598,12 @@
 				9579A6C51DC56D1A0010F621 /* UITableViewExtension.swift in Sources */,
 				9503DDFD1DC8B4D90056E731 /* BaseTableViewCell.swift in Sources */,
 				9579A6C71DC56D1A0010F621 /* UIViewController.swift in Sources */,
+				957B91881DD75F88000AE432 /* RentalHistoryViewController.swift in Sources */,
+				957B91841DD754A1000AE432 /* ExSlideMenuController.swift in Sources */,
 				9579A6C31DC56D1A0010F621 /* UIImage.swift in Sources */,
 				95BA8B8E1DC2F1B700E60586 /* AppDelegate.swift in Sources */,
 				9579A6C61DC56D1A0010F621 /* UIView.swift in Sources */,
+				957B91861DD75ADB000AE432 /* FavoritesViewController.swift in Sources */,
 				9579A6C21DC56D1A0010F621 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
