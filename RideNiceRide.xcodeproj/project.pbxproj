@@ -23,7 +23,8 @@
 		957B91841DD754A1000AE432 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B91831DD754A1000AE432 /* ExSlideMenuController.swift */; };
 		957B91861DD75ADB000AE432 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B91851DD75ADB000AE432 /* FavoritesViewController.swift */; };
 		957B91881DD75F88000AE432 /* RentalHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B91871DD75F88000AE432 /* RentalHistoryViewController.swift */; };
-		957B918A1DD76259000AE432 /* StoryboardEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B91891DD76259000AE432 /* StoryboardEnums.swift */; };
+		957B918A1DD76259000AE432 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B91891DD76259000AE432 /* Storyboard.swift */; };
+		958844001DD7D78E00F62CC7 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958843FF1DD7D78E00F62CC7 /* Images.swift */; };
 		95BA8B8E1DC2F1B700E60586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */; };
 		95BA8B931DC2F1B700E60586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BA8B911DC2F1B700E60586 /* Main.storyboard */; };
 		95BA8B951DC2F1B700E60586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BA8B941DC2F1B700E60586 /* Assets.xcassets */; };
@@ -74,7 +75,8 @@
 		957B91831DD754A1000AE432 /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
 		957B91851DD75ADB000AE432 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		957B91871DD75F88000AE432 /* RentalHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentalHistoryViewController.swift; sourceTree = "<group>"; };
-		957B91891DD76259000AE432 /* StoryboardEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardEnums.swift; sourceTree = "<group>"; };
+		957B91891DD76259000AE432 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storyboard.swift; path = Enums/Storyboard.swift; sourceTree = "<group>"; };
+		958843FF1DD7D78E00F62CC7 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Images.swift; path = Enums/Images.swift; sourceTree = "<group>"; };
 		95BA8B8A1DC2F1B700E60586 /* RideNiceRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideNiceRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95BA8B921DC2F1B700E60586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -157,7 +159,8 @@
 		9579A6C91DC5A0BA0010F621 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				957B91891DD76259000AE432 /* StoryboardEnums.swift */,
+				957B91891DD76259000AE432 /* Storyboard.swift */,
+				958843FF1DD7D78E00F62CC7 /* Images.swift */,
 			);
 			name = Enums;
 			sourceTree = "<group>";
@@ -592,7 +595,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				957B918A1DD76259000AE432 /* StoryboardEnums.swift in Sources */,
+				957B918A1DD76259000AE432 /* Storyboard.swift in Sources */,
 				9579A6C11DC56D1A0010F621 /* UIApplication.swift in Sources */,
 				9579A6B91DC559520010F621 /* String.swift in Sources */,
 				9579A6C41DC56D1A0010F621 /* UIImageView.swift in Sources */,
@@ -605,6 +608,7 @@
 				957B91881DD75F88000AE432 /* RentalHistoryViewController.swift in Sources */,
 				957B91841DD754A1000AE432 /* ExSlideMenuController.swift in Sources */,
 				9579A6C31DC56D1A0010F621 /* UIImage.swift in Sources */,
+				958844001DD7D78E00F62CC7 /* Images.swift in Sources */,
 				95BA8B8E1DC2F1B700E60586 /* AppDelegate.swift in Sources */,
 				9579A6C61DC56D1A0010F621 /* UIView.swift in Sources */,
 				957B91861DD75ADB000AE432 /* FavoritesViewController.swift in Sources */,
