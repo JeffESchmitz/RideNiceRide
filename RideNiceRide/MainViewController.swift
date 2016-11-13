@@ -8,8 +8,13 @@
 
 import UIKit
 import SlideMenuControllerSwift
+import Willow
 
 class MainViewController: UIViewController {
+
+  // swiftlint:disable variable_name
+  let log = Logger()
+  // swiftlint:enable variable_name
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,34 +50,34 @@ class MainViewController: UIViewController {
 extension MainViewController: SlideMenuControllerDelegate {
 
   func leftWillOpen() {
-    print("SlideMenuControllerDelegate: leftWillOpen")
+    log.debug("SlideMenuControllerDelegate: leftWillOpen")
   }
 
   func leftDidOpen() {
-    print("SlideMenuControllerDelegate: leftDidOpen")
+    log.debug("SlideMenuControllerDelegate: leftDidOpen")
   }
 
   func leftWillClose() {
-    print("SlideMenuControllerDelegate: leftWillClose")
+    log.debug("SlideMenuControllerDelegate: leftWillClose")
   }
 
   func leftDidClose() {
-    print("SlideMenuControllerDelegate: leftDidClose")
+    log.debug("SlideMenuControllerDelegate: leftDidClose")
   }
 
   func rightWillOpen() {
-    print("SlideMenuControllerDelegate: rightWillOpen")
+    log.debug("SlideMenuControllerDelegate: rightWillOpen")
   }
 
   func rightDidOpen() {
-    print("SlideMenuControllerDelegate: rightDidOpen")
+    log.debug("SlideMenuControllerDelegate: rightDidOpen")
   }
 
   func rightWillClose() {
-    print("SlideMenuControllerDelegate: rightWillClose")
+    log.debug("SlideMenuControllerDelegate: rightWillClose")
   }
 
   func rightDidClose() {
-    print("SlideMenuControllerDelegate: rightDidClose")
+    log.debug("SlideMenuControllerDelegate: rightDidClose")
   }
 }
