@@ -132,6 +132,11 @@
                             <constraint firstAttribute="trailing" secondItem="GZh-EZ-mVA" secondAttribute="trailing" id="vIO-5y-paO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="layoutAnnotationLabel" destination="7hG-2I-Jms" id="fbt-i4-FFx"/>
+                        <outlet property="mapView" destination="7n3-XZ-gnP" id="bwd-5F-zMY"/>
+                        <outlet property="rootView" destination="GZh-EZ-mVA" id="uVC-WD-lWL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLG-DG-wnI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
