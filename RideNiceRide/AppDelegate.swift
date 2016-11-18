@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Fabric.with([Crashlytics.self])
 
     self.createMenuView()
+
+    // Temp key, need to generate new project key for 'RideNiceRide'
+    GMSServices.provideAPIKey("AIzaSyB0VdCn0LEE29AJCVRFwTMlkrhc-xyHkeI")
 
     return true
   }
