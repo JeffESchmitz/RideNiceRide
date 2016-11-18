@@ -326,6 +326,14 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="500"/>
+                    <connections>
+                        <outlet property="handleView" destination="idY-sj-9eH" id="f0o-PS-r7J"/>
+                        <outlet property="panoramaView" destination="lLq-bV-fWd" id="2gV-Nb-DCb"/>
+                        <outlet property="rootView" destination="02A-yA-r4Z" id="foQ-oK-jKg"/>
+                        <outlet property="scrollView" destination="jLg-kR-Lmp" id="w6p-h4-XnX"/>
+                        <outlet property="topLabel" destination="tbl-z5-JN0" id="l3c-Ao-4RK"/>
+                        <outlet property="topView" destination="oa6-M8-4fg" id="tvy-GE-6bk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5Q-mO-E0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
