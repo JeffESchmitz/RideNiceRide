@@ -107,6 +107,7 @@ extension LeftViewController: UITableViewDataSource {
       switch menu {
       case .main, .favorites, .rentalHistory, .aroundYou:
         let cell = BaseTableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: BaseTableViewCell.identifier)
+        cell.setData(menus[indexPath.row])
         return cell
       }
     }

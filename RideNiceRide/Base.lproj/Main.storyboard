@@ -168,7 +168,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idY-sj-9eH" userLabel="Handle View" customClass="ISHPullUpHandleView">
-                                                <rect key="frame" x="170" y="6" width="36" height="11"/>
+                                                <rect key="frame" x="169.5" y="6" width="36" height="11"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
@@ -180,7 +180,9 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="top" secondItem="idY-sj-9eH" secondAttribute="bottom" constant="2" id="DLO-wM-2RT"/>
-                                            <constraint firstItem="idY-sj-9eH" firstAttribute="centerX" secondItem="tbl-z5-JN0" secondAttribute="centerX" id="hXP-n0-hAQ"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tbl-z5-JN0" secondAttribute="bottom" constant="5" id="MJL-05-oGI"/>
+                                            <constraint firstItem="idY-sj-9eH" firstAttribute="top" secondItem="oa6-M8-4fg" secondAttribute="top" constant="6" id="ULc-Sw-brr"/>
+                                            <constraint firstItem="tbl-z5-JN0" firstAttribute="centerX" secondItem="oa6-M8-4fg" secondAttribute="centerX" id="d8T-Ko-yA4"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="leading" secondItem="oa6-M8-4fg" secondAttribute="leading" constant="10" id="jnw-c8-kYp"/>
                                             <constraint firstItem="idY-sj-9eH" firstAttribute="centerX" secondItem="oa6-M8-4fg" secondAttribute="centerX" id="lcV-3W-xy6"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="centerY" secondItem="oa6-M8-4fg" secondAttribute="centerY" id="yE8-19-dob"/>
@@ -197,46 +199,7 @@
 </string>
                                                         <attributes>
                                                             <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                                <tabStops>
-                                                                    <textTab alignment="left" location="28">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="56">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="84">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="112">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="140">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="168">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="196">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="224">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="252">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="280">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="308">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="336">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                </tabStops>
-                                                            </paragraphStyle>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment>
@@ -245,91 +208,13 @@ Cg
 </string>
                                                         <attributes>
                                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                                <tabStops>
-                                                                    <textTab alignment="left" location="28">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="56">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="84">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="112">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="140">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="168">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="196">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="224">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="252">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="280">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="308">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="336">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                </tabStops>
-                                                            </paragraphStyle>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment content="ISHPullUp">
                                                         <attributes>
                                                             <font key="NSFont" size="17" name="Courier"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                                <tabStops>
-                                                                    <textTab alignment="left" location="28">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="56">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="84">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="112">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="140">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="168">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="196">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="224">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="252">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="280">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="308">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="336">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                </tabStops>
-                                                            </paragraphStyle>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment>
@@ -338,233 +223,38 @@ Cg
 Two view subclasses are provided to make beautiful iOS10 style designs easier. </string>
                                                         <attributes>
                                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                                <tabStops>
-                                                                    <textTab alignment="left" location="28">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="56">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="84">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="112">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="140">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="168">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="196">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="224">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="252">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="280">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="308">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="336">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                </tabStops>
-                                                            </paragraphStyle>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment content="ISHPullUpHandleView">
                                                         <attributes>
                                                             <font key="NSFont" size="17" name="Courier"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                                <tabStops>
-                                                                    <textTab alignment="left" location="28">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="56">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="84">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="112">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="140">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="168">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="196">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="224">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="252">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="280">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="308">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="336">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                </tabStops>
-                                                            </paragraphStyle>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment content=" provides a drag handle as seen in the notification center or Maps app with three states: up, neutral, down. ">
                                                         <attributes>
                                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                                <tabStops>
-                                                                    <textTab alignment="left" location="28">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="56">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="84">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="112">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="140">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="168">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="196">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="224">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="252">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="280">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="308">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="336">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                </tabStops>
-                                                            </paragraphStyle>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment content="ISHPullUpRoundedView">
                                                         <attributes>
                                                             <font key="NSFont" size="17" name="Courier"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                                <tabStops>
-                                                                    <textTab alignment="left" location="28">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="56">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="84">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="112">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="140">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="168">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="196">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="224">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="252">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="280">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="308">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="336">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                </tabStops>
-                                                            </paragraphStyle>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment content=" provides the perfect backing view for your bottom view controller with a hairline border and rounded top corners.">
                                                         <attributes>
                                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                                <tabStops>
-                                                                    <textTab alignment="left" location="28">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="56">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="84">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="112">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="140">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="168">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="196">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="224">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="252">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="280">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="308">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                    <textTab alignment="left" location="336">
-                                                                        <options/>
-                                                                    </textTab>
-                                                                </tabStops>
-                                                            </paragraphStyle>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itp-cO-mPg" userLabel="Learn more">
-                                                <rect key="frame" x="149" y="379.5" width="78" height="30"/>
+                                                <rect key="frame" x="10" y="379.5" width="355" height="30"/>
                                                 <state key="normal" title="Learn More"/>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLq-bV-fWd" userLabel="Panorama View">
@@ -577,38 +267,38 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="Itp-cO-mPg" firstAttribute="centerX" secondItem="lLq-bV-fWd" secondAttribute="centerX" id="8Dg-ms-Y8r"/>
+                                            <constraint firstItem="Itp-cO-mPg" firstAttribute="centerX" secondItem="QW7-Rf-hNY" secondAttribute="centerX" id="2tS-yk-28X"/>
                                             <constraint firstItem="Itp-cO-mPg" firstAttribute="top" secondItem="QW7-Rf-hNY" secondAttribute="bottom" constant="10" id="EsD-Bf-rmW"/>
+                                            <constraint firstAttribute="height" priority="999" constant="400" id="Iuw-2Q-hvZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Itp-cO-mPg" secondAttribute="bottom" constant="10" id="QjI-jt-6wt"/>
                                             <constraint firstItem="QW7-Rf-hNY" firstAttribute="centerX" secondItem="jLg-kR-Lmp" secondAttribute="centerX" id="S1e-Hx-q9h"/>
                                             <constraint firstItem="lLq-bV-fWd" firstAttribute="top" secondItem="jLg-kR-Lmp" secondAttribute="top" id="SU7-4q-SAX"/>
                                             <constraint firstItem="QW7-Rf-hNY" firstAttribute="centerX" secondItem="lLq-bV-fWd" secondAttribute="centerX" id="daW-LC-j55"/>
                                             <constraint firstAttribute="trailing" secondItem="QW7-Rf-hNY" secondAttribute="trailing" constant="10" id="dxr-0B-ZDU"/>
                                             <constraint firstItem="lLq-bV-fWd" firstAttribute="leading" secondItem="jLg-kR-Lmp" secondAttribute="leading" id="gJk-e1-O8v"/>
-                                            <constraint firstAttribute="bottom" secondItem="QW7-Rf-hNY" secondAttribute="bottom" constant="30" id="mrk-L4-vOX"/>
+                                            <constraint firstItem="Itp-cO-mPg" firstAttribute="width" secondItem="QW7-Rf-hNY" secondAttribute="width" id="grg-ZM-ySH"/>
                                             <constraint firstItem="QW7-Rf-hNY" firstAttribute="leading" secondItem="jLg-kR-Lmp" secondAttribute="leading" constant="10" id="r8V-lA-KI6"/>
                                             <constraint firstItem="QW7-Rf-hNY" firstAttribute="top" secondItem="jLg-kR-Lmp" secondAttribute="top" constant="10" id="wXD-ha-kgU"/>
-                                            <constraint firstItem="Itp-cO-mPg" firstAttribute="centerX" secondItem="lLq-bV-fWd" secondAttribute="centerX" id="zL0-2S-uGd"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="jLg-kR-Lmp" firstAttribute="leading" secondItem="oa6-M8-4fg" secondAttribute="leading" id="28e-f3-0KU"/>
                                     <constraint firstItem="jLg-kR-Lmp" firstAttribute="leading" secondItem="02A-yA-r4Z" secondAttribute="leading" id="28s-Hj-baZ"/>
-                                    <constraint firstItem="jLg-kR-Lmp" firstAttribute="top" secondItem="02A-yA-r4Z" secondAttribute="top" constant="59" id="B4P-W2-1y6"/>
-                                    <constraint firstAttribute="trailing" secondItem="jLg-kR-Lmp" secondAttribute="trailing" id="cUY-ZH-TWA"/>
+                                    <constraint firstItem="jLg-kR-Lmp" firstAttribute="centerX" secondItem="02A-yA-r4Z" secondAttribute="centerX" id="Ksc-uF-Eem"/>
                                     <constraint firstItem="oa6-M8-4fg" firstAttribute="top" secondItem="02A-yA-r4Z" secondAttribute="top" id="dJn-e4-TUN"/>
                                     <constraint firstItem="jLg-kR-Lmp" firstAttribute="top" secondItem="oa6-M8-4fg" secondAttribute="bottom" id="djW-I2-4cP"/>
-                                    <constraint firstItem="jLg-kR-Lmp" firstAttribute="top" secondItem="oa6-M8-4fg" secondAttribute="bottom" id="grt-Wc-sJ5"/>
-                                    <constraint firstAttribute="bottom" secondItem="jLg-kR-Lmp" secondAttribute="bottom" id="mLk-Ke-O35"/>
-                                    <constraint firstItem="jLg-kR-Lmp" firstAttribute="trailing" secondItem="oa6-M8-4fg" secondAttribute="trailing" id="qb3-Zd-fYd"/>
+                                    <constraint firstItem="jLg-kR-Lmp" firstAttribute="trailing" secondItem="02A-yA-r4Z" secondAttribute="trailing" id="gBP-SZ-Pjw"/>
+                                    <constraint firstItem="oa6-M8-4fg" firstAttribute="leading" secondItem="02A-yA-r4Z" secondAttribute="leading" id="hD5-t9-TU7"/>
+                                    <constraint firstItem="oa6-M8-4fg" firstAttribute="trailing" secondItem="02A-yA-r4Z" secondAttribute="trailing" id="hWN-FQ-YgW"/>
+                                    <constraint firstItem="jLg-kR-Lmp" firstAttribute="bottom" secondItem="02A-yA-r4Z" secondAttribute="bottom" id="mLk-Ke-O35"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuz-lm-w8w" userLabel="Overpull">
                                 <rect key="frame" x="0.0" y="459" width="375" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can stop dragging now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYV-on-gwA">
-                                        <rect key="frame" x="106" y="13" width="165" height="16"/>
+                                        <rect key="frame" x="105" y="13" width="165" height="16"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -616,21 +306,22 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="tYV-on-gwA" firstAttribute="leading" secondItem="zuz-lm-w8w" secondAttribute="leading" constant="106" id="S2b-cP-L1e"/>
-                                    <constraint firstItem="tYV-on-gwA" firstAttribute="top" secondItem="zuz-lm-w8w" secondAttribute="top" constant="13" id="a2I-5g-aRQ"/>
-                                    <constraint firstItem="tYV-on-gwA" firstAttribute="centerY" secondItem="zuz-lm-w8w" secondAttribute="centerY" id="kK3-mo-TvG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2" id="VM5-GJ-aLC"/>
+                                    <constraint firstItem="tYV-on-gwA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zuz-lm-w8w" secondAttribute="top" constant="10" id="a2I-5g-aRQ"/>
+                                    <constraint firstItem="tYV-on-gwA" firstAttribute="centerY" secondItem="zuz-lm-w8w" secondAttribute="centerY" priority="750" id="kK3-mo-TvG"/>
+                                    <constraint firstItem="tYV-on-gwA" firstAttribute="centerX" secondItem="zuz-lm-w8w" secondAttribute="centerX" id="wpv-TX-caQ"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="02A-yA-r4Z" secondAttribute="trailing" id="6hr-qG-B7L"/>
-                            <constraint firstItem="02A-yA-r4Z" firstAttribute="leading" secondItem="RmS-Jz-P0G" secondAttribute="leading" id="DaA-oc-8Eg"/>
-                            <constraint firstItem="02A-yA-r4Z" firstAttribute="trailing" secondItem="zuz-lm-w8w" secondAttribute="trailing" id="KSX-qy-wWb"/>
-                            <constraint firstItem="02A-yA-r4Z" firstAttribute="leading" secondItem="zuz-lm-w8w" secondAttribute="leading" id="ZdO-sU-ZDm"/>
-                            <constraint firstItem="zuz-lm-w8w" firstAttribute="bottom" secondItem="RmS-Jz-P0G" secondAttribute="bottomMargin" id="fXf-u0-MSO"/>
+                            <constraint firstAttribute="trailing" secondItem="zuz-lm-w8w" secondAttribute="trailing" id="7L5-Mq-3kY"/>
+                            <constraint firstItem="02A-yA-r4Z" firstAttribute="leading" secondItem="RmS-Jz-P0G" secondAttribute="leading" id="99L-33-tr1"/>
+                            <constraint firstAttribute="top" secondItem="02A-yA-r4Z" secondAttribute="top" id="IDJ-0G-rr4"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="zuz-lm-w8w" secondAttribute="bottom" id="fXf-u0-MSO"/>
                             <constraint firstItem="zuz-lm-w8w" firstAttribute="top" secondItem="02A-yA-r4Z" secondAttribute="bottom" id="j1g-fd-EWE"/>
-                            <constraint firstItem="02A-yA-r4Z" firstAttribute="top" secondItem="RmS-Jz-P0G" secondAttribute="top" id="xrb-XB-scv"/>
+                            <constraint firstItem="zuz-lm-w8w" firstAttribute="leading" secondItem="RmS-Jz-P0G" secondAttribute="leading" id="oN6-pm-tg5"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
