@@ -12,7 +12,7 @@ import UIKit
 import MapKit
 import Willow
 
-class FavoritesTableViewCell: UITableViewCell {
+class FavoritesTableViewCell: UITableViewCell, MKMapViewDelegate {
 
   class var identifier: String { return String.className(self) }
 
@@ -39,6 +39,7 @@ class FavoritesTableViewCell: UITableViewCell {
     super.awakeFromNib()
     // Initialization code
 //    initialize()
+   setMapLocation(mapView: mapView, latitude: 36.548628, longitude: -4.6307649)
   }
 
   open func setup() {
@@ -56,6 +57,20 @@ class FavoritesTableViewCell: UITableViewCell {
 //    panoView.moveNearCoordinate(testCoordinate)
 //  }
 
+  func setMapLocation(mapView: MKMapView, latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoom: Double = 1) {
+
+    // define the map zoom span
+    let latitudZoomLevel: CLLocationDegrees = zoom
+    let longitudZoomLevel: CLLocationDegrees = zoom
+    let zoomSpan: MKCoordinateSpan = MKCoordinateSpanMake(latitudZoomLevel, longitudZoomLevel)
+
+    // use latitud and longitud to create a location coordinate
+    let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+
+    // define and set the region of our map using the zoom map and location
+    let region: MKCoordinateRegion = MKCoordinateRegionMake(location, zoomSpan)
+    mapView.setRegion(region, animated: true)
+  }
 
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
