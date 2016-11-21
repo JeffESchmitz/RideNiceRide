@@ -23,8 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.createMenuView()
 
     // Temp key, need to generate new project key for 'RideNiceRide'
-    GMSServices.provideAPIKey("AIzaSyB0VdCn0LEE29AJCVRFwTMlkrhc-xyHkeI")
-
+    GMSServices.provideAPIKey("AIzaSyBCHjbd41ZVXvy3HBu-J1c8rn6d3Or6AFk")
     return true
   }
 
