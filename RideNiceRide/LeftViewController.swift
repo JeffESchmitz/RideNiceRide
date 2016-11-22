@@ -8,6 +8,7 @@
 
 import UIKit
 import Willow
+import SafariServices
 
 enum LeftMenu: Int {
   case main = 0
@@ -35,6 +36,8 @@ class LeftViewController: UIViewController {
 
   var imageHeaderView: ImageHeaderView!
 
+  let niceRideLoginUrlString = "https://secure.niceridemn.org/profile/login"
+
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
@@ -47,9 +50,6 @@ class LeftViewController: UIViewController {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let favoritesVC = storyboard.instantiateViewController(withIdentifier: "FavoritesViewController") as? FavoritesViewController
     self.favoritesViewController = UINavigationController(rootViewController: favoritesVC!)
-
-    let rentalHistoryVC = storyboard.instantiateViewController(withIdentifier: "RentalHistoryViewController") as? RentalHistoryViewController
-    self.rentalHistoryViewController = UINavigationController(rootViewController: rentalHistoryVC!)
 
     tableView.registerCellClass(BaseTableViewCell.self)
 
@@ -72,10 +72,23 @@ extension LeftViewController: LeftMenuProtocol {
     case .favorites:
       self.slideMenuController()?.changeMainViewController(self.favoritesViewController, close: true)
     case .rentalHistory:
-      self.slideMenuController()?.changeMainViewController(self.rentalHistoryViewController, close: true)
+      guard let targetUrl = URL(string: niceRideLoginUrlString) else {
+        return
+      }
+      let safariViewController = SFSafariViewController(url: targetUrl)
+      safariViewController.delegate = self
+      self.present(safariViewController, animated: true, completion: nil)
+      self.slideMenuController()?.closeLeft()
+
     case .aroundYou:
       log.debug {"AroundYou not implemented yet!"}
     }
+  }
+}
+
+extension LeftViewController: SFSafariViewControllerDelegate {
+  func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+    controller.dismiss(animated: true, completion: nil)
   }
 }
 

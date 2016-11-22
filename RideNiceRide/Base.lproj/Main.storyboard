@@ -460,35 +460,5 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
             </objects>
             <point key="canvasLocation" x="-340" y="875.71214392803608"/>
         </scene>
-        <!--Rental History View Controller-->
-        <scene sceneID="OaS-7j-M6q">
-            <objects>
-                <viewController storyboardIdentifier="RentalHistoryViewController" id="Fd8-7J-3oa" customClass="RentalHistoryViewController" customModule="RideNiceRide" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Cql-Hl-QCv"/>
-                        <viewControllerLayoutGuide type="bottom" id="BgU-Ld-h3V"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IHY-2S-5IB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rental History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PtX-ee-nbE">
-                                <rect key="frame" x="133" y="323" width="108" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="PtX-ee-nbE" firstAttribute="centerX" secondItem="IHY-2S-5IB" secondAttribute="centerX" id="CqF-Xa-IYD"/>
-                            <constraint firstItem="PtX-ee-nbE" firstAttribute="centerY" secondItem="IHY-2S-5IB" secondAttribute="centerY" id="U8X-lP-5hF"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lMm-N1-4SG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-341" y="1602"/>
-        </scene>
     </scenes>
 </document>
