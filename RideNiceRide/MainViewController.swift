@@ -13,9 +13,7 @@ import ISHPullUp
 
 class MainViewController: ISHPullUpViewController {
 
-  // swiftlint:disable variable_name
   let logger = Logger()
-  // swiftlint:enable variable_name
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
