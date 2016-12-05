@@ -14,7 +14,7 @@ import ISHPullUp
 class MainViewController: ISHPullUpViewController {
 
   // swiftlint:disable variable_name
-  let log = Logger()
+  let logger = Logger()
   // swiftlint:enable variable_name
 
   required init?(coder aDecoder: NSCoder) {
@@ -77,34 +77,34 @@ class MainViewController: ISHPullUpViewController {
 extension MainViewController: SlideMenuControllerDelegate {
 
   func leftWillOpen() {
-    log.debug("SlideMenuControllerDelegate: leftWillOpen")
+    logger.debug("SlideMenuControllerDelegate: leftWillOpen")
   }
 
   func leftDidOpen() {
-    log.debug("SlideMenuControllerDelegate: leftDidOpen")
+    logger.debug("SlideMenuControllerDelegate: leftDidOpen")
   }
 
   func leftWillClose() {
-    log.debug("SlideMenuControllerDelegate: leftWillClose")
+    logger.debug("SlideMenuControllerDelegate: leftWillClose")
   }
 
   func leftDidClose() {
-    log.debug("SlideMenuControllerDelegate: leftDidClose")
+    logger.debug("SlideMenuControllerDelegate: leftDidClose")
   }
 
   func rightWillOpen() {
-    log.debug("SlideMenuControllerDelegate: rightWillOpen")
+    logger.debug("SlideMenuControllerDelegate: rightWillOpen")
   }
 
   func rightDidOpen() {
-    log.debug("SlideMenuControllerDelegate: rightDidOpen")
+    logger.debug("SlideMenuControllerDelegate: rightDidOpen")
   }
 
   func rightWillClose() {
-    log.debug("SlideMenuControllerDelegate: rightWillClose")
+    logger.debug("SlideMenuControllerDelegate: rightWillClose")
   }
 
   func rightDidClose() {
-    log.debug("SlideMenuControllerDelegate: rightDidClose")
+    logger.debug("SlideMenuControllerDelegate: rightDidClose")
   }
 }
