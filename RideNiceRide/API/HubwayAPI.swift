@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+class HubwayAPI {
+  var testVariable = ""
+
+  class func sharedInstance() -> HubwayAPI {
+    //swiftlint:disable nesting
+    struct Singleton {
+      static var sharedInstance = HubwayAPI()
+    }
+    //swiftlint:enable nesting
+    return Singleton.sharedInstance
+  }
+}

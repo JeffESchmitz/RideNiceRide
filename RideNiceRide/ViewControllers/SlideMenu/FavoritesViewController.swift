@@ -24,7 +24,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // Do any additional setup after loading the view.    
+    // Do any additional setup after loading the view.
   }
 
   override func viewWillAppear(_ animated: Bool) {

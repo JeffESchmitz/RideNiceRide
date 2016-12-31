@@ -28,6 +28,7 @@
 		9594C5351DE1C1A9005F780A /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594C5341DE1C1A9005F780A /* Station.swift */; };
 		9594C5371DE207DE005F780A /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594C5361DE207DE005F780A /* FavoritesTableViewCell.swift */; };
 		95AB792C1E17FDDB00A28A7D /* HubwayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AB792B1E17FDDB00A28A7D /* HubwayAPI.swift */; };
+		95AB792E1E180B1F00A28A7D /* HubwayAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AB792D1E180B1F00A28A7D /* HubwayAPITests.swift */; };
 		95BA03F71DDDD273007825CD /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA03F61DDDD273007825CD /* BottomViewController.swift */; };
 		95BA8B8E1DC2F1B700E60586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */; };
 		95BA8B931DC2F1B700E60586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BA8B911DC2F1B700E60586 /* Main.storyboard */; };
@@ -85,6 +86,7 @@
 		9594C5341DE1C1A9005F780A /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		9594C5361DE207DE005F780A /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		95AB792B1E17FDDB00A28A7D /* HubwayAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HubwayAPI.swift; sourceTree = "<group>"; };
+		95AB792D1E180B1F00A28A7D /* HubwayAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HubwayAPITests.swift; sourceTree = "<group>"; };
 		95BA03F61DDDD273007825CD /* BottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
 		95BA8B8A1DC2F1B700E60586 /* RideNiceRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideNiceRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			children = (
 				95BA8BA21DC2F1B700E60586 /* RideNiceRideTests.swift */,
 				95BA8BA41DC2F1B700E60586 /* Info.plist */,
+				95AB792D1E180B1F00A28A7D /* HubwayAPITests.swift */,
 			);
 			path = RideNiceRideTests;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95AB792E1E180B1F00A28A7D /* HubwayAPITests.swift in Sources */,
 				95BA8BA31DC2F1B700E60586 /* RideNiceRideTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
