@@ -160,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				95BA8B941DC2F1B700E60586 /* Assets.xcassets */,
-				954FF3ED1DCB64D70067C6CB /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -239,6 +238,14 @@
 			path = SlideMenu;
 			sourceTree = "<group>";
 		};
+		95AB792A1E17FA7F00A28A7D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				954FF3ED1DCB64D70067C6CB /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		95BA8B811DC2F1B700E60586 = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +280,7 @@
 				9579A6C81DC5A0990010F621 /* Resources */,
 				9579A6CC1DC759540010F621 /* ViewControllers */,
 				9579A6CD1DC7595E0010F621 /* Views */,
+				95AB792A1E17FA7F00A28A7D /* Supporting Files */,
 			);
 			path = RideNiceRide;
 			sourceTree = "<group>";
@@ -785,7 +793,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3Q3NT65HWY;
-				INFOPLIST_FILE = RideNiceRide/Resources/Info.plist;
+				INFOPLIST_FILE = "RideNiceRide/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codefume.RideNiceRide;
@@ -801,7 +809,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3Q3NT65HWY;
-				INFOPLIST_FILE = RideNiceRide/Resources/Info.plist;
+				INFOPLIST_FILE = "RideNiceRide/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codefume.RideNiceRide;
