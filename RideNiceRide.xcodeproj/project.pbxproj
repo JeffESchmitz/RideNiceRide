@@ -79,11 +79,11 @@
 		957B91831DD754A1000AE432 /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
 		957B91851DD75ADB000AE432 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		957B91871DD75F88000AE432 /* RentalHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentalHistoryViewController.swift; sourceTree = "<group>"; };
-		957B91891DD76259000AE432 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storyboard.swift; path = Enums/Storyboard.swift; sourceTree = "<group>"; };
-		958843FF1DD7D78E00F62CC7 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Images.swift; path = Enums/Images.swift; sourceTree = "<group>"; };
+		957B91891DD76259000AE432 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		958843FF1DD7D78E00F62CC7 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		9594C5341DE1C1A9005F780A /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		9594C5361DE207DE005F780A /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
-		95BA03F61DDDD273007825CD /* BottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomViewController.swift; path = ViewControllers/PullUp/BottomViewController.swift; sourceTree = "<group>"; };
+		95BA03F61DDDD273007825CD /* BottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
 		95BA8B8A1DC2F1B700E60586 /* RideNiceRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideNiceRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95BA8B921DC2F1B700E60586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		95BA8BAF1DC2F1B700E60586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95CAAF281DD362BB00809AB7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		95E475031DD5EB550027765C /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
-		95E8CEB21DD9F7E600406FC9 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentViewController.swift; path = ViewControllers/PullUp/ContentViewController.swift; sourceTree = "<group>"; };
+		95E8CEB21DD9F7E600406FC9 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		AE686DD1349C0D1A20AAE675 /* Pods-RideNiceRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideNiceRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-RideNiceRide/Pods-RideNiceRide.release.xcconfig"; sourceTree = "<group>"; };
 		E137CE4677B2FF345E515300 /* Pods_RideNiceRide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RideNiceRide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD9861FA88A6161EA9CD943 /* Pods-RideNiceRide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideNiceRide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RideNiceRide/Pods-RideNiceRide.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +159,7 @@
 		9579A6C81DC5A0990010F621 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				95BA8B941DC2F1B700E60586 /* Assets.xcassets */,
 				954FF3ED1DCB64D70067C6CB /* Info.plist */,
 			);
 			path = Resources;
@@ -170,14 +171,14 @@
 				957B91891DD76259000AE432 /* Storyboard.swift */,
 				958843FF1DD7D78E00F62CC7 /* Images.swift */,
 			);
-			name = Enums;
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		9579A6CA1DC759450010F621 /* API */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = API;
+			path = API;
 			sourceTree = "<group>";
 		};
 		9579A6CB1DC7594B0010F621 /* Storyboards */ = {
@@ -195,7 +196,7 @@
 				9579A6D01DC75F9F0010F621 /* SlideMenu */,
 				9579A6CF1DC75F810010F621 /* PullUp */,
 			);
-			name = ViewControllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		9579A6CD1DC7595E0010F621 /* Views */ = {
@@ -223,7 +224,7 @@
 				95E8CEB21DD9F7E600406FC9 /* ContentViewController.swift */,
 				95BA03F61DDDD273007825CD /* BottomViewController.swift */,
 			);
-			name = PullUp;
+			path = PullUp;
 			sourceTree = "<group>";
 		};
 		9579A6D01DC75F9F0010F621 /* SlideMenu */ = {
@@ -235,7 +236,7 @@
 				957B91851DD75ADB000AE432 /* FavoritesViewController.swift */,
 				957B91871DD75F88000AE432 /* RentalHistoryViewController.swift */,
 			);
-			name = SlideMenu;
+			path = SlideMenu;
 			sourceTree = "<group>";
 		};
 		95BA8B811DC2F1B700E60586 = {
@@ -264,15 +265,14 @@
 			isa = PBXGroup;
 			children = (
 				95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */,
-				9579A6CE1DC759650010F621 /* Models */,
-				9579A6CD1DC7595E0010F621 /* Views */,
-				9579A6CC1DC759540010F621 /* ViewControllers */,
 				9579A6CB1DC7594B0010F621 /* Storyboards */,
 				9579A6CA1DC759450010F621 /* API */,
 				9579A6C91DC5A0BA0010F621 /* Enums */,
 				9579A6B71DC558F20010F621 /* Extensions */,
+				9579A6CE1DC759650010F621 /* Models */,
 				9579A6C81DC5A0990010F621 /* Resources */,
-				95BA8B941DC2F1B700E60586 /* Assets.xcassets */,
+				9579A6CC1DC759540010F621 /* ViewControllers */,
+				9579A6CD1DC7595E0010F621 /* Views */,
 			);
 			path = RideNiceRide;
 			sourceTree = "<group>";
