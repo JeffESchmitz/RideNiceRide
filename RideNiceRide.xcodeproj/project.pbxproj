@@ -27,6 +27,7 @@
 		958844001DD7D78E00F62CC7 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958843FF1DD7D78E00F62CC7 /* Images.swift */; };
 		9594C5351DE1C1A9005F780A /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594C5341DE1C1A9005F780A /* Station.swift */; };
 		9594C5371DE207DE005F780A /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594C5361DE207DE005F780A /* FavoritesTableViewCell.swift */; };
+		95AB792C1E17FDDB00A28A7D /* HubwayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AB792B1E17FDDB00A28A7D /* HubwayAPI.swift */; };
 		95BA03F71DDDD273007825CD /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA03F61DDDD273007825CD /* BottomViewController.swift */; };
 		95BA8B8E1DC2F1B700E60586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */; };
 		95BA8B931DC2F1B700E60586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BA8B911DC2F1B700E60586 /* Main.storyboard */; };
@@ -83,6 +84,7 @@
 		958843FF1DD7D78E00F62CC7 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		9594C5341DE1C1A9005F780A /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		9594C5361DE207DE005F780A /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		95AB792B1E17FDDB00A28A7D /* HubwayAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HubwayAPI.swift; sourceTree = "<group>"; };
 		95BA03F61DDDD273007825CD /* BottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
 		95BA8B8A1DC2F1B700E60586 /* RideNiceRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideNiceRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		9579A6CA1DC759450010F621 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				95AB792B1E17FDDB00A28A7D /* HubwayAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				957B91841DD754A1000AE432 /* ExSlideMenuController.swift in Sources */,
 				9594C5351DE1C1A9005F780A /* Station.swift in Sources */,
 				9579A6C31DC56D1A0010F621 /* UIImage.swift in Sources */,
+				95AB792C1E17FDDB00A28A7D /* HubwayAPI.swift in Sources */,
 				958844001DD7D78E00F62CC7 /* Images.swift in Sources */,
 				95BA8B8E1DC2F1B700E60586 /* AppDelegate.swift in Sources */,
 				9579A6C61DC56D1A0010F621 /* UIView.swift in Sources */,
