@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLG-DG-wnI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="153" y="170"/>
+            <point key="canvasLocation" x="326" y="162"/>
         </scene>
         <!--Bottom View Controller-->
         <scene sceneID="ZzI-Jf-dT4">
@@ -337,7 +337,7 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5Q-mO-E0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="574" y="253"/>
+            <point key="canvasLocation" x="326" y="723"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="xCL-1a-Wqn">

@@ -9,12 +9,26 @@
 import UIKit
 import MapKit
 import ISHPullUp
+import Willow
+import DATAStack
+import CoreData
 
 class ContentViewController: UIViewController {
+
+  unowned var dataStack: DATAStack
+  lazy var hubwayAPI: HubwayAPI = HubwayAPI(dataStack: self.dataStack)
 
   @IBOutlet weak var rootView: UIView!
   @IBOutlet weak var layoutAnnotationLabel: UILabel!
   @IBOutlet weak var mapView: MKMapView!
+
+  required init?(coder aDecoder: NSCoder) {
+    //swiftlint:disable force_cast
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
+    self.dataStack = appdelegate.dataStack
+    //swiftlint:enable force_cast
+    super.init(coder: aDecoder)
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,6 +38,18 @@ class ContentViewController: UIViewController {
     // the mapView should use the rootView's layout margins to
     // correctly update the legal label and coordinate region
     mapView.preservesSuperviewLayoutMargins = true
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    log.info("in ContentViewController .viewDidAppear")
+
+    hubwayAPI.getStations { (error) in
+      guard error == nil else {
+        log.error("ERROR during HubwayAPI.getStations()")
+        return
+      }
+      log.info("inside completion handler of HubwayAPI.getStations. Should have data in the 'Stations' table now.")
+    }
   }
 
   override func didReceiveMemoryWarning() {

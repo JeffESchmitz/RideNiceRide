@@ -10,13 +10,22 @@ import UIKit
 import Fabric
 import Crashlytics
 import GoogleMaps
+import CoreData
+import DATAStack
+import Willow
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
+  lazy var dataStack: DATAStack = DATAStack(modelName: "RideNiceRide")
+
+
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+//    WillowConfiguration.configure(appLogLevels: LogLevel.debug, asynchronous: false)
+    WillowConfiguration.configure()
+
     // Override point for customization after application launch.
     Fabric.with([Crashlytics.self])
 

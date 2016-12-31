@@ -37,6 +37,8 @@
 		95BA8BA31DC2F1B700E60586 /* RideNiceRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8BA21DC2F1B700E60586 /* RideNiceRideTests.swift */; };
 		95BA8BAE1DC2F1B700E60586 /* RideNiceRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8BAD1DC2F1B700E60586 /* RideNiceRideUITests.swift */; };
 		95CAAF291DD362BB00809AB7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CAAF281DD362BB00809AB7 /* MainViewController.swift */; };
+		95DD35521E1843020038ECDA /* RideNiceRide.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95DD35501E1843020038ECDA /* RideNiceRide.xcdatamodeld */; };
+		95DD35551E184AFE0038ECDA /* WillowConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DD35541E184AFE0038ECDA /* WillowConfiguration.swift */; };
 		95E475041DD5EB550027765C /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E475031DD5EB550027765C /* LeftViewController.swift */; };
 		95E8CEB31DD9F7E600406FC9 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E8CEB21DD9F7E600406FC9 /* ContentViewController.swift */; };
 		AB4EBF1AF87110BDC3AD1C4D /* Pods_RideNiceRideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC24E9C012D42CE7219BBE5 /* Pods_RideNiceRideTests.framework */; };
@@ -100,6 +102,8 @@
 		95BA8BAD1DC2F1B700E60586 /* RideNiceRideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideNiceRideUITests.swift; sourceTree = "<group>"; };
 		95BA8BAF1DC2F1B700E60586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95CAAF281DD362BB00809AB7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		95DD35511E1843020038ECDA /* RideNiceRide.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RideNiceRide.xcdatamodel; sourceTree = "<group>"; };
+		95DD35541E184AFE0038ECDA /* WillowConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WillowConfiguration.swift; sourceTree = "<group>"; };
 		95E475031DD5EB550027765C /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		95E8CEB21DD9F7E600406FC9 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		AE686DD1349C0D1A20AAE675 /* Pods-RideNiceRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideNiceRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-RideNiceRide/Pods-RideNiceRide.release.xcconfig"; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				9594C5341DE1C1A9005F780A /* Station.swift */,
+				95DD35501E1843020038ECDA /* RideNiceRide.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				9579A6CE1DC759650010F621 /* Models */,
 				9579A6B71DC558F20010F621 /* Extensions */,
 				9579A6C91DC5A0BA0010F621 /* Enums */,
+				95DD35531E184AD20038ECDA /* Configuration */,
 				9579A6C81DC5A0990010F621 /* Resources */,
 				95AB792A1E17FA7F00A28A7D /* Supporting Files */,
 			);
@@ -307,6 +313,14 @@
 				95BA8BAF1DC2F1B700E60586 /* Info.plist */,
 			);
 			path = RideNiceRideUITests;
+			sourceTree = "<group>";
+		};
+		95DD35531E184AD20038ECDA /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				95DD35541E184AFE0038ECDA /* WillowConfiguration.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		F785C31DA451C7F25D1CDA00 /* Pods */ = {
@@ -621,7 +635,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DD35521E1843020038ECDA /* RideNiceRide.xcdatamodeld in Sources */,
 				957B918A1DD76259000AE432 /* Storyboard.swift in Sources */,
+				95DD35551E184AFE0038ECDA /* WillowConfiguration.swift in Sources */,
 				9579A6C11DC56D1A0010F621 /* UIApplication.swift in Sources */,
 				9579A6B91DC559520010F621 /* String.swift in Sources */,
 				9579A6C41DC56D1A0010F621 /* UIImageView.swift in Sources */,
@@ -924,6 +940,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		95DD35501E1843020038ECDA /* RideNiceRide.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				95DD35511E1843020038ECDA /* RideNiceRide.xcdatamodel */,
+			);
+			currentVersion = 95DD35511E1843020038ECDA /* RideNiceRide.xcdatamodel */;
+			path = RideNiceRide.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 95BA8B821DC2F1B700E60586 /* Project object */;
 }

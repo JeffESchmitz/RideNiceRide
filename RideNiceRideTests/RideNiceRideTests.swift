@@ -21,20 +21,6 @@ class RideNiceRideTests: XCTestCase {
     super.tearDown()
   }
   
-  func testSharedInstance() {
-    let instance = HubwayAPI.sharedInstance()
-    XCTAssertNotNil(instance, "HubwayAPI should have returned an instance")
-  }
-  
-  func testSharedInstance_One_And_Only() {
-    let instanceOne = HubwayAPI.sharedInstance()
-    instanceOne.testVariable = "foo"
-    let instanceTwo = HubwayAPI.sharedInstance()
-    
-    XCTAssertEqual(instanceOne.testVariable, instanceTwo.testVariable)
-    
-    instanceTwo.testVariable = "bar"
-    XCTAssertEqual(instanceOne.testVariable, instanceTwo.testVariable)
-  }
+
 
 }
