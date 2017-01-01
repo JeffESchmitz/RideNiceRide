@@ -1,16 +1,16 @@
 //
-//  Station.swift
+//  FavoriteStation.swift
 //  RideNiceRide
 //
-//  Created by Jeff Schmitz on 11/20/16.
-//  Copyright © 2016 Jeff Schmitz. All rights reserved.
+//  Created by Jeff Schmitz on 1/1/17.
+//  Copyright © 2017 Jeff Schmitz. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-extension Station {
-
+extension FavoriteStation {
+    
     convenience init(name: String = "Unknown",
                      address: String = "none",
                      bikes: String = "0",
@@ -20,11 +20,13 @@ extension Station {
         //An EntityDescription is an object that has access to all
         //the information you provided in the Entity part of the model
         //you need it to create an instance of this class.
-        let bar = String(describing: Station.self)
+        let foo = String.className(FavoriteStation.self)
+        print("foo: \(foo)")
+        let bar = String(describing: FavoriteStation.self)
         print("bar: \(bar)")
-        //        let foobar = Station.typeName
-        //        print("foobar: \(foobar)")
-        if let entity = NSEntityDescription.entity(forEntityName: String(describing: Station.self), in: context) {
+//        let foobar = FavoriteStation.typeName
+//        print("foobar: \(foobar)")
+        if let entity = NSEntityDescription.entity(forEntityName: String(describing: FavoriteStation.self), in: context) {
             self.init(entity: entity, insertInto: context)
             self.stationName = name
             self.stAddress1 = address

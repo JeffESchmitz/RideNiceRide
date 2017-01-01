@@ -64,18 +64,18 @@ class FavoritesTableViewCell: UITableViewCell {
   }
 
 
-  var station: Station? {
+  var favoriteStation: FavoriteStation? {
     didSet {
       self.reloadData()
     }
   }
 
   func reloadData() {
-    if let station = self.station {
-      self.addressLabel.text = station.address
-      self.nameLabel.text = station.name
-      self.bikesValueLabel.text = station.bikes
-      self.racksValueLabel.text = station.racks
+    if let favoriteStation = self.favoriteStation {
+        self.addressLabel.text = favoriteStation.stAddress1
+        self.nameLabel.text = favoriteStation.stationName
+        self.bikesValueLabel.text = favoriteStation.availableBikes
+        self.racksValueLabel.text = favoriteStation.totalDocks
     }
   }
 }
