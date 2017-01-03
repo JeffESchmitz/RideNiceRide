@@ -84,7 +84,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
   func fetch(forEntityName entityName: String, in context: NSManagedObjectContext) -> [NSManagedObject] {
     let request = NSFetchRequest<NSManagedObject>(entityName: entityName)
     let objects = try! context.fetch(request)
-
     return objects
   }
 

@@ -43,12 +43,18 @@ class ContentViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     log.info("in ContentViewController .viewDidAppear")
 
-    hubwayAPI.getStations { (error) in
-      guard error == nil else {
-        log.error("ERROR during HubwayAPI.getStations()")
-        return
+    hubwayAPI.getStations { (stations, error) in
+      if let error = error {
+        print(error)
+      } else if let stations = stations {
+
+        for station in stations {
+          print("station name: \(station.stationName!)")
+        }
+        
+//        // Configure the ??? Content ViewModel
+//        self.viewModel = ContentViewModel(stationData: stations)
       }
-      log.info("inside completion handler of HubwayAPI.getStations. Should have data in the 'Stations' table now.")
     }
   }
 
