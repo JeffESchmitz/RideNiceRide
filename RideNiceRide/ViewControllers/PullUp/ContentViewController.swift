@@ -12,6 +12,7 @@ import ISHPullUp
 import Willow
 import DATAStack
 import CoreData
+import PKHUD
 
 class ContentViewController: UIViewController {
 
@@ -52,12 +53,47 @@ class ContentViewController: UIViewController {
 
     // Do any additional setup after loading the view.
     setupView()
+    
+    // Hard Code the location to Boston - obviously don't want this hard coded
+    let location = CLLocationCoordinate2D(latitude: 42.360083, longitude: -71.05888)
+    let span = MKCoordinateSpanMake(0.05, 0.05)
+    let region = MKCoordinateRegion(center: location, span: span)
+    self.mapView.setRegion(region, animated: true)
+
   }
 
-  override func viewDidAppear(_ animated: Bool) {
-    log.info("in ContentViewController .viewDidAppear")
+  override func viewWillAppear(_ animated: Bool) {
 
-    fetchStationData()
+//    fetchStationData()
+    
+    // TODO: JES - 1.4.2017 - REMOVE FOLLOWING CODE! Just for demonstration purposes
+    HUD.show(.progress)
+    
+    hubwayAPI.getStations { (stations, error) in
+      if let error = error {
+        print(error)
+        HUD.flash(.error, delay: 1.0)
+      } else if let stations = stations {
+        
+        
+        let stationsViewModels = self.convertStationsDataModelsToViewModels(stationsDataModels: stations)
+        self.viewModel = ContentViewModel(hubwayData: stationsViewModels)
+        
+        self.makeAnnotationsAndPlot()
+        
+//        HUD.hide(afterDelay: 1.0)
+        HUD.hide(animated: true)
+      }
+    }
+  }
+  
+  func makeAnnotationsAndPlot() {
+    
+    let annotations = self.makeAnnotationsFromStations()
+    
+    for annotation in annotations {
+      self.mapView.addAnnotation(annotation)
+    }
   }
 
   override func didReceiveMemoryWarning() {
@@ -90,23 +126,7 @@ class ContentViewController: UIViewController {
   
   // MARK: - Helper methods
   
-  fileprivate func fetchStationData() {
-//    guard let location = currentLocation else { return }
-//    
-//    let latitude = location.coordinate.latitude
-//    let longitude = location.coordinate.longitude
-//    
-//    print("\(latitude), \(longitude)")
-//
-    hubwayAPI.getStations { (stations, error) in
-      if let error = error {
-        print(error)
-      } else if let stations = stations {
-        let stationsViewModels = self.convertStationsDataModelsToViewModels(stationsDataModels: stations)
-        self.viewModel = ContentViewModel(hubwayData: stationsViewModels)
-      }
-    }
-  }
+
 
   private func updateView() {
     
@@ -121,6 +141,30 @@ class ContentViewController: UIViewController {
     var result = [StationViewModel]()
     for stationDataModel in stationsDataModels {
       result.append(StationViewModel(station: stationDataModel))
+    }
+    return result
+  }
+  
+  func makeAnnotationsFromStations() -> [MKPointAnnotation] {
+    var result = [MKPointAnnotation]()
+    
+    if let stations = self.viewModel?.hubwayData {
+//    if self.items.count > 0 {
+      if !stations.isEmpty {
+//      for station in self.items {
+        if let hubwayData = self.viewModel?.hubwayData {
+          for station in hubwayData {
+            let stationLat = CLLocationDegrees(station.station.latitude!)
+            let stationLong = CLLocationDegrees(station.station.longitude!)
+            let location = CLLocationCoordinate2D(latitude: stationLat!, longitude: stationLong!)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            annotation.title = station.stationName
+            annotation.subtitle = "available bikes: \(station.availableBikes)"
+            result.append(annotation)
+          }
+        }
+      }
     }
     return result
   }
