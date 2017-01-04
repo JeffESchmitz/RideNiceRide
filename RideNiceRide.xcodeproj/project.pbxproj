@@ -40,6 +40,8 @@
 		95CAAF291DD362BB00809AB7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CAAF281DD362BB00809AB7 /* MainViewController.swift */; };
 		95DD35521E1843020038ECDA /* RideNiceRide.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95DD35501E1843020038ECDA /* RideNiceRide.xcdatamodeld */; };
 		95DD35551E184AFE0038ECDA /* WillowConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DD35541E184AFE0038ECDA /* WillowConfiguration.swift */; };
+		95DD92181E1D1AAD00856AAA /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DD92171E1D1AAD00856AAA /* ContentViewModel.swift */; };
+		95DD921A1E1D324700856AAA /* StationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DD92191E1D324700856AAA /* StationViewModel.swift */; };
 		95E475041DD5EB550027765C /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E475031DD5EB550027765C /* LeftViewController.swift */; };
 		95E8CEB31DD9F7E600406FC9 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E8CEB21DD9F7E600406FC9 /* ContentViewController.swift */; };
 		AB4EBF1AF87110BDC3AD1C4D /* Pods_RideNiceRideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC24E9C012D42CE7219BBE5 /* Pods_RideNiceRideTests.framework */; };
@@ -106,6 +108,8 @@
 		95CAAF281DD362BB00809AB7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		95DD35511E1843020038ECDA /* RideNiceRide.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RideNiceRide.xcdatamodel; sourceTree = "<group>"; };
 		95DD35541E184AFE0038ECDA /* WillowConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WillowConfiguration.swift; sourceTree = "<group>"; };
+		95DD92171E1D1AAD00856AAA /* ContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		95DD92191E1D324700856AAA /* StationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
 		95E475031DD5EB550027765C /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		95E8CEB21DD9F7E600406FC9 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		AE686DD1349C0D1A20AAE675 /* Pods-RideNiceRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideNiceRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-RideNiceRide/Pods-RideNiceRide.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 		9579A6CC1DC759540010F621 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				95DD92161E1D1A3300856AAA /* View Models */,
 				9579A6D01DC75F9F0010F621 /* SlideMenu */,
 				9579A6CF1DC75F810010F621 /* PullUp */,
 			);
@@ -324,6 +329,15 @@
 				95DD35541E184AFE0038ECDA /* WillowConfiguration.swift */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		95DD92161E1D1A3300856AAA /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				95DD92171E1D1AAD00856AAA /* ContentViewModel.swift */,
+				95DD92191E1D324700856AAA /* StationViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		F785C31DA451C7F25D1CDA00 /* Pods */ = {
@@ -643,6 +657,7 @@
 				95DD35551E184AFE0038ECDA /* WillowConfiguration.swift in Sources */,
 				9579A6C11DC56D1A0010F621 /* UIApplication.swift in Sources */,
 				9579A6B91DC559520010F621 /* String.swift in Sources */,
+				95DD92181E1D1AAD00856AAA /* ContentViewModel.swift in Sources */,
 				9579A6C41DC56D1A0010F621 /* UIImageView.swift in Sources */,
 				95B41DA31E19788C00E157BA /* FavoriteStation.swift in Sources */,
 				95CAAF291DD362BB00809AB7 /* MainViewController.swift in Sources */,
@@ -664,6 +679,7 @@
 				95BA03F71DDDD273007825CD /* BottomViewController.swift in Sources */,
 				957B91861DD75ADB000AE432 /* FavoritesViewController.swift in Sources */,
 				9579A6C21DC56D1A0010F621 /* UIColor.swift in Sources */,
+				95DD921A1E1D324700856AAA /* StationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

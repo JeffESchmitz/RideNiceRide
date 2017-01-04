@@ -15,12 +15,29 @@ import CoreData
 
 class ContentViewController: UIViewController {
 
+  // MARK: - Properties (private)
+  fileprivate var currentLocation: CLLocation? {
+    didSet {
+//      fetchWeatherData()
+    }
+  }
+  
+  // MARK: - Properties (public)
   unowned var dataStack: DATAStack
   lazy var hubwayAPI: HubwayAPI = HubwayAPI(dataStack: self.dataStack)
+
+  var viewModel: ContentViewModel? {
+    didSet {
+      updateView()
+    }
+  }
 
   @IBOutlet weak var rootView: UIView!
   @IBOutlet weak var layoutAnnotationLabel: UILabel!
   @IBOutlet weak var mapView: MKMapView!
+
+  
+  // MARK: - View Life Cycle
 
   required init?(coder aDecoder: NSCoder) {
     //swiftlint:disable force_cast
@@ -34,33 +51,29 @@ class ContentViewController: UIViewController {
     super.viewDidLoad()
 
     // Do any additional setup after loading the view.
-    layoutAnnotationLabel.layer.cornerRadius = 2
-    // the mapView should use the rootView's layout margins to
-    // correctly update the legal label and coordinate region
-    mapView.preservesSuperviewLayoutMargins = true
+    setupView()
   }
 
   override func viewDidAppear(_ animated: Bool) {
     log.info("in ContentViewController .viewDidAppear")
 
-    hubwayAPI.getStations { (stations, error) in
-      if let error = error {
-        print(error)
-      } else if let stations = stations {
-
-        for station in stations {
-          print("station name: \(station.stationName!)")
-        }
-        
-//        // Configure the ??? Content ViewModel
-//        self.viewModel = ContentViewModel(stationData: stations)
-      }
-    }
+    fetchStationData()
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  // MARK: - View Methods
+  
+  private func setupView() {
+    
+    layoutAnnotationLabel.layer.cornerRadius = 2
+    // the mapView should use the rootView's layout margins to
+    // correctly update the legal label and coordinate region
+    mapView.preservesSuperviewLayoutMargins = true
+    
   }
 
   /*
@@ -72,6 +85,45 @@ class ContentViewController: UIViewController {
    // Pass the selected object to the new view controller.
    }
    */
+
+
+  
+  // MARK: - Helper methods
+  
+  fileprivate func fetchStationData() {
+//    guard let location = currentLocation else { return }
+//    
+//    let latitude = location.coordinate.latitude
+//    let longitude = location.coordinate.longitude
+//    
+//    print("\(latitude), \(longitude)")
+//
+    hubwayAPI.getStations { (stations, error) in
+      if let error = error {
+        print(error)
+      } else if let stations = stations {
+        let stationsViewModels = self.convertStationsDataModelsToViewModels(stationsDataModels: stations)
+        self.viewModel = ContentViewModel(hubwayData: stationsViewModels)
+      }
+    }
+  }
+
+  private func updateView() {
+    
+    if let viewModel = viewModel {
+      // just for test debugging of viewmodel - replace by populating an Annotation here
+      let numberOfStations = viewModel.hubwayData.count
+      print("There are \(numberOfStations) number of Stations in Hubway.")
+    }
+  }
+  
+  private func convertStationsDataModelsToViewModels(stationsDataModels: [Station]) -> [StationViewModel] {
+    var result = [StationViewModel]()
+    for stationDataModel in stationsDataModels {
+      result.append(StationViewModel(station: stationDataModel))
+    }
+    return result
+  }
 
 }
 extension ContentViewController: ISHPullUpContentDelegate {
