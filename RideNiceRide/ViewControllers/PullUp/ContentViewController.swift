@@ -14,7 +14,7 @@ import DATAStack
 import CoreData
 import PKHUD
 
-class ContentViewController: UIViewController {
+class ContentViewController: UIViewController, MKMapViewDelegate {
 
   // MARK: - Properties (private)
   fileprivate var currentLocation: CLLocation? {
@@ -26,6 +26,7 @@ class ContentViewController: UIViewController {
   // MARK: - Properties (public)
   unowned var dataStack: DATAStack
   lazy var hubwayAPI: HubwayAPI = HubwayAPI(dataStack: self.dataStack)
+  
 
   var viewModel: ContentViewModel? {
     didSet {
@@ -87,24 +88,32 @@ class ContentViewController: UIViewController {
     }
   }
   
-  func makeAnnotationsAndPlot() {
+  
+  // MARK: - Mapview Delegates
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    print("Inside \(#function)")
     
-    let annotations = self.makeAnnotationsFromStations()
-    
-    for annotation in annotations {
-      self.mapView.addAnnotation(annotation)
+    if annotation is MKUserLocation {
+      return nil
     }
-  }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+    
+    var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.identifier)
+    if annotationView == nil {
+      annotationView = AnnotationView(annotation: annotation, reuseIdentifier: AnnotationView.identifier)
+      annotationView?.canShowCallout = false
+    } else {
+      annotationView?.annotation = annotation
+    }
+    
+    return annotationView
   }
   
   // MARK: - View Methods
   
   private func setupView() {
     
+    self.mapView.delegate = self
+
     layoutAnnotationLabel.layer.cornerRadius = 2
     // the mapView should use the rootView's layout margins to
     // correctly update the legal label and coordinate region
@@ -112,21 +121,14 @@ class ContentViewController: UIViewController {
     
   }
 
-  /*
-   // MARK: - Navigation
-
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-
-
-  
-  // MARK: - Helper methods
-  
-
+  private func makeAnnotationsAndPlot() {
+    
+    let annotations = self.makeAnnotationsFromStations()
+    
+    for annotation in annotations {
+      self.mapView.addAnnotation(annotation)
+    }
+  }
 
   private func updateView() {
     
@@ -136,6 +138,9 @@ class ContentViewController: UIViewController {
       print("There are \(numberOfStations) number of Stations in Hubway.")
     }
   }
+
+  
+  // MARK: - Helper methods
   
   private func convertStationsDataModelsToViewModels(stationsDataModels: [Station]) -> [StationViewModel] {
     var result = [StationViewModel]()
@@ -145,8 +150,9 @@ class ContentViewController: UIViewController {
     return result
   }
   
-  func makeAnnotationsFromStations() -> [MKPointAnnotation] {
-    var result = [MKPointAnnotation]()
+  private func makeAnnotationsFromStations() -> [CustomAnnotation] {
+//    var result = [MKPointAnnotation]()
+    var result = [CustomAnnotation]()
     
     if let stations = self.viewModel?.hubwayData {
 //    if self.items.count > 0 {
@@ -157,10 +163,15 @@ class ContentViewController: UIViewController {
             let stationLat = CLLocationDegrees(station.station.latitude!)
             let stationLong = CLLocationDegrees(station.station.longitude!)
             let location = CLLocationCoordinate2D(latitude: stationLat!, longitude: stationLong!)
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = location
+//            let annotation = MKPointAnnotation()
+//            annotation.coordinate = location
+//            annotation.title = station.stationName
+//            annotation.subtitle = "available bikes: \(station.availableBikes)"
+            let annotation = CustomAnnotation(coordinate: location)
+            annotation.availableBikes = Int(station.availableBikes)!
             annotation.title = station.stationName
-            annotation.subtitle = "available bikes: \(station.availableBikes)"
+            annotation.stationName = station.stationName
+            annotation.availableDocks = Int(station.availableDocks)!
             result.append(annotation)
           }
         }
@@ -169,7 +180,18 @@ class ContentViewController: UIViewController {
     return result
   }
 
+  
+  /*
+   // MARK: - Navigation
+   
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   // Get the new view controller using segue.destinationViewController.
+   // Pass the selected object to the new view controller.
+   }
+   */
 }
+
 extension ContentViewController: ISHPullUpContentDelegate {
 
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, update edgeInsets: UIEdgeInsets, forContentViewController contentVC: UIViewController) {
@@ -182,3 +204,34 @@ extension ContentViewController: ISHPullUpContentDelegate {
     rootView.layoutIfNeeded()
   }
 }
+
+//extension ContentViewController: MKMapViewDelegate {
+//  
+//  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//    print("Inside \(#function)")
+//
+//    if annotation is MKUserLocation {
+//      return nil
+//    }
+//    
+//    var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.identifier)
+//    if annotationView == nil {
+//      annotationView = AnnotationView(annotation: annotation, reuseIdentifier: AnnotationView.identifier)
+//      annotationView?.canShowCallout = false
+//    } else {
+//      annotationView?.annotation = annotation
+//    }
+//    
+//    return annotationView
+//  }
+//  
+//  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+//    print("Inside \(#function)")
+//    // Do stuff needed when selecting a Pin on the map
+//  }
+//  
+//  func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+//    print("Inside \(#function)")
+//    // Do stuff needed when selecting a Pin on the map
+//  }
+//}

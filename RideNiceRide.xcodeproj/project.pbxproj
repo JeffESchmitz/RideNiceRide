@@ -27,6 +27,8 @@
 		958844001DD7D78E00F62CC7 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958843FF1DD7D78E00F62CC7 /* Images.swift */; };
 		9594C5351DE1C1A9005F780A /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594C5341DE1C1A9005F780A /* Station.swift */; };
 		9594C5371DE207DE005F780A /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594C5361DE207DE005F780A /* FavoritesTableViewCell.swift */; };
+		95A4085A1E25060E00DF3839 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A408591E25060E00DF3839 /* AnnotationView.swift */; };
+		95A4085C1E25074700DF3839 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A4085B1E25074700DF3839 /* CustomAnnotation.swift */; };
 		95AB792C1E17FDDB00A28A7D /* HubwayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AB792B1E17FDDB00A28A7D /* HubwayAPI.swift */; };
 		95AB792E1E180B1F00A28A7D /* HubwayAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AB792D1E180B1F00A28A7D /* HubwayAPITests.swift */; };
 		95B41DA31E19788C00E157BA /* FavoriteStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B41DA21E19788C00E157BA /* FavoriteStation.swift */; };
@@ -90,6 +92,8 @@
 		958843FF1DD7D78E00F62CC7 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		9594C5341DE1C1A9005F780A /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		9594C5361DE207DE005F780A /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		95A408591E25060E00DF3839 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		95A4085B1E25074700DF3839 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		95AB792B1E17FDDB00A28A7D /* HubwayAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HubwayAPI.swift; sourceTree = "<group>"; };
 		95AB792D1E180B1F00A28A7D /* HubwayAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HubwayAPITests.swift; sourceTree = "<group>"; };
 		95B41DA21E19788C00E157BA /* FavoriteStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteStation.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 				9579A6D31DC78F010010F621 /* ImageHeaderView.xib */,
 				9503DDFC1DC8B4D90056E731 /* BaseTableViewCell.swift */,
 				9594C5361DE207DE005F780A /* FavoritesTableViewCell.swift */,
+				95A408591E25060E00DF3839 /* AnnotationView.swift */,
+				95A4085B1E25074700DF3839 /* CustomAnnotation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -669,7 +675,9 @@
 				9579A6C71DC56D1A0010F621 /* UIViewController.swift in Sources */,
 				9594C5371DE207DE005F780A /* FavoritesTableViewCell.swift in Sources */,
 				957B91881DD75F88000AE432 /* RentalHistoryViewController.swift in Sources */,
+				95A4085C1E25074700DF3839 /* CustomAnnotation.swift in Sources */,
 				957B91841DD754A1000AE432 /* ExSlideMenuController.swift in Sources */,
+				95A4085A1E25060E00DF3839 /* AnnotationView.swift in Sources */,
 				9594C5351DE1C1A9005F780A /* Station.swift in Sources */,
 				9579A6C31DC56D1A0010F621 /* UIImage.swift in Sources */,
 				95AB792C1E17FDDB00A28A7D /* HubwayAPI.swift in Sources */,
