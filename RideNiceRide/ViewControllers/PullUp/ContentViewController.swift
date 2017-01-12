@@ -19,8 +19,8 @@ import PKHUD
  *   This is useful for adjusting the height from outside of PullUpController or user interact.
  *   i.e. in the event the main viewcontroller (or any other view controller) wants to set the height.
  */
-protocol BottomViewDelegate {
-  func setBottomViewHeight(bottomHeight: CGFloat, animated: Bool)
+protocol PullUpViewDelegate {
+  func setPullUpViewHeight(bottomHeight: CGFloat, animated: Bool)
 }
 
 class ContentViewController: UIViewController
@@ -35,7 +35,9 @@ class ContentViewController: UIViewController
   }
   
   // MARK: - Properties (public)
-  var bottomViewDelegate: BottomViewDelegate?
+  var pullUpViewDelegate: PullUpViewDelegate?
+  var bottomPanoramaViewDelegate: BottomPanoramaViewDelegate?
+
   unowned var dataStack: DATAStack
   lazy var hubwayAPI: HubwayAPI = HubwayAPI(dataStack: self.dataStack)
   
@@ -99,26 +101,7 @@ class ContentViewController: UIViewController
       }
     }
   }
-  
-  
-//  // MARK: - Mapview Delegates
-//  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//    print("Inside \(#function)")
-//    
-//    if annotation is MKUserLocation {
-//      return nil
-//    }
-//    
-//    var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.identifier)
-//    if annotationView == nil {
-//      annotationView = AnnotationView(annotation: annotation, reuseIdentifier: AnnotationView.identifier)
-//      annotationView?.canShowCallout = false
-//    } else {
-//      annotationView?.annotation = annotation
-//    }
-//    
-//    return annotationView
-//  }
+
   
   // MARK: - View Methods
   
@@ -217,7 +200,7 @@ extension ContentViewController: MKMapViewDelegate {
 
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
-    print("Inside \(#function)")
+//    print("Inside \(#function)")
     
     if annotation is MKUserLocation {
       return nil
@@ -235,15 +218,23 @@ extension ContentViewController: MKMapViewDelegate {
   }
   
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-    print("Inside \(#function)")
+//    print("Inside \(#function)")
 
     // Do stuff needed when selecting a Pin on the map
-    bottomViewDelegate?.setBottomViewHeight(bottomHeight: 60, animated: true)
-    
+    pullUpViewDelegate?.setPullUpViewHeight(bottomHeight: 60, animated: true)
+    //swiftlint:disable force_cast
+    let annotation = ((view as! AnnotationView).annotation as? CustomAnnotation)
+    print("annotation stationName: \(annotation?.stationName)")
+    print("annotation latitude: \(annotation?.coordinate.latitude)")
+    print("annotation longitude: \(annotation?.coordinate.longitude)")
+    //swiftlint:enable force_cast
+    if let moveToCoordinate = annotation?.coordinate {
+      bottomPanoramaViewDelegate?.moveNearCoordinate(coordinate: moveToCoordinate)
+    }
   }
   
   func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-    print("Inside \(#function)")
+//    print("Inside \(#function)")
     
     // Do stuff needed when selecting a Pin on the map
   }

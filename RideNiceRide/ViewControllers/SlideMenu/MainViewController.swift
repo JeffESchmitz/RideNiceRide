@@ -11,7 +11,7 @@ import SlideMenuControllerSwift
 import Willow
 import ISHPullUp
 
-class MainViewController: ISHPullUpViewController, BottomViewDelegate {
+class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
 
   let logger = Logger()
 
@@ -35,7 +35,8 @@ class MainViewController: ISHPullUpViewController, BottomViewDelegate {
     contentViewController = contentVC
     bottomViewController  = bottomVC
 
-    contentVC.bottomViewDelegate  = self
+    contentVC.pullUpViewDelegate  = self
+    contentVC.bottomPanoramaViewDelegate = bottomVC
     bottomVC.pullUpController     = self
     contentDelegate = contentVC
     sizingDelegate  = bottomVC
@@ -72,8 +73,8 @@ class MainViewController: ISHPullUpViewController, BottomViewDelegate {
    }
    */
 
-  // MARK: - BottomViewDelegate
-  func setBottomViewHeight(bottomHeight: CGFloat, animated: Bool) {
+  // MARK: - PullUpViewDelegate
+  func setPullUpViewHeight(bottomHeight: CGFloat, animated: Bool) {
     self.setBottomHeight(bottomHeight, animated: animated)
   }
 
