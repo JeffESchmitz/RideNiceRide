@@ -14,7 +14,18 @@ import DATAStack
 import CoreData
 import PKHUD
 
-class ContentViewController: UIViewController, MKMapViewDelegate {
+/**
+ *   This protocol allows you to set the height of the bottom ISHPullUpController.
+ *   This is useful for adjusting the height from outside of PullUpController or user interact.
+ *   i.e. in the event the main viewcontroller (or any other view controller) wants to set the height.
+ */
+protocol BottomViewDelegate {
+  func setBottomViewHeight(bottomHeight: CGFloat, animated: Bool)
+}
+
+class ContentViewController: UIViewController
+//, MKMapViewDelegate
+{
 
   // MARK: - Properties (private)
   fileprivate var currentLocation: CLLocation? {
@@ -24,6 +35,7 @@ class ContentViewController: UIViewController, MKMapViewDelegate {
   }
   
   // MARK: - Properties (public)
+  var bottomViewDelegate: BottomViewDelegate?
   unowned var dataStack: DATAStack
   lazy var hubwayAPI: HubwayAPI = HubwayAPI(dataStack: self.dataStack)
   
@@ -89,24 +101,24 @@ class ContentViewController: UIViewController, MKMapViewDelegate {
   }
   
   
-  // MARK: - Mapview Delegates
-  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-    print("Inside \(#function)")
-    
-    if annotation is MKUserLocation {
-      return nil
-    }
-    
-    var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.identifier)
-    if annotationView == nil {
-      annotationView = AnnotationView(annotation: annotation, reuseIdentifier: AnnotationView.identifier)
-      annotationView?.canShowCallout = false
-    } else {
-      annotationView?.annotation = annotation
-    }
-    
-    return annotationView
-  }
+//  // MARK: - Mapview Delegates
+//  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//    print("Inside \(#function)")
+//    
+//    if annotation is MKUserLocation {
+//      return nil
+//    }
+//    
+//    var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.identifier)
+//    if annotationView == nil {
+//      annotationView = AnnotationView(annotation: annotation, reuseIdentifier: AnnotationView.identifier)
+//      annotationView?.canShowCallout = false
+//    } else {
+//      annotationView?.annotation = annotation
+//    }
+//    
+//    return annotationView
+//  }
   
   // MARK: - View Methods
   
@@ -163,10 +175,6 @@ class ContentViewController: UIViewController, MKMapViewDelegate {
             let stationLat = CLLocationDegrees(station.station.latitude!)
             let stationLong = CLLocationDegrees(station.station.longitude!)
             let location = CLLocationCoordinate2D(latitude: stationLat!, longitude: stationLong!)
-//            let annotation = MKPointAnnotation()
-//            annotation.coordinate = location
-//            annotation.title = station.stationName
-//            annotation.subtitle = "available bikes: \(station.availableBikes)"
             let annotation = CustomAnnotation(coordinate: location)
             annotation.availableBikes = Int(station.availableBikes)!
             annotation.title = station.stationName
@@ -205,33 +213,38 @@ extension ContentViewController: ISHPullUpContentDelegate {
   }
 }
 
-//extension ContentViewController: MKMapViewDelegate {
-//  
-//  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//    print("Inside \(#function)")
-//
-//    if annotation is MKUserLocation {
-//      return nil
-//    }
-//    
-//    var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.identifier)
-//    if annotationView == nil {
-//      annotationView = AnnotationView(annotation: annotation, reuseIdentifier: AnnotationView.identifier)
-//      annotationView?.canShowCallout = false
-//    } else {
-//      annotationView?.annotation = annotation
-//    }
-//    
-//    return annotationView
-//  }
-//  
-//  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//    print("Inside \(#function)")
-//    // Do stuff needed when selecting a Pin on the map
-//  }
-//  
-//  func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-//    print("Inside \(#function)")
-//    // Do stuff needed when selecting a Pin on the map
-//  }
-//}
+extension ContentViewController: MKMapViewDelegate {
+
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+    print("Inside \(#function)")
+    
+    if annotation is MKUserLocation {
+      return nil
+    }
+    
+    var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.identifier)
+    if annotationView == nil {
+      annotationView = AnnotationView(annotation: annotation, reuseIdentifier: AnnotationView.identifier)
+      annotationView?.canShowCallout = false
+    } else {
+      annotationView?.annotation = annotation
+    }
+    
+    return annotationView
+  }
+  
+  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    print("Inside \(#function)")
+
+    // Do stuff needed when selecting a Pin on the map
+    bottomViewDelegate?.setBottomViewHeight(bottomHeight: 60, animated: true)
+    
+  }
+  
+  func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+    print("Inside \(#function)")
+    
+    // Do stuff needed when selecting a Pin on the map
+  }
+}

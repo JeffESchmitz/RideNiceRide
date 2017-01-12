@@ -11,7 +11,7 @@ import SlideMenuControllerSwift
 import Willow
 import ISHPullUp
 
-class MainViewController: ISHPullUpViewController {
+class MainViewController: ISHPullUpViewController, BottomViewDelegate {
 
   let logger = Logger()
 
@@ -33,12 +33,13 @@ class MainViewController: ISHPullUpViewController {
     // swiftlint:enable force_cast
 
     contentViewController = contentVC
-    bottomViewController = bottomVC
+    bottomViewController  = bottomVC
 
-    bottomVC.pullUpController = self
+    contentVC.bottomViewDelegate  = self
+    bottomVC.pullUpController     = self
     contentDelegate = contentVC
-    sizingDelegate = bottomVC
-    stateDelegate = bottomVC
+    sizingDelegate  = bottomVC
+    stateDelegate   = bottomVC
   }
 
   override func viewDidLoad() {
@@ -70,6 +71,11 @@ class MainViewController: ISHPullUpViewController {
    // Pass the selected object to the new view controller.
    }
    */
+
+  // MARK: - BottomViewDelegate
+  func setBottomViewHeight(bottomHeight: CGFloat, animated: Bool) {
+    self.setBottomHeight(bottomHeight, animated: animated)
+  }
 
 }
 extension MainViewController: SlideMenuControllerDelegate {
