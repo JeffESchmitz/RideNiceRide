@@ -23,21 +23,22 @@ protocol BottomPanoramaViewDelegate {
 
 class BottomViewController: UIViewController, BottomPanoramaViewDelegate {
 
-  // swiftlint:disable variable_name
-  let log = Logger()
-  // swiftlint:enable variable_name
-
+  // MARK: - Private properties
+  fileprivate var isFavoriteTouched = false
+  
+  // MARK: - Public properties
   @IBOutlet weak var handleView: ISHPullUpHandleView!
   @IBOutlet weak var rootView: UIView!
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var topLabel: UILabel!
   @IBOutlet weak var topView: UIView!
   @IBOutlet weak var panoramaView: UIView!
-
+  @IBOutlet weak var addFavoriteButton: UIButton!
+  
   var firstAppearanceCompleted = false
   weak var pullUpController: ISHPullUpViewController!
   var panoView: GMSPanoramaView?
-  
+
   // allow the pullup to snap to the half-way point
   var halfWayPoint = CGFloat(0)
 
@@ -64,6 +65,15 @@ class BottomViewController: UIViewController, BottomPanoramaViewDelegate {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     firstAppearanceCompleted = true
+  }
+  
+  @IBAction func favoriteTouched(_ sender: Any) {
+    if isFavoriteTouched == true {
+      addFavoriteButton.setTitle("Add Favorite", for: .normal)
+    } else {
+      addFavoriteButton.setTitle("Remove Favorite", for: .normal)
+    }
+    isFavoriteTouched = !isFavoriteTouched
   }
 
   private dynamic func handleTapGesture(gesture: UITapGestureRecognizer) {

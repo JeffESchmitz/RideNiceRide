@@ -35,16 +35,20 @@ class ContentViewController: UIViewController
   }
   
   // MARK: - Properties (public)
-  var pullUpViewDelegate: PullUpViewDelegate?
-  var bottomPanoramaViewDelegate: BottomPanoramaViewDelegate?
-
-  unowned var dataStack: DATAStack
   lazy var hubwayAPI: HubwayAPI = HubwayAPI(dataStack: self.dataStack)
-  
-
+  unowned var dataStack: DATAStack
   var viewModel: ContentViewModel? {
     didSet {
       updateView()
+    }
+  }
+  var pullUpViewDelegate: PullUpViewDelegate?
+  var bottomPanoramaViewDelegate: BottomPanoramaViewDelegate?
+  var selectedAnnotationView: AnnotationView? {
+    didSet {
+      // Ideally, update the pin image or Annotation (View?) size to be larger than the others to signify to the user this one is selected
+      // V2 functionality maybe?
+//      self.viewModel?.selectedStationViewModel = //Wha... can't do this without adding the 'selectedStationViewModel' to the ctor???
     }
   }
 
@@ -54,7 +58,6 @@ class ContentViewController: UIViewController
 
   
   // MARK: - View Life Cycle
-
   required init?(coder aDecoder: NSCoder) {
     //swiftlint:disable force_cast
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
@@ -104,7 +107,6 @@ class ContentViewController: UIViewController
 
   
   // MARK: - View Methods
-  
   private func setupView() {
     
     self.mapView.delegate = self
@@ -136,7 +138,6 @@ class ContentViewController: UIViewController
 
   
   // MARK: - Helper methods
-  
   private func convertStationsDataModelsToViewModels(stationsDataModels: [Station]) -> [StationViewModel] {
     var result = [StationViewModel]()
     for stationDataModel in stationsDataModels {
@@ -221,13 +222,15 @@ extension ContentViewController: MKMapViewDelegate {
 //    print("Inside \(#function)")
 
     // Do stuff needed when selecting a Pin on the map
-    pullUpViewDelegate?.setPullUpViewHeight(bottomHeight: 60, animated: true)
     //swiftlint:disable force_cast
-    let annotation = ((view as! AnnotationView).annotation as? CustomAnnotation)
-    print("annotation stationName: \(annotation?.stationName)")
-    print("annotation latitude: \(annotation?.coordinate.latitude)")
-    print("annotation longitude: \(annotation?.coordinate.longitude)")
+    let annotationView = view as! AnnotationView
+    selectedAnnotationView = annotationView
+    let annotation = (annotationView.annotation as? CustomAnnotation)
     //swiftlint:enable force_cast
+//    print("annotation stationName: \(annotation?.stationName)")
+//    print("annotation latitude: \(annotation?.coordinate.latitude)")
+//    print("annotation longitude: \(annotation?.coordinate.longitude)")
+    pullUpViewDelegate?.setPullUpViewHeight(bottomHeight: 60, animated: true)
     if let moveToCoordinate = annotation?.coordinate {
       bottomPanoramaViewDelegate?.moveNearCoordinate(coordinate: moveToCoordinate)
     }
@@ -236,6 +239,6 @@ extension ContentViewController: MKMapViewDelegate {
   func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
 //    print("Inside \(#function)")
     
-    // Do stuff needed when selecting a Pin on the map
+    // Do stuff needed when deselecting a Pin on the map
   }
 }
