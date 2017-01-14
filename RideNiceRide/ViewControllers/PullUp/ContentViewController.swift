@@ -43,12 +43,19 @@ class ContentViewController: UIViewController
     }
   }
   var pullUpViewDelegate: PullUpViewDelegate?
-  var bottomPanoramaViewDelegate: BottomPanoramaViewDelegate?
+  var panoramaViewDelegate: PanoramaViewDelegate?
+  var selectedStationViewModel: StationViewModel?
   var selectedAnnotationView: AnnotationView? {
     didSet {
       // Ideally, update the pin image or Annotation (View?) size to be larger than the others to signify to the user this one is selected
       // V2 functionality maybe?
-//      self.viewModel?.selectedStationViewModel = //Wha... can't do this without adding the 'selectedStationViewModel' to the ctor???
+
+      let annotation = selectedAnnotationView?.annotation as? CustomAnnotation
+      //swiftlint:disable opening_brace
+      let stationViewModel = viewModel?.hubwayData.first{ $0.stationId == annotation?.stationId }
+      //swiftlint:enable opening_brace
+      print("stationViewModel: \(stationViewModel)")
+      selectedStationViewModel = stationViewModel
     }
   }
 
@@ -160,6 +167,7 @@ class ContentViewController: UIViewController
             let stationLong = CLLocationDegrees(station.station.longitude!)
             let location = CLLocationCoordinate2D(latitude: stationLat!, longitude: stationLong!)
             let annotation = CustomAnnotation(coordinate: location)
+            annotation.stationId = station.stationId
             annotation.availableBikes = Int(station.availableBikes)!
             annotation.title = station.stationName
             annotation.stationName = station.stationName
@@ -172,18 +180,8 @@ class ContentViewController: UIViewController
     return result
   }
 
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-}
 
+}
 extension ContentViewController: ISHPullUpContentDelegate {
 
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, update edgeInsets: UIEdgeInsets, forContentViewController contentVC: UIViewController) {
@@ -196,7 +194,6 @@ extension ContentViewController: ISHPullUpContentDelegate {
     rootView.layoutIfNeeded()
   }
 }
-
 extension ContentViewController: MKMapViewDelegate {
 
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -222,17 +219,18 @@ extension ContentViewController: MKMapViewDelegate {
 //    print("Inside \(#function)")
 
     // Do stuff needed when selecting a Pin on the map
-    //swiftlint:disable force_cast
-    let annotationView = view as! AnnotationView
+    guard let annotationView = view as? AnnotationView else {
+      log.error("Error trying to unwrap AnnotationView while selecting a pin on the MKMap")
+      return
+    }
     selectedAnnotationView = annotationView
-    let annotation = (annotationView.annotation as? CustomAnnotation)
-    //swiftlint:enable force_cast
+    let annotation = annotationView.annotation as? CustomAnnotation
 //    print("annotation stationName: \(annotation?.stationName)")
 //    print("annotation latitude: \(annotation?.coordinate.latitude)")
 //    print("annotation longitude: \(annotation?.coordinate.longitude)")
     pullUpViewDelegate?.setPullUpViewHeight(bottomHeight: 60, animated: true)
     if let moveToCoordinate = annotation?.coordinate {
-      bottomPanoramaViewDelegate?.moveNearCoordinate(coordinate: moveToCoordinate)
+      panoramaViewDelegate?.moveNearCoordinate(coordinate: moveToCoordinate)
     }
   }
   
@@ -240,5 +238,17 @@ extension ContentViewController: MKMapViewDelegate {
 //    print("Inside \(#function)")
     
     // Do stuff needed when deselecting a Pin on the map
+  }
+}
+extension ContentViewController: ManageFavoriteDelegate {
+  func addFavoriteStation() {
+    print("Inside \(#function)")
+    if let stationViewModel = selectedStationViewModel {
+      // Call the HubWay.addStation(forStationId: id) here
+    }
+  }
+  
+  func removeFavoriteStation() {
+    
   }
 }

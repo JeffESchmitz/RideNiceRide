@@ -16,6 +16,10 @@ struct StationViewModel {
   // MARK: -
   
   // MARK: Publice Interface
+  var stationId: String {
+    return station.id ?? ""
+  }
+  
   var stationName: String {
     return station.stationName ?? ""
   }

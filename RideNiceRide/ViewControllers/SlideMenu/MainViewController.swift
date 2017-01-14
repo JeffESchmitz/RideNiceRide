@@ -35,9 +35,10 @@ class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
     contentViewController = contentVC
     bottomViewController  = bottomVC
 
-    contentVC.pullUpViewDelegate  = self
-    contentVC.bottomPanoramaViewDelegate = bottomVC
-    bottomVC.pullUpController     = self
+    contentVC.pullUpViewDelegate    = self
+    contentVC.panoramaViewDelegate  = bottomVC
+    bottomVC.pullUpController       = self
+    bottomVC.manageFavoriteDelegate = contentVC
     contentDelegate = contentVC
     sizingDelegate  = bottomVC
     stateDelegate   = bottomVC

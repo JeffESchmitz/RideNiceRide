@@ -12,7 +12,8 @@ class CustomAnnotation: NSObject, MKAnnotation {
   
   var coordinate: CLLocationCoordinate2D
   
-  var stationName: String!
+  var stationId: String?
+  var stationName: String?
   var isStationLocked: Bool = false
   var availableBikes: Int = 0
   var availableDocks: Int = 0

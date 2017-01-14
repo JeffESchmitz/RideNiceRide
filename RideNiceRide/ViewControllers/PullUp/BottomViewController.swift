@@ -17,11 +17,16 @@ import Willow
  *   This protocol allows you to gain access to the Google PanoramaView nested inside the BottomViewController.
  *   Basically, it's just call forwarding the same functions(with params) on the PanoramaView object.
  */
-protocol BottomPanoramaViewDelegate {
+protocol PanoramaViewDelegate {
   func moveNearCoordinate(coordinate: CLLocationCoordinate2D)
 }
 
-class BottomViewController: UIViewController, BottomPanoramaViewDelegate {
+protocol ManageFavoriteDelegate {
+  func addFavoriteStation()
+  func removeFavoriteStation()
+}
+
+class BottomViewController: UIViewController, PanoramaViewDelegate {
 
   // MARK: - Private properties
   fileprivate var isFavoriteTouched = false
@@ -38,6 +43,7 @@ class BottomViewController: UIViewController, BottomPanoramaViewDelegate {
   var firstAppearanceCompleted = false
   weak var pullUpController: ISHPullUpViewController!
   var panoView: GMSPanoramaView?
+  var manageFavoriteDelegate: ManageFavoriteDelegate?
 
   // allow the pullup to snap to the half-way point
   var halfWayPoint = CGFloat(0)
@@ -69,8 +75,10 @@ class BottomViewController: UIViewController, BottomPanoramaViewDelegate {
   
   @IBAction func favoriteTouched(_ sender: Any) {
     if isFavoriteTouched == true {
+      manageFavoriteDelegate?.removeFavoriteStation()
       addFavoriteButton.setTitle("Add Favorite", for: .normal)
     } else {
+      manageFavoriteDelegate?.addFavoriteStation()
       addFavoriteButton.setTitle("Remove Favorite", for: .normal)
     }
     isFavoriteTouched = !isFavoriteTouched
