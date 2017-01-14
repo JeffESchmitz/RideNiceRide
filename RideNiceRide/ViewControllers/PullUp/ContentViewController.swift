@@ -245,6 +245,7 @@ extension ContentViewController: ManageFavoriteDelegate {
     print("Inside \(#function)")
     if let stationViewModel = selectedStationViewModel {
       // Call the HubWay.addStation(forStationId: id) here
+      _ = hubwayAPI.insertFavorite(forStation: stationViewModel.station)
     }
   }
   
