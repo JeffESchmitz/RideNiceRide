@@ -250,6 +250,9 @@ extension ContentViewController: ManageFavoriteDelegate {
   }
   
   func removeFavoriteStation() {
-    
+    print("Inside \(#function)")
+    if let stationViewModel = selectedStationViewModel {
+      hubwayAPI.removeFavorite(forStation: stationViewModel.station)
+    }
   }
 }

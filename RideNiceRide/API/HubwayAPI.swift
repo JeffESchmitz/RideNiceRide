@@ -45,26 +45,15 @@ class HubwayAPI: NSObject {
         })
         
         let dataModelStations = self.fetch(forEntityName: self.stationName, in: self.dataStack.mainContext)
-        
+
         if let stations = dataModelStations as? [Station] {
-          print("stations.count: \(stations.count)")
+          log.info("stations.count: \(stations.count)")
           completionHandlerForStations(stations, nil)
         }
       } else {
         completionHandlerForStations(nil, HubwayAPIError.unknown)
       }
       //swiftlint:enable force_cast
-    }
-  }
-  
-  func fetch(forEntityName entityName: String, in context: NSManagedObjectContext) -> [NSManagedObject] {
-    let request = NSFetchRequest<NSManagedObject>(entityName: entityName)
-    do {
-      let objects = try context.fetch(request)
-      return objects
-    } catch let error as NSError {
-      log.error(":: ERROR: \(error.localizedDescription)")
-      fatalError("Unexpected error executing core data fetch request for entity. error: \(error.localizedDescription)")
     }
   }
   
@@ -118,7 +107,43 @@ class HubwayAPI: NSObject {
   }
   //swiftlint:disable function_body_length
 
+  func fetch(forEntityName entityName: String, withId id: String = "", in context: NSManagedObjectContext) -> [NSManagedObject] {
+    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+    if !id.isEmpty {
+      fetchRequest.predicate = NSPredicate(format: "id = %@", id)
+    }
+    do {
+      let objects = try context.fetch(fetchRequest)
+      return objects
+    } catch let error as NSError {
+      log.error(":: ERROR: \(error.localizedDescription)")
+      fatalError("Unexpected error executing core data fetch request for entities. error: \(error.localizedDescription)")
+    }
+  }
   
+  func removeFavorite(forStation station: Station) {
+    guard let id = station.id else {
+      return
+    }
+    dataStack.performInNewBackgroundContext { (backgroundContext) in
+      let results = self.fetch(forEntityName: "FavoriteStation", withId: id, in: backgroundContext)
+//      if results.count > 1 {
+//        fatalError("More than one FavoriteStation returned for id: \(id). Count: \(results.count)")
+//      }
+      
+      for object in results {
+        backgroundContext.delete(object)
+      }
+      
+      do {
+        try backgroundContext.save()
+      } catch let error as NSError {
+        log.error(":: ERROR: \(error.localizedDescription)")
+        fatalError("Unexpected error delteing FavoriteStation for id: \(id). error: \(error.localizedDescription)")
+      }
+    }
+  }
+
 }
 //class HubwayAPI {
 ////  // Singleton code - TODO: bring back when DATASTack is working...
