@@ -197,9 +197,7 @@ extension ContentViewController: ISHPullUpContentDelegate {
 extension ContentViewController: MKMapViewDelegate {
 
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-
 //    print("Inside \(#function)")
-    
     if annotation is MKUserLocation {
       return nil
     }
@@ -225,9 +223,6 @@ extension ContentViewController: MKMapViewDelegate {
     }
     selectedAnnotationView = annotationView
     let annotation = annotationView.annotation as? CustomAnnotation
-//    print("annotation stationName: \(annotation?.stationName)")
-//    print("annotation latitude: \(annotation?.coordinate.latitude)")
-//    print("annotation longitude: \(annotation?.coordinate.longitude)")
     pullUpViewDelegate?.setPullUpViewHeight(bottomHeight: 60, animated: true)
     if let moveToCoordinate = annotation?.coordinate {
       panoramaViewDelegate?.moveNearCoordinate(coordinate: moveToCoordinate)
@@ -252,7 +247,9 @@ extension ContentViewController: ManageFavoriteDelegate {
   func removeFavoriteStation() {
     print("Inside \(#function)")
     if let stationViewModel = selectedStationViewModel {
-      hubwayAPI.removeFavorite(forStation: stationViewModel.station)
+      dataStack.performInNewBackgroundContext({ (backgroundContext) in
+        self.hubwayAPI.removeFavorite(forStationId: stationViewModel.stationId, in: backgroundContext)
+      })
     }
   }
 }

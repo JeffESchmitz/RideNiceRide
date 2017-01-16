@@ -12,16 +12,22 @@ import GooglePlaces
 import Willow
 import Cent
 import CoreData
+import DATAStack
 
 class FavoritesViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-  // swiftlint:disable force_cast
-  let appDelegate = UIApplication.shared.delegate as! AppDelegate
-  // swiftlint:enable force_cast
-  
+  lazy var hubwayAPI: HubwayAPI = HubwayAPI(dataStack: self.dataStack)
+  unowned var dataStack: DATAStack
   var tableData: [FavoriteStation] = []
   
+  required init?(coder aDecoder: NSCoder) {
+    //swiftlint:disable force_cast
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
+    self.dataStack = appdelegate.dataStack
+    //swiftlint:enable force_cast
+    super.init(coder: aDecoder)
+  }
   
   // MARK: - View Lifecycle functions
   override func viewDidLoad() {
@@ -36,7 +42,7 @@ class FavoritesViewController: UIViewController {
     super.viewWillAppear(animated)
     self.setNavigationBarItem()
     
-    let mainContext = appDelegate.dataStack.mainContext
+    let mainContext = dataStack.mainContext
     
     let objects = self.fetch(forEntityName: String(describing: FavoriteStation.self), in: mainContext)
     log.info("objects.count: \(objects.count)")
@@ -48,12 +54,14 @@ class FavoritesViewController: UIViewController {
     self.tableView.reloadData()
   }
   
+
+  
   
   // MARK: - Helper/utility functions
   //swiftlint:disable force_cast
   //swiftlint:disable force_try
   func generateStubTableDataOnBackgroundContext() {
-    appDelegate.dataStack.performInNewBackgroundContext { (backgroundContext) in
+    dataStack.performInNewBackgroundContext { (backgroundContext) in
       self.clearOutFavoriteData(in: backgroundContext)
       
       _ = FavoriteStation(stationName: "Huntington Ave", address1: "Brigham Cir", availableBikes: "6", totalDocks: "15", context:backgroundContext)
@@ -105,4 +113,27 @@ extension FavoritesViewController: UITableViewDataSource {
 
 extension FavoritesViewController: UITableViewDelegate {
     // add code here...
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      // delete from the tableData
+      let stationToRemove = self.tableData[indexPath.row]
+      
+      if let stationId = stationToRemove.id {
+        hubwayAPI.removeFavorite(forStationId: stationId, in: dataStack.mainContext)
+      }
+
+      guard let favoriteStations = hubwayAPI.fetch(forEntityName: "FavoriteStation", in: dataStack.mainContext) as? [FavoriteStation] else {
+        log.error("Error occured while fetching FavoriteStations after deleting a row.")
+        return
+      }
+      self.tableData = favoriteStations
+
+      // delete the row from the UITableView
+      tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+  }
 }
