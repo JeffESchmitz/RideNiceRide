@@ -456,6 +456,13 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                                     <outlet property="delegate" destination="a3m-6H-Wdj" id="PvN-Uo-nYb"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="foobar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ht-55-ode">
+                                <rect key="frame" x="16" y="322" width="343" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -466,6 +473,7 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emptyTableMessage" destination="6Ht-55-ode" id="thA-iK-b7f"/>
                         <outlet property="tableView" destination="eGc-Af-vxm" id="mQm-6x-3Kq"/>
                     </connections>
                 </viewController>
