@@ -11,11 +11,9 @@ import SlideMenuControllerSwift
 import Willow
 import ISHPullUp
 
-class MainViewController: ISHPullUpViewController {
+class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
 
-  // swiftlint:disable variable_name
-  let log = Logger()
-  // swiftlint:enable variable_name
+  let logger = Logger()
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -35,12 +33,15 @@ class MainViewController: ISHPullUpViewController {
     // swiftlint:enable force_cast
 
     contentViewController = contentVC
-    bottomViewController = bottomVC
+    bottomViewController  = bottomVC
 
-    bottomVC.pullUpController = self
+    contentVC.pullUpViewDelegate    = self
+    contentVC.panoramaViewDelegate  = bottomVC
+    bottomVC.pullUpController       = self
+    bottomVC.manageFavoriteDelegate = contentVC
     contentDelegate = contentVC
-    sizingDelegate = bottomVC
-    stateDelegate = bottomVC
+    sizingDelegate  = bottomVC
+    stateDelegate   = bottomVC
   }
 
   override func viewDidLoad() {
@@ -73,38 +74,43 @@ class MainViewController: ISHPullUpViewController {
    }
    */
 
+  // MARK: - PullUpViewDelegate
+  func setPullUpViewHeight(bottomHeight: CGFloat, animated: Bool) {
+    self.setBottomHeight(bottomHeight, animated: animated)
+  }
+
 }
 extension MainViewController: SlideMenuControllerDelegate {
 
   func leftWillOpen() {
-    log.debug("SlideMenuControllerDelegate: leftWillOpen")
+    logger.debug("SlideMenuControllerDelegate: leftWillOpen")
   }
 
   func leftDidOpen() {
-    log.debug("SlideMenuControllerDelegate: leftDidOpen")
+    logger.debug("SlideMenuControllerDelegate: leftDidOpen")
   }
 
   func leftWillClose() {
-    log.debug("SlideMenuControllerDelegate: leftWillClose")
+    logger.debug("SlideMenuControllerDelegate: leftWillClose")
   }
 
   func leftDidClose() {
-    log.debug("SlideMenuControllerDelegate: leftDidClose")
+    logger.debug("SlideMenuControllerDelegate: leftDidClose")
   }
 
   func rightWillOpen() {
-    log.debug("SlideMenuControllerDelegate: rightWillOpen")
+    logger.debug("SlideMenuControllerDelegate: rightWillOpen")
   }
 
   func rightDidOpen() {
-    log.debug("SlideMenuControllerDelegate: rightDidOpen")
+    logger.debug("SlideMenuControllerDelegate: rightDidOpen")
   }
 
   func rightWillClose() {
-    log.debug("SlideMenuControllerDelegate: rightWillClose")
+    logger.debug("SlideMenuControllerDelegate: rightWillClose")
   }
 
   func rightDidClose() {
-    log.debug("SlideMenuControllerDelegate: rightDidClose")
+    logger.debug("SlideMenuControllerDelegate: rightDidClose")
   }
 }

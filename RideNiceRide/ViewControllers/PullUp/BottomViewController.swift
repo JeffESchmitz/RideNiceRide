@@ -12,21 +12,38 @@ import MapKit
 import GoogleMaps
 import Willow
 
-class BottomViewController: UIViewController {
+// TODO: Move out to a Protocol's file? Maybe, maybe not?
+/**
+ *   This protocol allows you to gain access to the Google PanoramaView nested inside the BottomViewController.
+ *   Basically, it's just call forwarding the same functions(with params) on the PanoramaView object.
+ */
+protocol PanoramaViewDelegate {
+  func moveNearCoordinate(coordinate: CLLocationCoordinate2D)
+}
 
-  // swiftlint:disable variable_name
-  let log = Logger()
-  // swiftlint:enable variable_name
+protocol ManageFavoriteDelegate {
+  func addFavoriteStation()
+  func removeFavoriteStation()
+}
 
+class BottomViewController: UIViewController, PanoramaViewDelegate {
+
+  // MARK: - Private properties
+  fileprivate var isFavoriteTouched = false
+  
+  // MARK: - Public properties
   @IBOutlet weak var handleView: ISHPullUpHandleView!
   @IBOutlet weak var rootView: UIView!
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var topLabel: UILabel!
   @IBOutlet weak var topView: UIView!
   @IBOutlet weak var panoramaView: UIView!
-
+  @IBOutlet weak var addFavoriteButton: UIButton!
+  
   var firstAppearanceCompleted = false
   weak var pullUpController: ISHPullUpViewController!
+  var panoView: GMSPanoramaView?
+  var manageFavoriteDelegate: ManageFavoriteDelegate?
 
   // allow the pullup to snap to the half-way point
   var halfWayPoint = CGFloat(0)
@@ -36,18 +53,35 @@ class BottomViewController: UIViewController {
 
     let frameRect = CGRect(x: 0, y: 0, width: 375, height: 128)
 
-    let panoView = GMSPanoramaView(frame: frameRect)
+    panoView = GMSPanoramaView(frame: frameRect)
+
+    guard let panoView = panoView else {
+      log.error("PanoramaView error - inside function '\(#function)'")
+      return
+    }
     self.panoramaView.frame = panoView.frame
     self.panoramaView.addSubview(panoView)
     self.panoramaView = panoView
 
     let testCoordinate = CLLocationCoordinate2DMake(-33.732, 150.312)
     panoView.moveNearCoordinate(testCoordinate)
+    
   }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     firstAppearanceCompleted = true
+  }
+  
+  @IBAction func favoriteTouched(_ sender: Any) {
+    if isFavoriteTouched == true {
+      manageFavoriteDelegate?.removeFavoriteStation()
+      addFavoriteButton.setTitle("Add Favorite", for: .normal)
+    } else {
+      manageFavoriteDelegate?.addFavoriteStation()
+      addFavoriteButton.setTitle("Remove Favorite", for: .normal)
+    }
+    isFavoriteTouched = !isFavoriteTouched
   }
 
   private dynamic func handleTapGesture(gesture: UITapGestureRecognizer) {
@@ -55,6 +89,12 @@ class BottomViewController: UIViewController {
       return
     }
     pullUpController.toggleState(animated: true)
+  }
+  
+  // MARK: - BottomPanoramaViewDelegate
+  func moveNearCoordinate(coordinate: CLLocationCoordinate2D) {
+//    print("Inside function \(#function) - lat: \(coordinate.latitude), lon: \(coordinate.longitude)")
+    panoView?.moveNearCoordinate(coordinate)
   }
 }
 
@@ -84,7 +124,9 @@ extension BottomViewController: ISHPullUpSizingDelegate {
   }
 
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, minimumHeightForBottomViewController bottomVC: UIViewController) -> CGFloat {
-    return topView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+//    return topView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+    let height = CGFloat(0)
+    return height
   }
 
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, targetHeightForBottomViewController bottomVC: UIViewController, fromCurrentHeight height: CGFloat) -> CGFloat {

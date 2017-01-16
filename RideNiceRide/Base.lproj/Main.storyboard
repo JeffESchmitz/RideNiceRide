@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sZS-VH-XPx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sZS-VH-XPx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,7 +95,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     </mapView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bottom margin 5 pt below line" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hG-2I-Jms" userLabel="Layout Annotation Label">
-                                        <rect key="frame" x="74" y="575" width="228" height="21"/>
+                                        <rect key="frame" x="73.5" y="575" width="228" height="21"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLG-DG-wnI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="153" y="170"/>
+            <point key="canvasLocation" x="326" y="162"/>
         </scene>
         <!--Bottom View Controller-->
         <scene sceneID="ZzI-Jf-dT4">
@@ -176,15 +176,26 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-3R-dXZ">
+                                                <rect key="frame" x="253" y="14" width="114" height="30"/>
+                                                <state key="normal" title="Add Favorite"/>
+                                                <connections>
+                                                    <action selector="favoriteTouched:" destination="XIs-6Y-hIK" eventType="touchUpInside" id="1Uw-RH-mZV"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="AEk-3R-dXZ" firstAttribute="top" secondItem="oa6-M8-4fg" secondAttribute="top" constant="14" id="15J-sW-eCI"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="top" secondItem="idY-sj-9eH" secondAttribute="bottom" constant="2" id="DLO-wM-2RT"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tbl-z5-JN0" secondAttribute="bottom" constant="5" id="MJL-05-oGI"/>
                                             <constraint firstItem="idY-sj-9eH" firstAttribute="top" secondItem="oa6-M8-4fg" secondAttribute="top" constant="6" id="ULc-Sw-brr"/>
+                                            <constraint firstAttribute="bottom" secondItem="AEk-3R-dXZ" secondAttribute="bottom" constant="15" id="YYH-iU-LIX"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="centerX" secondItem="oa6-M8-4fg" secondAttribute="centerX" id="d8T-Ko-yA4"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="leading" secondItem="oa6-M8-4fg" secondAttribute="leading" constant="10" id="jnw-c8-kYp"/>
                                             <constraint firstItem="idY-sj-9eH" firstAttribute="centerX" secondItem="oa6-M8-4fg" secondAttribute="centerX" id="lcV-3W-xy6"/>
+                                            <constraint firstItem="AEk-3R-dXZ" firstAttribute="leading" secondItem="oa6-M8-4fg" secondAttribute="leading" constant="253" id="mAB-AE-AUq"/>
+                                            <constraint firstAttribute="trailing" secondItem="AEk-3R-dXZ" secondAttribute="trailing" constant="8" id="y6d-zi-23g"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="centerY" secondItem="oa6-M8-4fg" secondAttribute="centerY" id="yE8-19-dob"/>
                                         </constraints>
                                     </view>
@@ -270,6 +281,7 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                                             <constraint firstItem="Itp-cO-mPg" firstAttribute="centerX" secondItem="QW7-Rf-hNY" secondAttribute="centerX" id="2tS-yk-28X"/>
                                             <constraint firstItem="Itp-cO-mPg" firstAttribute="top" secondItem="QW7-Rf-hNY" secondAttribute="bottom" constant="10" id="EsD-Bf-rmW"/>
                                             <constraint firstAttribute="height" priority="999" constant="400" id="Iuw-2Q-hvZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="lLq-bV-fWd" secondAttribute="trailing" id="KNz-Od-hrN"/>
                                             <constraint firstAttribute="bottom" secondItem="Itp-cO-mPg" secondAttribute="bottom" constant="10" id="QjI-jt-6wt"/>
                                             <constraint firstItem="QW7-Rf-hNY" firstAttribute="centerX" secondItem="jLg-kR-Lmp" secondAttribute="centerX" id="S1e-Hx-q9h"/>
                                             <constraint firstItem="lLq-bV-fWd" firstAttribute="top" secondItem="jLg-kR-Lmp" secondAttribute="top" id="SU7-4q-SAX"/>
@@ -327,6 +339,7 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="500"/>
                     <connections>
+                        <outlet property="addFavoriteButton" destination="AEk-3R-dXZ" id="RXf-Gc-Efx"/>
                         <outlet property="handleView" destination="idY-sj-9eH" id="f0o-PS-r7J"/>
                         <outlet property="panoramaView" destination="lLq-bV-fWd" id="2gV-Nb-DCb"/>
                         <outlet property="rootView" destination="02A-yA-r4Z" id="foQ-oK-jKg"/>
@@ -337,7 +350,7 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5Q-mO-E0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="574" y="253"/>
+            <point key="canvasLocation" x="326" y="723"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="xCL-1a-Wqn">
@@ -459,36 +472,6 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zaW-GG-5pT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-340" y="875.71214392803608"/>
-        </scene>
-        <!--Rental History View Controller-->
-        <scene sceneID="OaS-7j-M6q">
-            <objects>
-                <viewController storyboardIdentifier="RentalHistoryViewController" id="Fd8-7J-3oa" customClass="RentalHistoryViewController" customModule="RideNiceRide" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Cql-Hl-QCv"/>
-                        <viewControllerLayoutGuide type="bottom" id="BgU-Ld-h3V"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IHY-2S-5IB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rental History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PtX-ee-nbE">
-                                <rect key="frame" x="133" y="323" width="108" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="PtX-ee-nbE" firstAttribute="centerX" secondItem="IHY-2S-5IB" secondAttribute="centerX" id="CqF-Xa-IYD"/>
-                            <constraint firstItem="PtX-ee-nbE" firstAttribute="centerY" secondItem="IHY-2S-5IB" secondAttribute="centerY" id="U8X-lP-5hF"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lMm-N1-4SG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-341" y="1602"/>
         </scene>
     </scenes>
 </document>
