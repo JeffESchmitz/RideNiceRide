@@ -88,31 +88,24 @@ class ContentViewController: UIViewController
   }
 
   override func viewWillAppear(_ animated: Bool) {
-
-//    fetchStationData()
-    
-    // TODO: JES - 1.4.2017 - REMOVE FOLLOWING CODE! Just for demonstration purposes
     HUD.show(.progress)
-    
+
     hubwayAPI.getStations { (stations, error) in
       if let error = error {
-        print(error)
+        log.error("Error occured retreiving Stations from HubwayAPI. '\(error.localizedDescription)'")
         HUD.flash(.error, delay: 1.0)
+
       } else if let stations = stations {
-        
-        
-        let stationsViewModels = self.convertStationsDataModelsToViewModels(stationsDataModels: stations)
-        self.viewModel = ContentViewModel(hubwayData: stationsViewModels)
-        
+//        log.info("stations returned from HubwayAPI: \(stations.count)")
+        let stationViewModels = self.convertStationDataModelsToViewModels(stationDataModels: stations)
+        self.viewModel = ContentViewModel(hubwayData: stationViewModels)
         self.makeAnnotationsAndPlot()
         
-//        HUD.hide(afterDelay: 1.0)
         HUD.hide(animated: true)
       }
     }
   }
 
-  
   // MARK: - View Methods
   private func setupView() {
     
@@ -145,9 +138,9 @@ class ContentViewController: UIViewController
 
   
   // MARK: - Helper methods
-  private func convertStationsDataModelsToViewModels(stationsDataModels: [Station]) -> [StationViewModel] {
+  private func convertStationDataModelsToViewModels(stationDataModels: [Station]) -> [StationViewModel] {
     var result = [StationViewModel]()
-    for stationDataModel in stationsDataModels {
+    for stationDataModel in stationDataModels {
       result.append(StationViewModel(station: stationDataModel))
     }
     return result

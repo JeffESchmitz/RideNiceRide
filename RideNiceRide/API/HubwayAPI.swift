@@ -33,27 +33,28 @@ class HubwayAPI: NSObject {
   func getStations(completionHandlerForStations: @escaping StationDataCompletion) {
     Alamofire.request(hubwayURL).responseJSON { response in
       
-      //swiftlint:disable force_cast
       if let error = response.result.error {
         print("AlamoFire Error: \(error)")
         completionHandlerForStations(nil, error)
         
       } else if let data = response.result.value as? [String: Any] {
         print("response.result.value: \(data)")
-        Sync.changes(data["stationBeanList"] as! [[String: Any]], inEntityNamed: self.stationName, dataStack: self.dataStack, completion: { (error) in
-          completionHandlerForStations(nil, HubwayAPIError.syncChangeError)
-        })
-        
-        let dataModelStations = self.fetch(forEntityName: self.stationName, in: self.dataStack.mainContext)
-        
-        if let stations = dataModelStations as? [Station] {
-          log.info("stations.count: \(stations.count)")
-          completionHandlerForStations(stations, nil)
+        guard let json = data["stationBeanList"] as? [[String: Any]] else {
+          log.error("ERROR: Very bad, very, very bad. No JSON in the data returned in the response from Hubway???")
+          return
         }
+        Sync.changes(json, inEntityNamed: self.stationName, dataStack: self.dataStack, completion: { (error) in
+          
+          let dataModelStations = self.fetch(forEntityName: "Station", in: self.dataStack.mainContext)
+          guard let stations = dataModelStations as? [Station] else {
+            return completionHandlerForStations(nil, HubwayAPIError.failedRequest)
+          }
+          completionHandlerForStations(stations, nil)
+        
+        })
       } else {
         completionHandlerForStations(nil, HubwayAPIError.unknown)
       }
-      //swiftlint:enable force_cast
     }
   }
   

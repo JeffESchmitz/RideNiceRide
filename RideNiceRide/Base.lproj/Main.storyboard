@@ -364,26 +364,26 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eGc-Af-vxm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="210" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eGc-Af-vxm">
                                 <rect key="frame" x="0.0" y="10" width="375" height="657"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoritesTableViewCell" id="iqn-ZV-a8s" customClass="FavoritesTableViewCell" customModule="RideNiceRide" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iqn-ZV-a8s" id="YB6-Jt-rwM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="addressLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfM-KZ-xdK">
-                                                    <rect key="frame" x="8" y="4" width="200" height="21"/>
+                                                    <rect key="frame" x="8" y="14" width="200" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMY-DX-57X">
-                                                    <rect key="frame" x="8" y="29" width="200" height="18"/>
+                                                    <rect key="frame" x="8" y="39" width="200" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="VPi-vM-S4y"/>
                                                     </constraints>
@@ -392,33 +392,33 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhW-mg-7jL" userLabel="bikesValueLabel">
-                                                    <rect key="frame" x="259" y="4" width="21" height="21"/>
+                                                    <rect key="frame" x="259" y="14" width="21" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0s-TP-qKh" userLabel="racksValueLabel">
-                                                    <rect key="frame" x="336" y="4" width="21" height="21"/>
+                                                    <rect key="frame" x="336" y="14" width="21" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bikes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXD-pR-iNh">
-                                                    <rect key="frame" x="253" y="31" width="32" height="16"/>
+                                                    <rect key="frame" x="253" y="41" width="32" height="16"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="racks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYJ-gn-fhh">
-                                                    <rect key="frame" x="330" y="31" width="33" height="16"/>
+                                                    <rect key="frame" x="330" y="41" width="33" height="16"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6gX-H4-XTO">
-                                                    <rect key="frame" x="0.0" y="55" width="375" height="120"/>
+                                                    <rect key="frame" x="0.0" y="55" width="375" height="140"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="120" id="D01-0e-hkY"/>
+                                                        <constraint firstAttribute="height" constant="140" id="D01-0e-hkY"/>
                                                     </constraints>
                                                 </mapView>
                                             </subviews>
@@ -427,13 +427,13 @@ Two view subclasses are provided to make beautiful iOS10 style designs easier. <
                                                 <constraint firstItem="rXD-pR-iNh" firstAttribute="baseline" secondItem="BYJ-gn-fhh" secondAttribute="baseline" id="5ZI-AK-mll"/>
                                                 <constraint firstItem="UfM-KZ-xdK" firstAttribute="leading" secondItem="YB6-Jt-rwM" secondAttribute="leadingMargin" id="5z9-OF-0Sl"/>
                                                 <constraint firstItem="dhW-mg-7jL" firstAttribute="baseline" secondItem="I0s-TP-qKh" secondAttribute="baseline" id="Fot-Eh-M2h"/>
-                                                <constraint firstItem="6gX-H4-XTO" firstAttribute="top" secondItem="IMY-DX-57X" secondAttribute="bottom" constant="8" symbolic="YES" id="Gpx-ea-Rd3"/>
+                                                <constraint firstItem="6gX-H4-XTO" firstAttribute="top" secondItem="IMY-DX-57X" secondAttribute="bottom" constant="-2" id="Gpx-ea-Rd3"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BYJ-gn-fhh" secondAttribute="trailing" constant="4" id="PND-Vm-Ngg"/>
                                                 <constraint firstItem="UfM-KZ-xdK" firstAttribute="trailing" secondItem="IMY-DX-57X" secondAttribute="trailing" id="SDD-VN-jr7"/>
                                                 <constraint firstItem="UfM-KZ-xdK" firstAttribute="leading" secondItem="IMY-DX-57X" secondAttribute="leading" id="Sai-sd-dBf"/>
                                                 <constraint firstItem="rXD-pR-iNh" firstAttribute="top" secondItem="dhW-mg-7jL" secondAttribute="bottom" constant="6" id="VVj-Az-K2K"/>
                                                 <constraint firstItem="IMY-DX-57X" firstAttribute="baseline" secondItem="rXD-pR-iNh" secondAttribute="baseline" id="Z6L-ms-Y4j"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="6gX-H4-XTO" secondAttribute="bottom" constant="17" id="dez-Z0-GyO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6gX-H4-XTO" secondAttribute="bottom" constant="7" id="dez-Z0-GyO"/>
                                                 <constraint firstItem="UfM-KZ-xdK" firstAttribute="baseline" secondItem="dhW-mg-7jL" secondAttribute="baseline" id="elM-9a-1hk"/>
                                                 <constraint firstItem="6gX-H4-XTO" firstAttribute="leading" secondItem="YB6-Jt-rwM" secondAttribute="leading" id="h1G-j7-Ueu"/>
                                                 <constraint firstItem="BYJ-gn-fhh" firstAttribute="leading" secondItem="rXD-pR-iNh" secondAttribute="trailing" constant="45" id="p1G-LF-ZRs"/>
