@@ -65,8 +65,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let leftViewController = storyboard.instantiateViewController(withIdentifier: "LeftViewController") as? LeftViewController
 
     let navicationController: UINavigationController = UINavigationController(rootViewController: mainViewController!)
-
-    UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
+    
+    UINavigationBar.appearance().barTintColor = UIColor(hex: "2BAF2B")
+    UINavigationBar.appearance().tintColor = UIColor.white
+    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+    
 
     leftViewController?.mainViewController = navicationController
 

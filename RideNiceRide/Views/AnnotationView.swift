@@ -20,7 +20,7 @@ class AnnotationView: MKAnnotationView {
     let image: UIImage?
     switch customAnnotation.availableBikes {
     case 0:
-      if !customAnnotation.isStationLocked {
+      if customAnnotation.isStationLocked {
         image = #imageLiteral(resourceName: "redPin")
       } else {
         image = #imageLiteral(resourceName: "bluePin")
@@ -40,7 +40,7 @@ class AnnotationView: MKAnnotationView {
     let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 17, height: 17)))
     label.textAlignment = .center
     label.textColor = UIColor.white
-    label.text = customAnnotation.availableBikes <  0 ? "" : String(Int(customAnnotation.availableBikes))
+    label.text = customAnnotation.availableBikes <=  0 ? "" : String(Int(customAnnotation.availableBikes))
     label.font = label.font.withSize(12)
     //    label.backgroundColor = UIColor.lightGray // For UI Debugging
     self.addSubview(label)

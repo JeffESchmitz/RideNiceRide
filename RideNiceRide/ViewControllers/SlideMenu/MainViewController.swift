@@ -47,6 +47,7 @@ class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+    self.title = "Map"
   }
 
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

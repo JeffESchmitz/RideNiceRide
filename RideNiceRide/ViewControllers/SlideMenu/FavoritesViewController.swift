@@ -23,7 +23,7 @@ class FavoritesViewController: UIViewController {
   
   @IBOutlet weak var emptyTableMessage: UILabel!
   
-  
+
   required init?(coder aDecoder: NSCoder) {
     //swiftlint:disable force_cast
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
@@ -38,6 +38,7 @@ class FavoritesViewController: UIViewController {
     
     // Do any additional setup after loading the view.
 //    generateStubTableDataOnBackgroundContext()
+    self.title = "Favorites"
     self.emptyTableMessage.text = "You don't have any Favorites yet.\n\nYou can add one by tapping on a pin and then 'Add Favorite'."
   }
   
@@ -107,7 +108,7 @@ extension FavoritesViewController: UITableViewDataSource {
       return 1
     } else {
       emptyTableMessage.isHidden = false
-      return 0
+      return 1
     }
   }
 
