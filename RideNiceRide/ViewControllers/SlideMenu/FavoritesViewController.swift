@@ -21,6 +21,9 @@ class FavoritesViewController: UIViewController {
   unowned var dataStack: DATAStack
   var tableData: [FavoriteStation] = []
   
+  @IBOutlet weak var emptyTableMessage: UILabel!
+  
+
   required init?(coder aDecoder: NSCoder) {
     //swiftlint:disable force_cast
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
@@ -35,7 +38,8 @@ class FavoritesViewController: UIViewController {
     
     // Do any additional setup after loading the view.
 //    generateStubTableDataOnBackgroundContext()
-    
+    self.title = "Favorites"
+    self.emptyTableMessage.text = "You don't have any Favorites yet.\n\nYou can add one by tapping on a pin and then 'Add Favorite'."
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -98,7 +102,14 @@ extension FavoritesViewController: UITableViewDataSource {
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+//    return 1
+    if tableData.isNotEmpty {
+      emptyTableMessage.isHidden = true
+      return 1
+    } else {
+      emptyTableMessage.isHidden = false
+      return 1
+    }
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

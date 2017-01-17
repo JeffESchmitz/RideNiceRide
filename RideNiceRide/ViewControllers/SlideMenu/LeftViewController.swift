@@ -29,7 +29,7 @@ class LeftViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
 
-  var menus = ["Main", "Favorites", "Rental History"]
+  var menus = ["Map", "Favorites", "Rental History"]
   var mainViewController: UIViewController!
   var favoritesViewController: UIViewController!
   var rentalHistoryViewController: UIViewController!
@@ -52,6 +52,7 @@ class LeftViewController: UIViewController {
     self.favoritesViewController = UINavigationController(rootViewController: favoritesVC!)
 
     tableView.registerCellClass(BaseTableViewCell.self)
+    tableView.backgroundColor = UIColor(hex: "F1F8E9")
 
     imageHeaderView = ImageHeaderView.loadNib()
     view.addSubview(imageHeaderView)
@@ -77,6 +78,7 @@ extension LeftViewController: LeftMenuProtocol {
       }
       let safariViewController = SFSafariViewController(url: targetUrl)
       safariViewController.delegate = self
+      safariViewController.title = "Rental History"
       self.present(safariViewController, animated: true, completion: nil)
       self.slideMenuController()?.closeLeft()
 
