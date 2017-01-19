@@ -51,7 +51,12 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    let frameRect = CGRect(x: 0, y: 0, width: 375, height: 128)
+    let screenWidth = UIScreen.main.bounds.width
+    log.info("screenWidth: \(screenWidth)")
+    let panoHeight = UIScreen.main.bounds.height * 0.3
+    log.info("panoHeight: \(panoHeight)")
+
+    let frameRect = CGRect(x: 0, y: 0, width: screenWidth, height: panoHeight)
 
     panoView = GMSPanoramaView(frame: frameRect)
 

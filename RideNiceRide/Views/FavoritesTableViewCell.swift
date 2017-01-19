@@ -86,9 +86,7 @@ class FavoritesTableViewCell: UITableViewCell {
     }
   }
   
-  //  func setMapLocation(mapView: MKMapView, latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoom: Double = 1) {
   func setMapLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoom: Double = 1) {
-    
     // define the map zoom span
     let latitudZoomLevel: CLLocationDegrees = zoom
     let longitudZoomLevel: CLLocationDegrees = zoom
@@ -100,7 +98,7 @@ class FavoritesTableViewCell: UITableViewCell {
     // define and set the region of our map using the zoom map and location
     let region: MKCoordinateRegion = MKCoordinateRegionMake(location, zoomSpan)
     mapView.setRegion(region, animated: true)
-    
+
   }
 }
 
