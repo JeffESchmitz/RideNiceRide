@@ -121,7 +121,8 @@ extension BottomViewController: GMSPanoramaViewDelegate {
 extension BottomViewController: ISHPullUpSizingDelegate {
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, maximumHeightForBottomViewController bottomVC: UIViewController, maximumAvailableHeight: CGFloat) -> CGFloat {
     let totalHeight = rootView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
-
+//    let totalHeight = CGFloat(359.0)
+    
     // Allow the pullUp to snap to the half way point, calculate the cached
     // value here and perform the snapping in ..targetHeightForBottomViewController..
     halfWayPoint = totalHeight / 2.0
