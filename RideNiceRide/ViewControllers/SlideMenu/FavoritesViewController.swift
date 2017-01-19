@@ -37,7 +37,6 @@ class FavoritesViewController: UIViewController {
     super.viewDidLoad()
     
     // Do any additional setup after loading the view.
-//    generateStubTableDataOnBackgroundContext()
     self.title = "Favorites"
     self.emptyTableMessage.text = "You don't have any Favorites yet.\n\nYou can add one by tapping on a pin and then 'Add Favorite'."
   }
@@ -64,18 +63,6 @@ class FavoritesViewController: UIViewController {
   // MARK: - Helper/utility functions
   //swiftlint:disable force_cast
   //swiftlint:disable force_try
-  func generateStubTableDataOnBackgroundContext() {
-    dataStack.performInNewBackgroundContext { (backgroundContext) in
-      self.clearOutFavoriteData(in: backgroundContext)
-      
-      _ = FavoriteStation(stationName: "Huntington Ave", address1: "Brigham Cir", availableBikes: "6", totalDocks: "15", context:backgroundContext)
-      _ = FavoriteStation(stationName: "Mt Pleasant St", address1: "Broadway St", availableBikes: "11", totalDocks: "15", context: backgroundContext)
-      _ = FavoriteStation(stationName: "Mt Auburn", address1: "Mt Auburn", availableBikes: "14", totalDocks: "19", context: backgroundContext)
-      
-      try! backgroundContext.save()
-    }
-  }
-  
   func fetch(forEntityName entityName: String, in context: NSManagedObjectContext) -> [NSManagedObject] {
     let request = NSFetchRequest<NSManagedObject>(entityName: entityName)
     let objects = try! context.fetch(request)
@@ -113,7 +100,6 @@ extension FavoritesViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
     //swiftlint:disable force_cast
     let cell = self.tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier) as! FavoritesTableViewCell
     // swiftlint:enable force_cast

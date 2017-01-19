@@ -7,8 +7,6 @@
 //
 
 import UIKit
-//import GooglePlaces
-//import GoogleMaps
 import MapKit
 import Willow
 
@@ -22,6 +20,12 @@ class FavoritesTableViewCell: UITableViewCell {
   @IBOutlet weak var racksValueLabel: UILabel!
   //  @IBOutlet weak var panoramaView: UIView!
   @IBOutlet weak var mapView: MKMapView!
+  
+  var favoriteStation: FavoriteStation? {
+    didSet {
+      self.reloadData()
+    }
+  }
   
   // swiftlint:disable missing_docs
   public required init?(coder aDecoder: NSCoder) {
@@ -38,24 +42,15 @@ class FavoritesTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    //    initialize()
+    initialize()
   }
   
   open func setup() {
   }
   
-  //  open func initialize() {
-  //    let frameRect = CGRect(x: 0, y: 0, width: 375, height: 104)
-  //    let panoView = GMSPanoramaView(frame: frameRect)
-  //
-  ////    self.panoramaView.frame = panoView.frame
-  //    self.panoramaView.addSubview(panoView)
-  //    self.panoramaView = panoView
-  //
-  //    let testCoordinate = CLLocationCoordinate2DMake(-33.732, 150.312)
-  //    panoView.moveNearCoordinate(testCoordinate)
-  //  }
-  
+  open func initialize() {
+    self.mapView.delegate = self
+  }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
@@ -63,18 +58,25 @@ class FavoritesTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
-  
-  var favoriteStation: FavoriteStation? {
-    didSet {
-      self.reloadData()
-    }
-  }
-  
   func reloadData() {
     if let favoriteStation = self.favoriteStation {
       if let favoriteLat = favoriteStation.latitude, let favoriteLong = favoriteStation.longitude {
-          if let latitude = CLLocationDegrees(favoriteLat), let longitude = CLLocationDegrees(favoriteLong) {
-            setMapLocation(latitude: latitude, longitude: longitude, zoom: 0.005)
+        if let latitude = CLLocationDegrees(favoriteLat), let longitude = CLLocationDegrees(favoriteLong) {
+          setMapLocation(latitude: latitude, longitude: longitude, zoom: 0.005)
+          
+          // TODO: JES - 1.19.2017 - Refactor setMapLocation(::) and add this code to it. Will need to pass the favoriteStation instead of the lat/long coordinates
+          let favoriteLocation = CLLocationCoordinate2DMake(latitude, longitude)
+          let annotation = CustomAnnotation(coordinate: favoriteLocation)
+          annotation.stationId = favoriteStation.id
+          if let availableBikes = favoriteStation.availableBikes {
+            annotation.availableBikes = Int(availableBikes)!
+          }
+          annotation.title = favoriteStation.stationName
+          annotation.stationName = favoriteStation.stationName
+          if let availableDocks = favoriteStation.availableDocks {
+            annotation.availableDocks = Int(availableDocks)!
+          }
+          mapView.addAnnotation(annotation)
         }
       }
       self.addressLabel.text = favoriteStation.stAddress1
@@ -84,9 +86,9 @@ class FavoritesTableViewCell: UITableViewCell {
     }
   }
   
-//  func setMapLocation(mapView: MKMapView, latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoom: Double = 1) {
+  //  func setMapLocation(mapView: MKMapView, latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoom: Double = 1) {
   func setMapLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoom: Double = 1) {
-  
+    
     // define the map zoom span
     let latitudZoomLevel: CLLocationDegrees = zoom
     let longitudZoomLevel: CLLocationDegrees = zoom
@@ -98,5 +100,24 @@ class FavoritesTableViewCell: UITableViewCell {
     // define and set the region of our map using the zoom map and location
     let region: MKCoordinateRegion = MKCoordinateRegionMake(location, zoomSpan)
     mapView.setRegion(region, animated: true)
+    
+  }
+}
+
+extension FavoritesTableViewCell: MKMapViewDelegate {
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    if annotation is MKUserLocation {
+      return nil
+    }
+    
+    var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.identifier)
+    if annotationView == nil {
+      annotationView = AnnotationView(annotation: annotation, reuseIdentifier: AnnotationView.identifier)
+      annotationView?.canShowCallout = false
+    } else {
+      annotationView?.annotation = annotation
+    }
+    
+    return annotationView
   }
 }
