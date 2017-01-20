@@ -54,7 +54,7 @@ class ContentViewController: UIViewController
       //swiftlint:disable opening_brace
       let stationViewModel = viewModel?.hubwayData.first{ $0.stationId == annotation?.stationId }
       //swiftlint:enable opening_brace
-      print("stationViewModel: \(stationViewModel)")
+      log.info("stationViewModel: \(stationViewModel)")
       selectedStationViewModel = stationViewModel
     }
   }
@@ -175,6 +175,7 @@ class ContentViewController: UIViewController
 
 
 }
+
 extension ContentViewController: ISHPullUpContentDelegate {
 
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, update edgeInsets: UIEdgeInsets, forContentViewController contentVC: UIViewController) {
@@ -187,6 +188,7 @@ extension ContentViewController: ISHPullUpContentDelegate {
     rootView.layoutIfNeeded()
   }
 }
+
 extension ContentViewController: MKMapViewDelegate {
 
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -220,14 +222,23 @@ extension ContentViewController: MKMapViewDelegate {
     if let moveToCoordinate = annotation?.coordinate {
       panoramaViewDelegate?.moveNearCoordinate(coordinate: moveToCoordinate)
     }
+    
+    if let stationViewModel = selectedStationViewModel {
+      panoramaViewDelegate?.didSelect(StationViewModel: stationViewModel)
+    }
   }
   
   func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-//    print("Inside \(#function)")
-    
-    // Do stuff needed when deselecting a Pin on the map
+    if let stationViewModel = selectedStationViewModel {
+      panoramaViewDelegate?.didDeselect()
+    }
+    self.selectedStationViewModel = nil
+    self.selectedAnnotationView = nil
+    pullUpViewDelegate?.setPullUpViewHeight(bottomHeight: 0, animated: true)
+
   }
 }
+
 extension ContentViewController: ManageFavoriteDelegate {
   func addFavoriteStation() {
     print("Inside \(#function)")

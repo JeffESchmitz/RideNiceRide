@@ -19,6 +19,11 @@ import Willow
  */
 protocol PanoramaViewDelegate {
   func moveNearCoordinate(coordinate: CLLocationCoordinate2D)
+  // didSelect annotationView
+  // didDeselect annotationView
+  func didSelect(StationViewModel viewModel: StationViewModel)
+  func didDeselect()
+
 }
 
 protocol ManageFavoriteDelegate {
@@ -28,9 +33,6 @@ protocol ManageFavoriteDelegate {
 
 class BottomViewController: UIViewController, PanoramaViewDelegate {
 
-  // MARK: - Private properties
-  fileprivate var isFavoriteTouched = false
-  
   // MARK: - Public properties
   @IBOutlet weak var handleView: ISHPullUpHandleView!
   @IBOutlet weak var rootView: UIView!
@@ -48,6 +50,22 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   // allow the pullup to snap to the half-way point
   var halfWayPoint = CGFloat(0)
 
+  // MARK: - Private properties
+  fileprivate var isFavoriteTouched = false
+  fileprivate var selectedStationViewModel: StationViewModel? {
+    didSet {
+      if selectedStationViewModel == nil {
+        addFavoriteButton.setTitle("Add Favorite", for: .normal)
+      } else {
+        // Need to add a check if this Station is also a Favorite?
+        // If a Favorite, display Remove and a Heart icon in the title
+        // If not a favorite, change the text to "Add Favorite"
+        // Add an enum to track state and evaulate that state in 'favoriteTouched'
+        addFavoriteButton.setTitle("Remove Favorite", for: .normal)
+      }
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -100,6 +118,14 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   func moveNearCoordinate(coordinate: CLLocationCoordinate2D) {
 //    print("Inside function \(#function) - lat: \(coordinate.latitude), lon: \(coordinate.longitude)")
     panoView?.moveNearCoordinate(coordinate)
+  }
+  
+  func didSelect(StationViewModel viewModel: StationViewModel) {
+    self.selectedStationViewModel = viewModel
+  }
+  
+  func didDeselect() {
+    self.selectedStationViewModel = nil
   }
 }
 
