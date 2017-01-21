@@ -67,8 +67,10 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
         if let isAFavorite = selectedStationViewModel?.isStationAFavorite {
           if isAFavorite {
             titleText = addRemoveTextForState(.addFavoriteStation)
+            addRemoveState = .removeFavoriteStation
           } else {
             titleText = addRemoveTextForState(.removeFavoriteStation)
+            addRemoveState = .addFavoriteStation
           }
         }
       }

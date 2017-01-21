@@ -122,7 +122,7 @@ class ContentViewController: UIViewController {
     if let viewModel = viewModel {
       // just for test debugging of viewmodel - replace by populating an Annotation here
       let numberOfStations = viewModel.hubwayData.count
-      print("There are \(numberOfStations) number of Stations in Hubway.")
+      log.info("There are \(numberOfStations) number of Stations in Hubway.")
     }
   }
 
@@ -219,9 +219,8 @@ extension ContentViewController: MKMapViewDelegate {
 
 extension ContentViewController: ManageFavoriteDelegate {
   func addFavoriteStation() {
-    print("Inside \(#function)")
+    log.debug("Inside \(#function)")
     if let stationViewModel = selectedStationViewModel {
-      // Call the HubWay.addStation(forStationId: id) here
       _ = hubwayAPI.insertFavorite(forStation: stationViewModel.station)
     }
   }
