@@ -12,6 +12,12 @@ import MapKit
 import GoogleMaps
 import Willow
 
+enum FavoriteViewState: Int {
+  case unknown
+  case addFavoriteStation
+  case removeFavoriteStation
+}
+
 // TODO: Move out to a Protocol's file? Maybe, maybe not?
 /**
  *   This protocol allows you to gain access to the Google PanoramaView nested inside the BottomViewController.
@@ -51,18 +57,23 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   var halfWayPoint = CGFloat(0)
 
   // MARK: - Private properties
-  fileprivate var isFavoriteTouched = false
+  fileprivate var addRemoveState = FavoriteViewState.unknown
   fileprivate var selectedStationViewModel: StationViewModel? {
     didSet {
+      var titleText = ""
       if selectedStationViewModel == nil {
-        addFavoriteButton.setTitle("Add Favorite", for: .normal)
+        titleText = addRemoveTextForState(.addFavoriteStation)
       } else {
-        // Need to add a check if this Station is also a Favorite?
-        // If a Favorite, display Remove and a Heart icon in the title
-        // If not a favorite, change the text to "Add Favorite"
-        // Add an enum to track state and evaulate that state in 'favoriteTouched'
-        addFavoriteButton.setTitle("Remove Favorite", for: .normal)
+        if let isAFavorite = selectedStationViewModel?.isStationAFavorite {
+          if isAFavorite {
+            titleText = addRemoveTextForState(.addFavoriteStation)
+          } else {
+            titleText = addRemoveTextForState(.removeFavoriteStation)
+          }
+        }
       }
+      log.event("titleText: \(titleText)")
+      addFavoriteButton.setTitle(titleText, for: .normal)
     }
   }
   
@@ -97,14 +108,19 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   }
   
   @IBAction func favoriteTouched(_ sender: Any) {
-    if isFavoriteTouched == true {
-      manageFavoriteDelegate?.removeFavoriteStation()
-      addFavoriteButton.setTitle("Add Favorite", for: .normal)
-    } else {
+    var titleText = ""
+    switch addRemoveState {
+    case .addFavoriteStation:
+      titleText = addRemoveTextForState(.addFavoriteStation)
       manageFavoriteDelegate?.addFavoriteStation()
-      addFavoriteButton.setTitle("Remove Favorite", for: .normal)
+    case .removeFavoriteStation:
+      titleText = addRemoveTextForState(.removeFavoriteStation)
+      manageFavoriteDelegate?.removeFavoriteStation()
+    default:
+      log.warn("An unknown state occured while tapping on the Add/Remove Favorite button")
     }
-    isFavoriteTouched = !isFavoriteTouched
+    log.event("titleText: \(titleText)")
+    addFavoriteButton.setTitle(titleText, for: .normal)
   }
 
   private dynamic func handleTapGesture(gesture: UITapGestureRecognizer) {
@@ -114,17 +130,31 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
     pullUpController.toggleState(animated: true)
   }
   
+  private func addRemoveTextForState(_ state: FavoriteViewState) -> String {
+    switch state {
+    case .removeFavoriteStation:
+      return "Add Favorite"
+    case .addFavoriteStation:
+      return "Remove Favorite"
+    case .unknown:
+      return "Unknown"
+    }
+  }
+  
+  
   // MARK: - BottomPanoramaViewDelegate
   func moveNearCoordinate(coordinate: CLLocationCoordinate2D) {
-//    print("Inside function \(#function) - lat: \(coordinate.latitude), lon: \(coordinate.longitude)")
+    log.event("Inside function \(#function) - lat: \(coordinate.latitude), lon: \(coordinate.longitude)")
     panoView?.moveNearCoordinate(coordinate)
   }
   
   func didSelect(StationViewModel viewModel: StationViewModel) {
+    addRemoveState = .addFavoriteStation
     self.selectedStationViewModel = viewModel
   }
   
   func didDeselect() {
+    addRemoveState = .removeFavoriteStation
     self.selectedStationViewModel = nil
   }
 }
@@ -132,15 +162,15 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
 extension BottomViewController: GMSPanoramaViewDelegate {
   // MARK: - GMSPanoramaViewDelegate
   func panoramaView(_ view: GMSPanoramaView, error: Error, onMoveNearCoordinate coordinate: CLLocationCoordinate2D) {
-    log.debug {"Moving near coordinate (\(coordinate.latitude),\(coordinate.longitude) error: \(error.localizedDescription)"}
+    log.event("Moving near coordinate (\(coordinate.latitude),\(coordinate.longitude) error: \(error.localizedDescription)")
   }
 
   func panoramaView(_ view: GMSPanoramaView, error: Error, onMoveToPanoramaID panoramaID: String) {
-    log.debug("Moving to PanoID \(panoramaID) error: \(error.localizedDescription)")
+    log.event("Moving to PanoID \(panoramaID) error: \(error.localizedDescription)")
   }
 
   func panoramaView(_ view: GMSPanoramaView, didMoveTo panorama: GMSPanorama?) {
-    log.debug("Moved to panoramaID: \(panorama?.panoramaID) coordinates: (\(panorama?.coordinate.latitude),\(panorama?.coordinate.longitude))")
+    log.event("Moved to panoramaID: \(panorama?.panoramaID) coordinates: (\(panorama?.coordinate.latitude),\(panorama?.coordinate.longitude))")
   }
 }
 

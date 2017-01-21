@@ -5,7 +5,6 @@
 //  Created by Jeff Schmitz on 11/14/16.
 //  Copyright © 2016 Jeff Schmitz. All rights reserved.
 //
-
 import UIKit
 import MapKit
 import ISHPullUp
@@ -23,18 +22,13 @@ protocol PullUpViewDelegate {
   func setPullUpViewHeight(bottomHeight: CGFloat, animated: Bool)
 }
 
-class ContentViewController: UIViewController
-//, MKMapViewDelegate
-{
+class ContentViewController: UIViewController {
 
-  // MARK: - Properties (private)
-  fileprivate var currentLocation: CLLocation? {
-    didSet {
-//      fetchWeatherData()
-    }
-  }
-  
   // MARK: - Properties (public)
+  @IBOutlet weak var rootView: UIView!
+  @IBOutlet weak var layoutAnnotationLabel: UILabel!
+  @IBOutlet weak var mapView: MKMapView!
+
   lazy var hubwayAPI: HubwayAPI = HubwayAPI(dataStack: self.dataStack)
   unowned var dataStack: DATAStack
   var viewModel: ContentViewModel? {
@@ -59,11 +53,14 @@ class ContentViewController: UIViewController
     }
   }
 
-  @IBOutlet weak var rootView: UIView!
-  @IBOutlet weak var layoutAnnotationLabel: UILabel!
-  @IBOutlet weak var mapView: MKMapView!
 
-  
+  // MARK: - Properties (private)
+  fileprivate var currentLocation: CLLocation? {
+    didSet {
+      //      fetchWeatherData()
+    }
+  }
+
   // MARK: - View Life Cycle
   required init?(coder aDecoder: NSCoder) {
     //swiftlint:disable force_cast
@@ -76,15 +73,13 @@ class ContentViewController: UIViewController
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // Do any additional setup after loading the view.
     setupView()
-    
+
     // Hard Code the location to Boston - obviously don't want this hard coded
     let location = CLLocationCoordinate2D(latitude: 42.360083, longitude: -71.05888)
     let span = MKCoordinateSpanMake(0.05, 0.05)
     let region = MKCoordinateRegion(center: location, span: span)
     self.mapView.setRegion(region, animated: true)
-
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -94,13 +89,12 @@ class ContentViewController: UIViewController
       if let error = error {
         log.error("Error occured retreiving Stations from HubwayAPI. '\(error.localizedDescription)'")
         HUD.flash(.error, delay: 1.0)
-
       } else if let stations = stations {
-//        log.info("stations returned from HubwayAPI: \(stations.count)")
+        log.info("stations returned from HubwayAPI: \(stations.count)")
         let stationViewModels = self.convertStationDataModelsToViewModels(stationDataModels: stations)
         self.viewModel = ContentViewModel(hubwayData: stationViewModels)
         self.makeAnnotationsAndPlot()
-        
+
         HUD.hide(animated: true)
       }
     }
@@ -108,27 +102,23 @@ class ContentViewController: UIViewController
 
   // MARK: - View Methods
   private func setupView() {
-    
     self.mapView.delegate = self
 
     layoutAnnotationLabel.layer.cornerRadius = 2
     // the mapView should use the rootView's layout margins to
     // correctly update the legal label and coordinate region
     mapView.preservesSuperviewLayoutMargins = true
-    
   }
 
   private func makeAnnotationsAndPlot() {
-    
     let annotations = self.makeAnnotationsFromStations()
-    
+
     for annotation in annotations {
       self.mapView.addAnnotation(annotation)
     }
   }
 
   private func updateView() {
-    
     if let viewModel = viewModel {
       // just for test debugging of viewmodel - replace by populating an Annotation here
       let numberOfStations = viewModel.hubwayData.count
@@ -136,7 +126,7 @@ class ContentViewController: UIViewController
     }
   }
 
-  
+
   // MARK: - Helper methods
   private func convertStationDataModelsToViewModels(stationDataModels: [Station]) -> [StationViewModel] {
     var result = [StationViewModel]()
@@ -145,15 +135,12 @@ class ContentViewController: UIViewController
     }
     return result
   }
-  
+
   private func makeAnnotationsFromStations() -> [CustomAnnotation] {
-//    var result = [MKPointAnnotation]()
     var result = [CustomAnnotation]()
-    
+
     if let stations = self.viewModel?.hubwayData {
-//    if self.items.count > 0 {
       if !stations.isEmpty {
-//      for station in self.items {
         if let hubwayData = self.viewModel?.hubwayData {
           for station in hubwayData {
             let stationLat = CLLocationDegrees(station.station.latitude!)
@@ -172,12 +159,9 @@ class ContentViewController: UIViewController
     }
     return result
   }
-
-
 }
 
 extension ContentViewController: ISHPullUpContentDelegate {
-
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, update edgeInsets: UIEdgeInsets, forContentViewController contentVC: UIViewController) {
 
     // update edgeInsets
@@ -190,13 +174,12 @@ extension ContentViewController: ISHPullUpContentDelegate {
 }
 
 extension ContentViewController: MKMapViewDelegate {
-
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//    print("Inside \(#function)")
+    log.debug("Inside \(#function)")
     if annotation is MKUserLocation {
       return nil
     }
-    
+
     var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.identifier)
     if annotationView == nil {
       annotationView = AnnotationView(annotation: annotation, reuseIdentifier: AnnotationView.identifier)
@@ -204,14 +187,11 @@ extension ContentViewController: MKMapViewDelegate {
     } else {
       annotationView?.annotation = annotation
     }
-    
     return annotationView
   }
-  
-  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//    print("Inside \(#function)")
 
-    // Do stuff needed when selecting a Pin on the map
+  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    log.debug("Inside \(#function)")
     guard let annotationView = view as? AnnotationView else {
       log.error("Error trying to unwrap AnnotationView while selecting a pin on the MKMap")
       return
@@ -222,20 +202,18 @@ extension ContentViewController: MKMapViewDelegate {
     if let moveToCoordinate = annotation?.coordinate {
       panoramaViewDelegate?.moveNearCoordinate(coordinate: moveToCoordinate)
     }
-    
+
     if let stationViewModel = selectedStationViewModel {
       panoramaViewDelegate?.didSelect(StationViewModel: stationViewModel)
     }
   }
-  
+
   func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-    if let stationViewModel = selectedStationViewModel {
-      panoramaViewDelegate?.didDeselect()
-    }
+    //    log.info("Inside \(#function)")
+    panoramaViewDelegate?.didDeselect()
     self.selectedStationViewModel = nil
     self.selectedAnnotationView = nil
     pullUpViewDelegate?.setPullUpViewHeight(bottomHeight: 0, animated: true)
-
   }
 }
 
@@ -247,7 +225,7 @@ extension ContentViewController: ManageFavoriteDelegate {
       _ = hubwayAPI.insertFavorite(forStation: stationViewModel.station)
     }
   }
-  
+
   func removeFavoriteStation() {
     print("Inside \(#function)")
     if let stationViewModel = selectedStationViewModel {

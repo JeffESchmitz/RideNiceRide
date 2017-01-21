@@ -5,7 +5,6 @@
 //  Created by Jeff Schmitz on 11/11/16.
 //  Copyright © 2016 Jeff Schmitz. All rights reserved.
 //
-
 import UIKit
 import Willow
 import SafariServices
@@ -22,18 +21,13 @@ protocol LeftMenuProtocol {
 }
 
 class LeftViewController: UIViewController {
-
-  // swiftlint:disable variable_name
-  let log = Logger()
-  // swiftlint:enable variable_name
-
+  
   @IBOutlet weak var tableView: UITableView!
 
   var menus = ["Map", "Favorites", "Rental History"]
   var mainViewController: UIViewController!
   var favoritesViewController: UIViewController!
   var rentalHistoryViewController: UIViewController!
-
   var imageHeaderView: ImageHeaderView!
 
   let niceRideLoginUrlString = "https://secure.niceridemn.org/profile/login"
