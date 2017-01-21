@@ -209,7 +209,7 @@ extension ContentViewController: MKMapViewDelegate {
   }
 
   func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-    //    log.info("Inside \(#function)")
+    log.debug("Inside \(#function)")
     panoramaViewDelegate?.didDeselect()
     self.selectedStationViewModel = nil
     self.selectedAnnotationView = nil
@@ -227,7 +227,7 @@ extension ContentViewController: ManageFavoriteDelegate {
   }
 
   func removeFavoriteStation() {
-    print("Inside \(#function)")
+    log.debug("Inside \(#function)")
     if let stationViewModel = selectedStationViewModel {
       dataStack.performInNewBackgroundContext({ (backgroundContext) in
         self.hubwayAPI.removeFavorite(forStationId: stationViewModel.stationId, in: backgroundContext)

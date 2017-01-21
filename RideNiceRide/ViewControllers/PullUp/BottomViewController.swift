@@ -47,7 +47,7 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   @IBOutlet weak var topView: UIView!
   @IBOutlet weak var panoramaView: UIView!
   @IBOutlet weak var addFavoriteButton: UIButton!
-  
+
   var firstAppearanceCompleted = false
   weak var pullUpController: ISHPullUpViewController!
   var panoView: GMSPanoramaView?
@@ -76,7 +76,7 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
       addFavoriteButton.setTitle(titleText, for: .normal)
     }
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -97,25 +97,26 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
     self.panoramaView.addSubview(panoView)
     self.panoramaView = panoView
 
-    let testCoordinate = CLLocationCoordinate2DMake(-33.732, 150.312)
-    panoView.moveNearCoordinate(testCoordinate)
-    
+    let centerOfBoston = CLLocationCoordinate2DMake(42.361145, -71.057083)
+    panoView.moveNearCoordinate(centerOfBoston)
   }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     firstAppearanceCompleted = true
   }
-  
+
   @IBAction func favoriteTouched(_ sender: Any) {
     var titleText = ""
     switch addRemoveState {
     case .addFavoriteStation:
       titleText = addRemoveTextForState(.addFavoriteStation)
       manageFavoriteDelegate?.addFavoriteStation()
+      addRemoveState = .removeFavoriteStation
     case .removeFavoriteStation:
       titleText = addRemoveTextForState(.removeFavoriteStation)
       manageFavoriteDelegate?.removeFavoriteStation()
+      addRemoveState = .addFavoriteStation
     default:
       log.warn("An unknown state occured while tapping on the Add/Remove Favorite button")
     }
@@ -129,7 +130,7 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
     }
     pullUpController.toggleState(animated: true)
   }
-  
+
   private func addRemoveTextForState(_ state: FavoriteViewState) -> String {
     switch state {
     case .removeFavoriteStation:
@@ -140,19 +141,19 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
       return "Unknown"
     }
   }
-  
-  
+
+
   // MARK: - BottomPanoramaViewDelegate
   func moveNearCoordinate(coordinate: CLLocationCoordinate2D) {
     log.event("Inside function \(#function) - lat: \(coordinate.latitude), lon: \(coordinate.longitude)")
     panoView?.moveNearCoordinate(coordinate)
   }
-  
+
   func didSelect(StationViewModel viewModel: StationViewModel) {
     addRemoveState = .addFavoriteStation
     self.selectedStationViewModel = viewModel
   }
-  
+
   func didDeselect() {
     addRemoveState = .removeFavoriteStation
     self.selectedStationViewModel = nil
@@ -178,7 +179,7 @@ extension BottomViewController: ISHPullUpSizingDelegate {
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, maximumHeightForBottomViewController bottomVC: UIViewController, maximumAvailableHeight: CGFloat) -> CGFloat {
     let totalHeight = rootView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
 //    let totalHeight = CGFloat(359.0)
-    
+
     // Allow the pullUp to snap to the half way point, calculate the cached
     // value here and perform the snapping in ..targetHeightForBottomViewController..
     halfWayPoint = totalHeight / 2.0
@@ -186,7 +187,7 @@ extension BottomViewController: ISHPullUpSizingDelegate {
   }
 
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, minimumHeightForBottomViewController bottomVC: UIViewController) -> CGFloat {
-//    return topView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+//    let height = topView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
     let height = CGFloat(0)
     return height
   }

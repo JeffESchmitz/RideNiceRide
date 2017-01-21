@@ -36,7 +36,7 @@ class HubwayAPI: NSObject {
         log.error("AlamoFire Error: \(error)")
         completionHandlerForStations(nil, error)
       } else if let data = response.result.value as? [String: Any] {
-        log.info("response.result.value: \(data)")
+        log.debug("response.result.value: \(data)")
         guard let json = data["stationBeanList"] as? [[String: Any]] else {
           log.error("ERROR: Very bad, very, very bad. No JSON in the data returned in the response from Hubway???")
           return
@@ -135,9 +135,12 @@ class HubwayAPI: NSObject {
 
   func removeFavorite(forStationId stationId: String, in context: NSManagedObjectContext) {
     let results = self.fetch(forEntityName: "FavoriteStation", withId: stationId, in: context)
+    log.info("About to delete \(results.count) number of FavoriteStation's. ")
 
     for object in results {
+      log.info("About to delete FavoriteStation: \((object as? FavoriteStation)?.stationName)")
       context.delete(object)
+      log.info("Deleted FavoriteStation: \((object as? FavoriteStation)?.stationName)")
     }
 
     do {
