@@ -1,7 +1,7 @@
 disabled_rules:
   # - opening_brace
   - line_length
-  - trailing_whitespace
+  # trailing_whitespace
   # - todo
   # - variable_name #doesn't allow underscores
 opt_in_rules:

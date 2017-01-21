@@ -5,15 +5,12 @@
 //  Created by Jeff Schmitz on 11/9/16.
 //  Copyright © 2016 Jeff Schmitz. All rights reserved.
 //
-
 import UIKit
 import SlideMenuControllerSwift
 import Willow
 import ISHPullUp
 
 class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
-
-  let logger = Logger()
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -84,34 +81,34 @@ class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
 extension MainViewController: SlideMenuControllerDelegate {
 
   func leftWillOpen() {
-    logger.debug("SlideMenuControllerDelegate: leftWillOpen")
+    log.event("SlideMenuControllerDelegate: leftWillOpen")
   }
 
   func leftDidOpen() {
-    logger.debug("SlideMenuControllerDelegate: leftDidOpen")
+    log.event("SlideMenuControllerDelegate: leftDidOpen")
   }
 
   func leftWillClose() {
-    logger.debug("SlideMenuControllerDelegate: leftWillClose")
+    log.event("SlideMenuControllerDelegate: leftWillClose")
   }
 
   func leftDidClose() {
-    logger.debug("SlideMenuControllerDelegate: leftDidClose")
+    log.event("SlideMenuControllerDelegate: leftDidClose")
   }
 
   func rightWillOpen() {
-    logger.debug("SlideMenuControllerDelegate: rightWillOpen")
+    log.event("SlideMenuControllerDelegate: rightWillOpen")
   }
 
   func rightDidOpen() {
-    logger.debug("SlideMenuControllerDelegate: rightDidOpen")
+    log.event("SlideMenuControllerDelegate: rightDidOpen")
   }
 
   func rightWillClose() {
-    logger.debug("SlideMenuControllerDelegate: rightWillClose")
+    log.event("SlideMenuControllerDelegate: rightWillClose")
   }
 
   func rightDidClose() {
-    logger.debug("SlideMenuControllerDelegate: rightDidClose")
+    log.event("SlideMenuControllerDelegate: rightDidClose")
   }
 }

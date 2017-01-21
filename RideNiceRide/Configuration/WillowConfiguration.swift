@@ -21,7 +21,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 //
-
 //import Database
 import Foundation
 //import Network
@@ -65,25 +64,27 @@ struct WillowConfiguration {
   // MARK: Configure
 
   static func configure(
-    appLogLevels: LogLevel = [.debug, .info, .event],
+    appLogLevels: LogLevel = [.debug, .info, .event, .warn, .error],
     //        databaseLogLevels: LogLevel = [.sql, .debug, .info, .event],
     //        networkLogLevels: LogLevel = [.debug, .info, .event],
     asynchronous: Bool = false) {
-    let writers: [LogLevel: [LogMessageWriter]] = [[.debug, .info, .event, .warn, .error]: [ConsoleWriter()]]
+//    let writers: [LogLevel: [LogMessageWriter]] = [[.debug, .info, .event, .warn, .error]: [ConsoleWriter()]]
+    let writers: [LogLevel: [LogMessageWriter]] = [appLogLevels: [ConsoleWriter()]]
     let executionMethod: LoggerConfiguration.ExecutionMethod
 
     if asynchronous {
       executionMethod = .Synchronous(lock: NSRecursiveLock())
     } else {
       executionMethod = .Asynchronous(
-        queue: DispatchQueue(label: "com.nike.example.logger", qos: .utility)
+        queue: DispatchQueue(label: "com.codefume.RideNiceRide.logger", qos: .utility)
       )
     }
 
     log = configureLogger(
       emoji: "🏦",
       name: "RideNiceRide",
-      modifierLogLevel: [.debug, .info, .event],
+//      modifierLogLevel: [.debug, .info, .event, .warn, .error],
+      modifierLogLevel: appLogLevels,
       writers: writers,
       executionMethod: executionMethod
     )

@@ -5,7 +5,6 @@
 //  Created by Jeff Schmitz on 10/27/16.
 //  Copyright © 2016 Jeff Schmitz. All rights reserved.
 //
-
 import UIKit
 import Fabric
 import Crashlytics
@@ -18,13 +17,11 @@ import Willow
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
   lazy var dataStack: DATAStack = DATAStack(modelName: "RideNiceRide")
 
-
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//    WillowConfiguration.configure(appLogLevels: LogLevel.debug, asynchronous: false)
-    WillowConfiguration.configure()
+    //    WillowConfiguration.configure(appLogLevels: [.debug, .info, .event, .warn, .error], asynchronous: false)
+    WillowConfiguration.configure(appLogLevels: [.info, .event, .warn, .error], asynchronous: false)
 
     // Override point for customization after application launch.
     Fabric.with([Crashlytics.self])
@@ -65,11 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let leftViewController = storyboard.instantiateViewController(withIdentifier: "LeftViewController") as? LeftViewController
 
     let navicationController: UINavigationController = UINavigationController(rootViewController: mainViewController!)
-    
+
+    // TODO: JES - 1.21.2017 - Extract the hex color values into a Constants file and reference in one place.
     UINavigationBar.appearance().barTintColor = UIColor(hex: "2BAF2B")
     UINavigationBar.appearance().tintColor = UIColor.white
     UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
-    
 
     leftViewController?.mainViewController = navicationController
 

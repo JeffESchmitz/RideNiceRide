@@ -12,55 +12,50 @@ import Alamofire
 
 enum HubwayAPIError: Error {
   case unknown
-  
   case failedRequest
   case invalidResponse
   case syncChangeError
 }
 
 class HubwayAPI: NSObject {
-  
+
   typealias StationDataCompletion = ([Station]?, Error?) -> ()
-  
+
   let hubwayURL = "https://feeds.thehubway.com/stations/stations.json"
   let dataStack: DATAStack
   let stationName = "Station"
-  
+
   required init(dataStack: DATAStack) {
     self.dataStack = dataStack
   }
-  
+
   func getStations(completionHandlerForStations: @escaping StationDataCompletion) {
     Alamofire.request(hubwayURL).responseJSON { response in
-      
+
       if let error = response.result.error {
-        print("AlamoFire Error: \(error)")
+        log.error("AlamoFire Error: \(error)")
         completionHandlerForStations(nil, error)
-        
       } else if let data = response.result.value as? [String: Any] {
-        print("response.result.value: \(data)")
+        log.debug("response.result.value: \(data)")
         guard let json = data["stationBeanList"] as? [[String: Any]] else {
           log.error("ERROR: Very bad, very, very bad. No JSON in the data returned in the response from Hubway???")
           return
         }
         Sync.changes(json, inEntityNamed: self.stationName, dataStack: self.dataStack, completion: { (error) in
-          
           let dataModelStations = self.fetch(forEntityName: "Station", in: self.dataStack.mainContext)
           guard let stations = dataModelStations as? [Station] else {
             return completionHandlerForStations(nil, HubwayAPIError.failedRequest)
           }
           completionHandlerForStations(stations, nil)
-        
         })
       } else {
         completionHandlerForStations(nil, HubwayAPIError.unknown)
       }
     }
   }
-  
+
   //swiftlint:disable function_body_length
   func insertFavorite(forStation station: Station) -> NSManagedObject? {
-    
     guard let stationName = station.stationName,
       let address1 = station.stAddress1,
       let address2 = station.stAddress2,
@@ -82,11 +77,11 @@ class HubwayAPI: NSObject {
         log.error(":: ERROR unwrapping station entity")
         return nil
     }
-    
+
     self.dataStack.performInNewBackgroundContext { (backgroundContext) in
-      
+
       _ = FavoriteStation(stationName: stationName, address1: address1, address2: address2, altitude: altitude, availableBikes: availableBikes, availableDocks: availableDocks, city: city, id: id, landMark: landMark, lastCommunicationTime: lastCommunicationTime, latitude: latitude, location: location, longitude: longitude, postalCode: postalCode, statusKey: statusKey, statusValue: statusValue, testStation: station.testStation, totalDocks: totalDocks, context: backgroundContext)
-      
+
       do {
         try backgroundContext.save()
       } catch let error as NSError {
@@ -94,10 +89,10 @@ class HubwayAPI: NSObject {
         fatalError("Unexpected error inserting favorite Station. error: \(error.localizedDescription)")
       }
     }
-    
+
     let favoriteFetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteStation")
     favoriteFetchRequest.predicate = NSPredicate(format: "id = %@", id)
-    
+
     do {
       let favoriteStation = try dataStack.mainContext.fetch(favoriteFetchRequest).first()
       return favoriteStation
@@ -107,7 +102,7 @@ class HubwayAPI: NSObject {
     }
   }
   //swiftlint:disable function_body_length
-  
+
   func fetch(forEntityName entityName: String, withId id: String = "", in context: NSManagedObjectContext) -> [NSManagedObject] {
     let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
     if !id.isEmpty {
@@ -121,15 +116,33 @@ class HubwayAPI: NSObject {
       fatalError("Unexpected error executing core data fetch request for entities. error: \(error.localizedDescription)")
     }
   }
-  
-  //  func removeFavorite(forStation station: Station) {
+
+  static func fetchCountFor(entityName: String, predicate: NSPredicate, in context: NSManagedObjectContext) -> Int {
+    var count: Int = 0
+    context.performAndWait {
+      let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
+      fetchRequest.predicate = predicate
+      fetchRequest.resultType = NSFetchRequestResultType.countResultType
+
+      do {
+        count = try context.count(for: fetchRequest)
+      } catch let error as NSError {
+        log.error("Error returning number of objects for entity: \(entityName) in context \(context.name). Error description: \(error.localizedDescription)")
+      }
+    }
+    return count
+  }
+
   func removeFavorite(forStationId stationId: String, in context: NSManagedObjectContext) {
     let results = self.fetch(forEntityName: "FavoriteStation", withId: stationId, in: context)
-    
+    log.info("About to delete \(results.count) number of FavoriteStation's. ")
+
     for object in results {
+      log.info("About to delete FavoriteStation: \((object as? FavoriteStation)?.stationName)")
       context.delete(object)
+      log.info("Deleted FavoriteStation: \((object as? FavoriteStation)?.stationName)")
     }
-    
+
     do {
       try context.save()
     } catch let error as NSError {
@@ -137,7 +150,6 @@ class HubwayAPI: NSObject {
       fatalError("Unexpected error delteing FavoriteStation for id: \(stationId). error: \(error.localizedDescription)")
     }
   }
-  
 }
 //class HubwayAPI {
 ////  // Singleton code - TODO: bring back when DATASTack is working...

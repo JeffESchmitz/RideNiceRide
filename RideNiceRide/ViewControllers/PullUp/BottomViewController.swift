@@ -12,6 +12,12 @@ import MapKit
 import GoogleMaps
 import Willow
 
+enum FavoriteViewState: Int {
+  case unknown
+  case addFavoriteStation
+  case removeFavoriteStation
+}
+
 // TODO: Move out to a Protocol's file? Maybe, maybe not?
 /**
  *   This protocol allows you to gain access to the Google PanoramaView nested inside the BottomViewController.
@@ -19,6 +25,11 @@ import Willow
  */
 protocol PanoramaViewDelegate {
   func moveNearCoordinate(coordinate: CLLocationCoordinate2D)
+  // didSelect annotationView
+  // didDeselect annotationView
+  func didSelect(StationViewModel viewModel: StationViewModel)
+  func didDeselect()
+
 }
 
 protocol ManageFavoriteDelegate {
@@ -28,9 +39,6 @@ protocol ManageFavoriteDelegate {
 
 class BottomViewController: UIViewController, PanoramaViewDelegate {
 
-  // MARK: - Private properties
-  fileprivate var isFavoriteTouched = false
-  
   // MARK: - Public properties
   @IBOutlet weak var handleView: ISHPullUpHandleView!
   @IBOutlet weak var rootView: UIView!
@@ -39,7 +47,7 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   @IBOutlet weak var topView: UIView!
   @IBOutlet weak var panoramaView: UIView!
   @IBOutlet weak var addFavoriteButton: UIButton!
-  
+
   var firstAppearanceCompleted = false
   weak var pullUpController: ISHPullUpViewController!
   var panoView: GMSPanoramaView?
@@ -47,6 +55,27 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
 
   // allow the pullup to snap to the half-way point
   var halfWayPoint = CGFloat(0)
+
+  // MARK: - Private properties
+  fileprivate var addRemoveState = FavoriteViewState.unknown
+  fileprivate var selectedStationViewModel: StationViewModel? {
+    didSet {
+      var titleText = ""
+      if selectedStationViewModel == nil {
+        titleText = addRemoveTextForState(.addFavoriteStation)
+      } else {
+        if let isAFavorite = selectedStationViewModel?.isStationAFavorite {
+          if isAFavorite {
+            titleText = addRemoveTextForState(.addFavoriteStation)
+          } else {
+            titleText = addRemoveTextForState(.removeFavoriteStation)
+          }
+        }
+      }
+      log.event("titleText: \(titleText)")
+      addFavoriteButton.setTitle(titleText, for: .normal)
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -68,25 +97,31 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
     self.panoramaView.addSubview(panoView)
     self.panoramaView = panoView
 
-    let testCoordinate = CLLocationCoordinate2DMake(-33.732, 150.312)
-    panoView.moveNearCoordinate(testCoordinate)
-    
+    let centerOfBoston = CLLocationCoordinate2DMake(42.361145, -71.057083)
+    panoView.moveNearCoordinate(centerOfBoston)
   }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     firstAppearanceCompleted = true
   }
-  
+
   @IBAction func favoriteTouched(_ sender: Any) {
-    if isFavoriteTouched == true {
-      manageFavoriteDelegate?.removeFavoriteStation()
-      addFavoriteButton.setTitle("Add Favorite", for: .normal)
-    } else {
+    var titleText = ""
+    switch addRemoveState {
+    case .addFavoriteStation:
+      titleText = addRemoveTextForState(.addFavoriteStation)
       manageFavoriteDelegate?.addFavoriteStation()
-      addFavoriteButton.setTitle("Remove Favorite", for: .normal)
+      addRemoveState = .removeFavoriteStation
+    case .removeFavoriteStation:
+      titleText = addRemoveTextForState(.removeFavoriteStation)
+      manageFavoriteDelegate?.removeFavoriteStation()
+      addRemoveState = .addFavoriteStation
+    default:
+      log.warn("An unknown state occured while tapping on the Add/Remove Favorite button")
     }
-    isFavoriteTouched = !isFavoriteTouched
+    log.event("titleText: \(titleText)")
+    addFavoriteButton.setTitle(titleText, for: .normal)
   }
 
   private dynamic func handleTapGesture(gesture: UITapGestureRecognizer) {
@@ -95,32 +130,55 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
     }
     pullUpController.toggleState(animated: true)
   }
-  
+
+  private func addRemoveTextForState(_ state: FavoriteViewState) -> String {
+    switch state {
+    case .removeFavoriteStation:
+      return "Add Favorite"
+    case .addFavoriteStation:
+      return "Remove Favorite"
+    case .unknown:
+      return "Unknown"
+    }
+  }
+
+
   // MARK: - BottomPanoramaViewDelegate
   func moveNearCoordinate(coordinate: CLLocationCoordinate2D) {
-//    print("Inside function \(#function) - lat: \(coordinate.latitude), lon: \(coordinate.longitude)")
+    log.event("Inside function \(#function) - lat: \(coordinate.latitude), lon: \(coordinate.longitude)")
     panoView?.moveNearCoordinate(coordinate)
+  }
+
+  func didSelect(StationViewModel viewModel: StationViewModel) {
+    addRemoveState = .addFavoriteStation
+    self.selectedStationViewModel = viewModel
+  }
+
+  func didDeselect() {
+    addRemoveState = .removeFavoriteStation
+    self.selectedStationViewModel = nil
   }
 }
 
 extension BottomViewController: GMSPanoramaViewDelegate {
   // MARK: - GMSPanoramaViewDelegate
   func panoramaView(_ view: GMSPanoramaView, error: Error, onMoveNearCoordinate coordinate: CLLocationCoordinate2D) {
-    log.debug {"Moving near coordinate (\(coordinate.latitude),\(coordinate.longitude) error: \(error.localizedDescription)"}
+    log.event("Moving near coordinate (\(coordinate.latitude),\(coordinate.longitude) error: \(error.localizedDescription)")
   }
 
   func panoramaView(_ view: GMSPanoramaView, error: Error, onMoveToPanoramaID panoramaID: String) {
-    log.debug("Moving to PanoID \(panoramaID) error: \(error.localizedDescription)")
+    log.event("Moving to PanoID \(panoramaID) error: \(error.localizedDescription)")
   }
 
   func panoramaView(_ view: GMSPanoramaView, didMoveTo panorama: GMSPanorama?) {
-    log.debug("Moved to panoramaID: \(panorama?.panoramaID) coordinates: (\(panorama?.coordinate.latitude),\(panorama?.coordinate.longitude))")
+    log.event("Moved to panoramaID: \(panorama?.panoramaID) coordinates: (\(panorama?.coordinate.latitude),\(panorama?.coordinate.longitude))")
   }
 }
 
 extension BottomViewController: ISHPullUpSizingDelegate {
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, maximumHeightForBottomViewController bottomVC: UIViewController, maximumAvailableHeight: CGFloat) -> CGFloat {
     let totalHeight = rootView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+//    let totalHeight = CGFloat(359.0)
 
     // Allow the pullUp to snap to the half way point, calculate the cached
     // value here and perform the snapping in ..targetHeightForBottomViewController..
@@ -129,7 +187,7 @@ extension BottomViewController: ISHPullUpSizingDelegate {
   }
 
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, minimumHeightForBottomViewController bottomVC: UIViewController) -> CGFloat {
-//    return topView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+//    let height = topView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
     let height = CGFloat(0)
     return height
   }
