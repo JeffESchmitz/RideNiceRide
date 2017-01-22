@@ -47,6 +47,10 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   @IBOutlet weak var topView: UIView!
   @IBOutlet weak var panoramaView: UIView!
   @IBOutlet weak var addFavoriteButton: UIButton!
+  @IBOutlet weak var stationNameLabel: UILabel!
+  @IBOutlet weak var stationAddressLabel: UILabel!
+  @IBOutlet weak var bikesAvailableLabel: UILabel!
+  @IBOutlet weak var docksAvailableLabel: UILabel!
 
   var firstAppearanceCompleted = false
   weak var pullUpController: ISHPullUpViewController!
@@ -76,9 +80,12 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
       }
       log.event("titleText: \(titleText)")
       addFavoriteButton.setTitle(titleText, for: .normal)
+
+      setLabelValues()
     }
   }
 
+  // MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -88,7 +95,6 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
     log.info("panoHeight: \(panoHeight)")
 
     let frameRect = CGRect(x: 0, y: 0, width: screenWidth, height: panoHeight)
-
     panoView = GMSPanoramaView(frame: frameRect)
 
     guard let panoView = panoView else {
@@ -144,6 +150,12 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
     }
   }
 
+  private func setLabelValues() {
+    stationNameLabel.text = selectedStationViewModel?.stationName
+    stationAddressLabel.text = selectedStationViewModel?.address
+    bikesAvailableLabel.text = selectedStationViewModel?.availableBikes
+    docksAvailableLabel.text = selectedStationViewModel?.availableDocks
+  }
 
   // MARK: - BottomPanoramaViewDelegate
   func moveNearCoordinate(coordinate: CLLocationCoordinate2D) {

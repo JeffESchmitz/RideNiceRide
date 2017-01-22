@@ -6,6 +6,8 @@
 //  Copyright © 2017 Jeff Schmitz. All rights reserved.
 //
 import UIKit
+import Cent
+import Dollar
 
 struct StationViewModel {
 
@@ -22,11 +24,20 @@ struct StationViewModel {
   }
 
   var stationName: String {
-    return station.stationName ?? ""
+    if !(station.stationName?.contains("-"))! {
+      return station.stationName?.strip() ?? ""
+    } else {
+      return (station.stationName?.split(delimiter: "-").first()?.strip())!
+    }
   }
 
   var address: String {
-    return "\(station.stAddress1 ?? "") \(station.stAddress2 ?? "")"
+    let addressSandwich = "\(station.stAddress1 ?? "") \(station.stAddress2 ?? "")"
+    if !addressSandwich.contains("-") {
+      return addressSandwich.strip()
+    } else {
+      return (addressSandwich.split(delimiter: "-").last()?.strip())!
+    }
   }
 
   var availableBikes: String {
