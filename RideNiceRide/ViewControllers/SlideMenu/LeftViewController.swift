@@ -21,7 +21,7 @@ protocol LeftMenuProtocol {
 }
 
 class LeftViewController: UIViewController {
-  
+
   @IBOutlet weak var tableView: UITableView!
 
   var menus = ["Map", "Favorites", "Rental History"]

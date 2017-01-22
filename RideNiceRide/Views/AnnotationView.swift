@@ -11,12 +11,11 @@ import MapKit
 class AnnotationView: MKAnnotationView {
   class var identifier: String { return String.className(self) }
 
-  
   override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
     super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-    
+
     let customAnnotation = (annotation as? CustomAnnotation)!
-    
+
     let image: UIImage?
     switch customAnnotation.availableBikes {
     case 0:
@@ -36,7 +35,7 @@ class AnnotationView: MKAnnotationView {
       image = #imageLiteral(resourceName: "bluePin")
     }
     self.image = image
-    
+
     let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 17, height: 17)))
     label.textAlignment = .center
     label.textColor = UIColor.white
@@ -46,11 +45,11 @@ class AnnotationView: MKAnnotationView {
     self.addSubview(label)
 
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-  
+
   override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
     let hitView = super.hitTest(point, with: event)
     if hitView != nil {
@@ -58,7 +57,7 @@ class AnnotationView: MKAnnotationView {
     }
     return hitView
   }
-  
+
   override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
     let rect = self.bounds
     var isInside: Bool = rect.contains(point)

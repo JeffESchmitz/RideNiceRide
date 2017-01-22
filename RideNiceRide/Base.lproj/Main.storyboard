@@ -161,7 +161,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oa6-M8-4fg" userLabel="Topview">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PullUp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbl-z5-JN0" userLabel="Top Label">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PullUp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbl-z5-JN0" userLabel="Top Label">
                                                 <rect key="frame" x="10" y="19.5" width="355" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -279,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5Q-mO-E0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325.60000000000002" y="722.33883058470769"/>
+            <point key="canvasLocation" x="325.5" y="722"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="xCL-1a-Wqn">

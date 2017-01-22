@@ -19,7 +19,7 @@ struct ContentViewModel {
     return hubwayData.count
   }
 
-  
+
 //  var stationName: String {
 //    return station.stationName ?? ""
 //  }

@@ -15,12 +15,12 @@ struct StationViewModel {
   // MARK: -
   fileprivate let appDelegate = UIApplication.shared.delegate as? AppDelegate
   fileprivate let dataStack = (UIApplication.shared.delegate as? AppDelegate)!.dataStack
-  
+
   // MARK: Public Interface
   var stationId: String {
     return station.id ?? ""
   }
-  
+
   var stationName: String {
     return station.stationName ?? ""
   }
