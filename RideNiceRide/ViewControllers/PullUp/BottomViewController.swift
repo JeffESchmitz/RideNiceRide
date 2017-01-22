@@ -64,22 +64,21 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   fileprivate var addRemoveState = FavoriteViewState.unknown
   fileprivate var selectedStationViewModel: StationViewModel? {
     didSet {
-      var titleText = ""
+      var starImage: UIImage?
       if selectedStationViewModel == nil {
-        titleText = addRemoveTextForState(.addFavoriteStation)
+        starImage = UIImage(asset: .Star_off)
       } else {
         if let isAFavorite = selectedStationViewModel?.isStationAFavorite {
           if isAFavorite {
-            titleText = addRemoveTextForState(.addFavoriteStation)
             addRemoveState = .removeFavoriteStation
+            starImage = UIImage(asset: .Star_on)
           } else {
-            titleText = addRemoveTextForState(.removeFavoriteStation)
             addRemoveState = .addFavoriteStation
+            starImage = UIImage(asset: .Star_off)
           }
         }
       }
-      log.event("titleText: \(titleText)")
-      addFavoriteButton.setTitle(titleText, for: .normal)
+      addFavoriteButton.setImage(starImage, for: .normal)
 
       setLabelValues()
     }
@@ -115,21 +114,21 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   }
 
   @IBAction func favoriteTouched(_ sender: Any) {
-    var titleText = ""
+    var starImage: UIImage?
+
     switch addRemoveState {
     case .addFavoriteStation:
-      titleText = addRemoveTextForState(.addFavoriteStation)
       manageFavoriteDelegate?.addFavoriteStation()
+      starImage = UIImage(asset: .Star_on)
       addRemoveState = .removeFavoriteStation
     case .removeFavoriteStation:
-      titleText = addRemoveTextForState(.removeFavoriteStation)
       manageFavoriteDelegate?.removeFavoriteStation()
+      starImage = UIImage(asset: .Star_off)
       addRemoveState = .addFavoriteStation
     default:
       log.warn("An unknown state occured while tapping on the Add/Remove Favorite button")
     }
-    log.event("titleText: \(titleText)")
-    addFavoriteButton.setTitle(titleText, for: .normal)
+    addFavoriteButton.setImage(starImage, for: .normal)
   }
 
   private dynamic func handleTapGesture(gesture: UITapGestureRecognizer) {
