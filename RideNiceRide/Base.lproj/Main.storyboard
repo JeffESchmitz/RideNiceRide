@@ -175,32 +175,6 @@
                                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PullUp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbl-z5-JN0" userLabel="Top Label">
-                                                <rect key="frame" x="10" y="19" width="355" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idY-sj-9eH" userLabel="Handle View" customClass="ISHPullUpHandleView">
-                                                <rect key="frame" x="170" y="6" width="36" height="11"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-3R-dXZ">
-                                                <rect key="frame" x="325" y="10" width="42" height="42"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="42" id="31z-oK-kHT"/>
-                                                    <constraint firstAttribute="width" constant="42" id="OD6-ru-nzI"/>
-                                                </constraints>
-                                                <state key="normal" image="star_off"/>
-                                                <connections>
-                                                    <action selector="favoriteTouched:" destination="XIs-6Y-hIK" eventType="touchUpInside" id="1Uw-RH-mZV"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrd-yA-sRP" userLabel="BikesAvailable Label">
                                                 <rect key="frame" x="232" y="10" width="21" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -219,24 +193,51 @@
                                                 <rect key="frame" x="257" y="11" width="30" height="18"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bikeDock" translatesAutoresizingMaskIntoConstraints="NO" id="fAv-yh-9b4">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bikeDock" translatesAutoresizingMaskIntoConstraints="NO" id="fAv-yh-9b4">
                                                 <rect key="frame" x="257" y="31" width="30" height="18"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idY-sj-9eH" userLabel="Handle View" customClass="ISHPullUpHandleView">
+                                                <rect key="frame" x="170" y="6" width="36" height="11"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PullUp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbl-z5-JN0" userLabel="Top Label">
+                                                <rect key="frame" x="10" y="19" width="355" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-3R-dXZ">
+                                                <rect key="frame" x="319" y="12" width="46" height="46"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="gfQ-Kp-3oX"/>
+                                                    <constraint firstAttribute="width" constant="46" id="xeQ-LS-ZYt"/>
+                                                </constraints>
+                                                <state key="normal" image="star_off"/>
+                                                <connections>
+                                                    <action selector="favoriteTouched:" destination="XIs-6Y-hIK" eventType="touchUpInside" id="1Uw-RH-mZV"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="AEk-3R-dXZ" secondAttribute="trailing" constant="8" id="0oM-du-76Z"/>
-                                            <constraint firstAttribute="bottom" secondItem="AEk-3R-dXZ" secondAttribute="bottom" constant="18" id="1GD-KR-lUP"/>
-                                            <constraint firstItem="AEk-3R-dXZ" firstAttribute="leading" secondItem="oa6-M8-4fg" secondAttribute="leading" constant="325" id="7gw-PL-kL5"/>
+                                            <constraint firstItem="AEk-3R-dXZ" firstAttribute="trailing" secondItem="tbl-z5-JN0" secondAttribute="trailing" id="1AP-cl-gVA"/>
+                                            <constraint firstItem="AEk-3R-dXZ" firstAttribute="leading" secondItem="fAv-yh-9b4" secondAttribute="trailing" constant="32" id="3M5-xL-7qO"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="top" secondItem="idY-sj-9eH" secondAttribute="bottom" constant="2" id="DLO-wM-2RT"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tbl-z5-JN0" secondAttribute="bottom" constant="5" id="MJL-05-oGI"/>
                                             <constraint firstItem="idY-sj-9eH" firstAttribute="top" secondItem="oa6-M8-4fg" secondAttribute="top" constant="6" id="ULc-Sw-brr"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="centerX" secondItem="oa6-M8-4fg" secondAttribute="centerX" id="d8T-Ko-yA4"/>
+                                            <constraint firstItem="AEk-3R-dXZ" firstAttribute="top" secondItem="oa6-M8-4fg" secondAttribute="top" constant="12" id="f6p-cA-F6w"/>
+                                            <constraint firstItem="AEk-3R-dXZ" firstAttribute="centerY" secondItem="oa6-M8-4fg" secondAttribute="centerY" id="gPd-we-Vmo"/>
+                                            <constraint firstAttribute="bottom" secondItem="AEk-3R-dXZ" secondAttribute="bottom" constant="12" id="gc6-gb-1MH"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="leading" secondItem="oa6-M8-4fg" secondAttribute="leading" constant="10" id="jnw-c8-kYp"/>
                                             <constraint firstItem="idY-sj-9eH" firstAttribute="centerX" secondItem="oa6-M8-4fg" secondAttribute="centerX" id="lcV-3W-xy6"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="centerY" secondItem="oa6-M8-4fg" secondAttribute="centerY" constant="-5.75" id="yE8-19-dob"/>
-                                            <constraint firstItem="AEk-3R-dXZ" firstAttribute="top" secondItem="oa6-M8-4fg" secondAttribute="top" constant="10" id="yNZ-qn-8ps"/>
                                         </constraints>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLg-kR-Lmp">
@@ -279,7 +280,7 @@
                                 <rect key="frame" x="0.0" y="264" width="375" height="27"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can stop dragging now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYV-on-gwA">
-                                        <rect key="frame" x="105" y="22.5" width="165" height="16"/>
+                                        <rect key="frame" x="105" y="23" width="165" height="16"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

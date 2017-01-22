@@ -10,7 +10,6 @@ extension NSArray {
      - parameter parent: The parent of the entity, optional since many entities are orphans.
      - parameter dataStack: The DATAStack instance.
      */
-    /*
     func preprocessForEntityNamed(_ entityName: String, predicate: NSPredicate, parent: NSManagedObject?, dataStack: DATAStack, operations: Sync.OperationOptions) -> [[String : Any]] {
         var filteredChanges = [[String : Any]]()
         let validClasses = [NSDate.classForCoder(), NSNumber.classForCoder(), NSString.classForCoder()]
@@ -34,5 +33,4 @@ extension NSArray {
         
         return filteredChanges
     }
-     */
 }

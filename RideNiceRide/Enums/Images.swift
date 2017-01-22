@@ -16,13 +16,39 @@
   typealias Image = NSImage
 #endif
 
-enum Asset: String {
-  case Menu_Hamburger = "menu-hamburger"
+//enum Asset: String {
+//  case Menu_Hamburger = "menu-hamburger"
+//
+//  var image: Image {
+//    return Image(asset: self)
+//  }
+//}
 
+// swiftlint:disable file_length
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable type_body_length
+enum Asset: String {
+  case Bike = "bike"
+  case BikeDock = "bikeDock"
+  case BluePin = "bluePin"
+  case GreenPin = "greenPin"
+  case Hero = "hero"
+  case LightGreenPin = "lightGreenPin"
+  case Menu_Hamburger = "menu-hamburger"
+  case OrangePin = "orangePin"
+  case RedPin = "redPin"
+  case Star_off = "star_off"
+  case Star_on = "star_on"
+  
   var image: Image {
     return Image(asset: self)
   }
 }
+// swiftlint:enable type_body_length
+// swiftlint:enable trailing_whitespace
+// swiftlint:enable line_length
+// swiftlint:enable file_length
 
 extension Image {
   convenience init!(asset: Asset) {
