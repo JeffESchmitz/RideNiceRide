@@ -461,9 +461,8 @@
                                     <outlet property="delegate" destination="a3m-6H-Wdj" id="PvN-Uo-nYb"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="empty tableview message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ht-55-ode">
-                                <rect key="frame" x="16" y="322" width="343" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="empty tableview message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6Ht-55-ode">
+                                <rect key="frame" x="16" y="323" width="343" height="21"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -471,10 +470,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6Ht-55-ode" firstAttribute="trailing" secondItem="2pz-Z5-pY8" secondAttribute="trailingMargin" id="2CZ-Cx-VnX"/>
                             <constraint firstAttribute="trailing" secondItem="eGc-Af-vxm" secondAttribute="trailing" id="A0r-JB-1LR"/>
+                            <constraint firstItem="6Ht-55-ode" firstAttribute="centerY" secondItem="2pz-Z5-pY8" secondAttribute="centerY" id="IHV-Lb-k3k"/>
                             <constraint firstItem="ced-Qf-e7k" firstAttribute="top" secondItem="eGc-Af-vxm" secondAttribute="bottom" id="ZWI-wz-NES"/>
                             <constraint firstItem="eGc-Af-vxm" firstAttribute="top" secondItem="2pz-Z5-pY8" secondAttribute="top" constant="10" id="cpO-I6-kP9"/>
+                            <constraint firstItem="6Ht-55-ode" firstAttribute="centerX" secondItem="2pz-Z5-pY8" secondAttribute="centerX" id="jhK-Zy-z5M"/>
                             <constraint firstItem="eGc-Af-vxm" firstAttribute="leading" secondItem="2pz-Z5-pY8" secondAttribute="leading" id="lIz-fD-a5q"/>
+                            <constraint firstItem="6Ht-55-ode" firstAttribute="leading" secondItem="2pz-Z5-pY8" secondAttribute="leadingMargin" id="pk5-eC-cdQ"/>
                         </constraints>
                     </view>
                     <connections>

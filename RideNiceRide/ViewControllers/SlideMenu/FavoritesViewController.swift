@@ -37,6 +37,7 @@ class FavoritesViewController: UIViewController {
 
     self.title = "Favorites"
     self.emptyTableMessage.text = "You don't have any Favorites yet.\n\nYou can add one by tapping on a pin and then 'Add Favorite'."
+    self.emptyTableMessage.sizeToFit()
   }
 
   override func viewWillAppear(_ animated: Bool) {
