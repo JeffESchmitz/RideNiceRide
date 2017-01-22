@@ -156,10 +156,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="02A-yA-r4Z" userLabel="rootView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="297"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="276"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oa6-M8-4fg" userLabel="Topview">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="StationName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9G-L0-T7i" userLabel="StationName Label">
                                                 <rect key="frame" x="10" y="10" width="220" height="21"/>
@@ -227,7 +227,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="AEk-3R-dXZ" secondAttribute="trailing" constant="8" id="0oM-du-76Z"/>
-                                            <constraint firstAttribute="bottom" secondItem="AEk-3R-dXZ" secondAttribute="bottom" constant="6" id="1GD-KR-lUP"/>
+                                            <constraint firstAttribute="bottom" secondItem="AEk-3R-dXZ" secondAttribute="bottom" constant="18" id="1GD-KR-lUP"/>
                                             <constraint firstItem="AEk-3R-dXZ" firstAttribute="leading" secondItem="oa6-M8-4fg" secondAttribute="leading" constant="325" id="7gw-PL-kL5"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="top" secondItem="idY-sj-9eH" secondAttribute="bottom" constant="2" id="DLO-wM-2RT"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tbl-z5-JN0" secondAttribute="bottom" constant="5" id="MJL-05-oGI"/>
@@ -235,12 +235,12 @@
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="centerX" secondItem="oa6-M8-4fg" secondAttribute="centerX" id="d8T-Ko-yA4"/>
                                             <constraint firstItem="tbl-z5-JN0" firstAttribute="leading" secondItem="oa6-M8-4fg" secondAttribute="leading" constant="10" id="jnw-c8-kYp"/>
                                             <constraint firstItem="idY-sj-9eH" firstAttribute="centerX" secondItem="oa6-M8-4fg" secondAttribute="centerX" id="lcV-3W-xy6"/>
-                                            <constraint firstItem="tbl-z5-JN0" firstAttribute="centerY" secondItem="oa6-M8-4fg" secondAttribute="centerY" id="yE8-19-dob"/>
+                                            <constraint firstItem="tbl-z5-JN0" firstAttribute="centerY" secondItem="oa6-M8-4fg" secondAttribute="centerY" constant="-5.75" id="yE8-19-dob"/>
                                             <constraint firstItem="AEk-3R-dXZ" firstAttribute="top" secondItem="oa6-M8-4fg" secondAttribute="top" constant="10" id="yNZ-qn-8ps"/>
                                         </constraints>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLg-kR-Lmp">
-                                        <rect key="frame" x="0.0" y="58" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="70" width="375" height="200"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLq-bV-fWd" userLabel="Panorama View">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -272,14 +272,14 @@
                                     <constraint firstItem="jLg-kR-Lmp" firstAttribute="trailing" secondItem="02A-yA-r4Z" secondAttribute="trailing" id="gBP-SZ-Pjw"/>
                                     <constraint firstItem="oa6-M8-4fg" firstAttribute="leading" secondItem="02A-yA-r4Z" secondAttribute="leading" id="hD5-t9-TU7"/>
                                     <constraint firstItem="oa6-M8-4fg" firstAttribute="trailing" secondItem="02A-yA-r4Z" secondAttribute="trailing" id="hWN-FQ-YgW"/>
-                                    <constraint firstItem="jLg-kR-Lmp" firstAttribute="bottom" secondItem="02A-yA-r4Z" secondAttribute="bottom" constant="-39" id="mLk-Ke-O35"/>
+                                    <constraint firstItem="jLg-kR-Lmp" firstAttribute="bottom" secondItem="02A-yA-r4Z" secondAttribute="bottom" constant="-6" id="mLk-Ke-O35"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuz-lm-w8w" userLabel="Overpull">
-                                <rect key="frame" x="0.0" y="288" width="375" height="3"/>
+                                <rect key="frame" x="0.0" y="264" width="375" height="27"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can stop dragging now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYV-on-gwA">
-                                        <rect key="frame" x="105" y="10.5" width="165" height="16"/>
+                                        <rect key="frame" x="105" y="22.5" width="165" height="16"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -301,7 +301,7 @@
                             <constraint firstItem="02A-yA-r4Z" firstAttribute="leading" secondItem="RmS-Jz-P0G" secondAttribute="leading" id="99L-33-tr1"/>
                             <constraint firstAttribute="top" secondItem="02A-yA-r4Z" secondAttribute="top" id="IDJ-0G-rr4"/>
                             <constraint firstAttribute="bottomMargin" secondItem="zuz-lm-w8w" secondAttribute="bottom" constant="9" id="fXf-u0-MSO"/>
-                            <constraint firstItem="zuz-lm-w8w" firstAttribute="top" secondItem="02A-yA-r4Z" secondAttribute="bottom" constant="-9" id="j1g-fd-EWE"/>
+                            <constraint firstItem="zuz-lm-w8w" firstAttribute="top" secondItem="02A-yA-r4Z" secondAttribute="bottom" constant="-12" id="j1g-fd-EWE"/>
                             <constraint firstItem="zuz-lm-w8w" firstAttribute="leading" secondItem="RmS-Jz-P0G" secondAttribute="leading" id="oN6-pm-tg5"/>
                         </constraints>
                     </view>
