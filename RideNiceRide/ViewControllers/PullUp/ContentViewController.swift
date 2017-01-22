@@ -198,7 +198,7 @@ extension ContentViewController: MKMapViewDelegate {
     }
     selectedAnnotationView = annotationView
     let annotation = annotationView.annotation as? CustomAnnotation
-    pullUpViewDelegate?.setPullUpViewHeight(bottomHeight: 60, animated: true)
+    pullUpViewDelegate?.setPullUpViewHeight(bottomHeight: 70, animated: true)
     if let moveToCoordinate = annotation?.coordinate {
       panoramaViewDelegate?.moveNearCoordinate(coordinate: moveToCoordinate)
     }
