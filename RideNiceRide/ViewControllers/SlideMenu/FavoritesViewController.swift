@@ -12,6 +12,7 @@ import Willow
 import Cent
 import CoreData
 import DATAStack
+import MapKit
 
 class FavoritesViewController: UIViewController {
 
@@ -104,6 +105,7 @@ extension FavoritesViewController: UITableViewDataSource {
 extension FavoritesViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return true
+//    return false
   }
 
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -123,5 +125,36 @@ extension FavoritesViewController: UITableViewDelegate {
       // delete the row from the UITableView
       tableView.deleteRows(at: [indexPath], with: .fade)
     }
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    // For v1 of app, just open iOS Maps application with selected favorite.
+    // For v2, send these coordinates back to the mapView, and center and select the pin tapped.
+    let selectedFavoriteStation = self.tableData[indexPath.row]
+    print("Favorite lat: \(selectedFavoriteStation.latitude), long: \(selectedFavoriteStation.longitude)")
+    print("")
+    openMapForFavorite(favoriteStation: selectedFavoriteStation)
+  }
+
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    let deselectedCell = tableView.cellForRow(at: indexPath)!
+    deselectedCell.backgroundColor = UIColor.clear
+  }
+
+  func openMapForFavorite(favoriteStation: FavoriteStation) {
+    let latitude: CLLocationDegrees = Double(favoriteStation.latitude!)!
+    let longitude: CLLocationDegrees = Double(favoriteStation.longitude!)!
+
+    let regionDistance: CLLocationDistance = 10000
+    let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+    let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+    let options = [
+      MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+      MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+    ]
+    let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+    let mapItem = MKMapItem(placemark: placemark)
+    mapItem.name = favoriteStation.stationName
+    mapItem.openInMaps(launchOptions: options)
   }
 }
