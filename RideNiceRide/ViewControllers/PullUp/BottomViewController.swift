@@ -11,6 +11,7 @@ import ISHPullUp
 import MapKit
 import GoogleMaps
 import Willow
+import Device
 
 enum FavoriteViewState: Int {
   case unknown
@@ -83,6 +84,7 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
       setLabelValues()
     }
   }
+  let panoViewStartHeight = UIScreen.main.bounds.height * 0.3
 
   // MARK: - View Lifecycle
   override func viewDidLoad() {
@@ -111,6 +113,18 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     firstAppearanceCompleted = true
+  }
+
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    super.viewWillTransition(to: size, with: coordinator)
+
+    let screenWidth = size.width
+    log.info("screenWidth: \(screenWidth)")
+    log.info("panoHeight: \(self.panoViewStartHeight)")
+    let frameRect = CGRect(x: 0, y: 0, width: screenWidth, height: panoViewStartHeight)
+    log.event("panoView before frame update -  width: \(self.panoView?.frame.width), before height: \(self.panoView?.frame.height)")
+    panoView?.frame = frameRect
+    log.event("panoView AFTER frame update -  width: \(self.panoView?.frame.width), before height: \(self.panoView?.frame.height)")
   }
 
   @IBAction func favoriteTouched(_ sender: Any) {
