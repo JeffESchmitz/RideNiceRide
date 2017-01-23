@@ -7,6 +7,7 @@
 //
 
 import MapKit
+import Device
 
 class AnnotationView: MKAnnotationView {
   class var identifier: String { return String.className(self) }
@@ -36,14 +37,19 @@ class AnnotationView: MKAnnotationView {
     }
     self.image = image
 
-    let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 17, height: 17)))
+    var label: UILabel!
+    if Device.isEqualToScreenSize(Size.screen5_5Inch) {
+      label = UILabel(frame: CGRect(origin: CGPoint(x: 2, y: 3), size: CGSize(width: 19, height: 19)))
+    } else {
+      // all other devices initialze with these values.
+      label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 17, height: 17)))
+    }
     label.textAlignment = .center
     label.textColor = UIColor.white
     label.text = customAnnotation.availableBikes <=  0 ? "" : String(Int(customAnnotation.availableBikes))
-    label.font = label.font.withSize(12)
-    //    label.backgroundColor = UIColor.lightGray // For UI Debugging
+    label.font = (Device.isEqualToScreenSize(Size.screen5_5Inch)) ? label.font.withSize(16) : label.font.withSize(12)
+//    label.backgroundColor = UIColor.lightGray // For UI Debugging
     self.addSubview(label)
-
   }
 
   required init?(coder aDecoder: NSCoder) {
