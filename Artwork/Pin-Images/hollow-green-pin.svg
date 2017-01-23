@@ -1,0 +1,16 @@
+<svg width="104.88" height="199.22" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient x1="0.3266" y1="0.00071" x2="0.87961" y2="1.57125" id="linearGradient4408">
+   <stop offset="0" stop-color="#00cf30"/>
+   <stop offset="1" stop-opacity="0" stop-color="#0F0"/>
+  </linearGradient>
+ </defs>
+ <metadata>image/svg+xmlOpen Clip Art LibraryGreen Map Pin2011-05-27T17:56:38Green Map Pin for Mapping Applicationshttp://openclipart.org/detail/140719/green-map-pin-by-lukel99LukeL99MapMarkerPinPushpinclip artclipart</metadata>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_1" stroke-miterlimit="4" stroke="#000">
+   <path id="svg_2" fill="url(#linearGradient4408)" stroke-width="2" d="m52.4375,1.0005c-28.403,0 -51.438,23.034 -51.438,51.438c0,16.88 8.1271,31.842 20.688,41.219l31.03,102.06l29.53,-101.41c13.08101,-9.32391 21.625,-24.587 21.625,-41.87499c0,-28.403 -23.034,-51.438 -51.438,-51.438l0.003,0.006z"/>
+   <path id="svg_3" fill="#FFF" stroke-width="2.59363" d="m91.195,52.27472c0,21.40248 -17.35023,38.7527 -38.7527,38.7527s-38.75271,-17.35022 -38.75271,-38.7527s17.35023,-38.75271 38.75271,-38.75271s38.7527,17.35023 38.7527,38.75271z"/>
+  </g>
+ </g>
+</svg>
