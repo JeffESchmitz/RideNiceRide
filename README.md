@@ -11,36 +11,7 @@ pod install
 ```
 Now you can open `RideNiceRide.xcworkspace` and Run the `RideNiceRide` target onto your simulator or iOS device.
 
-## Code style
 
-This project will follow the [GitHub Swift Styleguide](https://github.com/github/swift-style-guide) in every way possible.
-
-In order to enforce this, the project will also have a [Swiftlint](https://github.com/realm/SwiftLint) build phase to run the linter everytime the app is built.
-
-
-## Project Structure
-
-The project follows this folder structure:
-
-```
-RideNiceRide
-├── AppDelegate.swift
-├── Models
-│   ├── RideNiceRide.xcmodel
-├── Views
-│   ├── TableViewCell
-├── ViewControllers
-│   ├── SlideMenu
-│   ├── PullUpView
-├── Storyboards
-├── API
-├── Enums
-├── Extensions
-├── Networking
-└── Resources
-    ├── Localizable.strings
-    └── Info.plist
-```
 ## Credits
 
 Icons:
@@ -53,6 +24,12 @@ Images:
 - <a href="https://flic.kr/p/q386Lu" target="_blank">Hubway</a> by Tony Webster (CC BY)
 
 Data provided by Hubway at [http://thehubway.com/data/stations/bikeStations.json](http://thehubway.com/data/stations/bikeStations.json)
+
+## Code style
+
+This project will follow the [GitHub Swift Styleguide](https://github.com/github/swift-style-guide) in every way possible.
+
+In order to enforce this, the project will also have a [Swiftlint](https://github.com/realm/SwiftLint) build phase to run the linter everytime the app is built.
 
 ## Dependencies
 
@@ -90,5 +67,3 @@ Data provided by Hubway at [http://thehubway.com/data/stations/bikeStations.json
 - [SwiftGen](https://github.com/AliSoftware/SwiftGen): A collection of Swift tools to generate Swift code (enums for your assets, storyboards, Localizable.strings, …)
 - [Fabric](https://docs.fabric.io/apple/fabric/overview.html): Fabric is a mobile platform with modular kits you can mix and match to build the best apps
 - [Crashlytics](https://fabric.io/kits/ios/crashlytics/install): The most powerful, yet lightest weight crash reporting solution
-- [Fastlane](https://github.com/fastlane/fastlane): The easiest way to automate building and releasing your iOS and Android apps
-
