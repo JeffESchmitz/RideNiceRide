@@ -10,6 +10,7 @@
 		540B6CF1D1DBEDCA3ABC7B09 /* Pods_RideNiceRideUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDC30CA0D96D8D58301DD3B /* Pods_RideNiceRideUITests.framework */; };
 		6275BB5297329121C3B4D33E /* Pods_RideNiceRide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E137CE4677B2FF345E515300 /* Pods_RideNiceRide.framework */; };
 		9503DDFD1DC8B4D90056E731 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9503DDFC1DC8B4D90056E731 /* BaseTableViewCell.swift */; };
+		951515C11E38FB71008A7F41 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951515C01E38FB71008A7F41 /* ReachabilityManager.swift */; };
 		9579A6B91DC559520010F621 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579A6B81DC559520010F621 /* String.swift */; };
 		9579A6C11DC56D1A0010F621 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579A6BA1DC56D1A0010F621 /* UIApplication.swift */; };
 		9579A6C21DC56D1A0010F621 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9579A6BB1DC56D1A0010F621 /* UIColor.swift */; };
@@ -73,6 +74,7 @@
 		51F791ADF308A9989CCB0E7A /* Pods-RideNiceRideUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideNiceRideUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RideNiceRideUITests/Pods-RideNiceRideUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		79D39A267472A538A414C839 /* Pods-RideNiceRideUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideNiceRideUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RideNiceRideUITests/Pods-RideNiceRideUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9503DDFC1DC8B4D90056E731 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		951515C01E38FB71008A7F41 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		954FF3ED1DCB64D70067C6CB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9579A6B81DC559520010F621 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9579A6BA1DC56D1A0010F621 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				95AB792B1E17FDDB00A28A7D /* HubwayAPI.swift */,
+				951515C01E38FB71008A7F41 /* ReachabilityManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				9579A6C51DC56D1A0010F621 /* UITableViewExtension.swift in Sources */,
 				9503DDFD1DC8B4D90056E731 /* BaseTableViewCell.swift in Sources */,
 				95E8CEB31DD9F7E600406FC9 /* ContentViewController.swift in Sources */,
+				951515C11E38FB71008A7F41 /* ReachabilityManager.swift in Sources */,
 				9579A6C71DC56D1A0010F621 /* UIViewController.swift in Sources */,
 				9594C5371DE207DE005F780A /* FavoritesTableViewCell.swift in Sources */,
 				957B91881DD75F88000AE432 /* RentalHistoryViewController.swift in Sources */,
