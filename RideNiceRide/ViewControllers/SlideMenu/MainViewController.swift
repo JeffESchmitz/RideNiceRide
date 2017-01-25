@@ -9,6 +9,7 @@ import UIKit
 import SlideMenuControllerSwift
 import Willow
 import ISHPullUp
+import ReachabilitySwift
 
 class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
 
@@ -54,8 +55,13 @@ class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.setNavigationBarItem()
+    ReachabilityManager.shared.addListener(listener: self)
   }
 
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    ReachabilityManager.shared.removeListener(listener: self)
+  }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -78,6 +84,7 @@ class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
   }
 
 }
+
 extension MainViewController: SlideMenuControllerDelegate {
 
   func leftWillOpen() {
@@ -110,5 +117,21 @@ extension MainViewController: SlideMenuControllerDelegate {
 
   func rightDidClose() {
     log.event("SlideMenuControllerDelegate: rightDidClose")
+  }
+}
+
+extension MainViewController: NetworkStatusListener {
+
+  func networkStatusDidChange(status: Reachability.NetworkStatus) {
+    switch status {
+    case .notReachable:
+      debugPrint("MainViewController: Network became unreachable")
+    case .reachableViaWiFi:
+      debugPrint("MainViewController: Network reachable through WiFi")
+    case .reachableViaWWAN:
+      debugPrint("MainViewController: Network reachable through Cellular Data")
+    }
+
+    // Update any UI elements here (disable buttons, labels etc.)
   }
 }
