@@ -19,6 +19,7 @@ target 'RideNiceRide' do
   pod 'ISHPullUp', '1.0.4'
   # pod 'PKHUD_Swift_3', '4.2.0'
   pod 'PKHUD', '~> 4.0'
+  pod 'ReachabilitySwift', '~> 3
   pod 'SlideMenuControllerSwift', '3.0.0'
   pod 'Sugar', '3.0.0'
   pod 'SwiftGen'

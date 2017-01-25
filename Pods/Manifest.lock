@@ -18,6 +18,7 @@ PODS:
     - GoogleMaps/Base (= 2.1.0)
   - ISHPullUp (1.0.4)
   - PKHUD (4.1.0)
+  - ReachabilitySwift (3)
   - SlideMenuControllerSwift (3.0.0)
   - Sugar (3.0.0)
   - SwiftGen (3.0.0)
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - GooglePlaces (= 2.1.0)
   - ISHPullUp (= 1.0.4)
   - PKHUD (~> 4.0)
+  - ReachabilitySwift
   - SlideMenuControllerSwift (= 3.0.0)
   - Sugar (= 3.0.0)
   - SwiftGen
@@ -60,6 +62,7 @@ SPEC CHECKSUMS:
   GooglePlaces: 16e96266483b8010e9f275399403647978523c86
   ISHPullUp: b98a286f3e85dc885a3bf20bf75853947984277d
   PKHUD: a0ecdee9f67d9b462c0c5e4ba38400292ea6ae6e
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
   Sugar: 079e1375b76c8f0693474417836ef098f507ac50
   SwiftGen: f679cd0ed4173a5da3b01efd0da23542bf82f6ab
@@ -67,6 +70,6 @@ SPEC CHECKSUMS:
   SYNCPropertyMapper: e4cf0f851aa3a1307a42985ab8600787b3382427
   Willow: 96581516a6382c7541b5e125f4e15804e6915ad9
 
-PODFILE CHECKSUM: 27118979dfe8586b3acbfe00edf9d68ba2bb3882
+PODFILE CHECKSUM: 1f4597bc004cc385399f5359bd98d999a3f53d03
 
 COCOAPODS: 1.1.1
