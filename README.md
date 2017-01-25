@@ -1,5 +1,5 @@
 # RideNiceRide
-RideNiceRide is the best way to enjoy Minneapolis/St.Paul's bike sharing system on iOS
+RideNiceRide is the best way to enjoy Boston's Hubway bike sharing system on iOS. Inspired and based upon the fantastic Android application, [Moyeu](https://github.com/garuma/Moyeu) developed by [Jérémie Laval](https://github.com/garuma?tab=overview&from=2016-12-01&to=2016-12-31&utf8=✓).
 
 
 
@@ -11,37 +11,25 @@ pod install
 ```
 Now you can open `RideNiceRide.xcworkspace` and Run the `RideNiceRide` target onto your simulator or iOS device.
 
+
+## Credits
+
+Icons:
+
+- <a href="http://thenounproject.com/noun/map/#icon-No5260" target="_blank">Map</a> designed by <a href="http://thenounproject.com/jonathan" target="_blank">Jonathan Higley</a> from The Noun Project
+- <a href="http://thenounproject.com/noun/bicycle/#icon-No3535" target="_blank">Bicycle</a> designed by <a href="http://thenounproject.com/ugur.akdemir" target="_blank">Ugur Akdemir</a> from The Noun Project
+
+Images:
+
+- <a href="https://flic.kr/p/q386Lu" target="_blank">Hubway</a> by Tony Webster (CC BY)
+
+Data provided by Hubway at [http://thehubway.com/data/stations/bikeStations.json](http://thehubway.com/data/stations/bikeStations.json)
+
 ## Code style
 
 This project will follow the [GitHub Swift Styleguide](https://github.com/github/swift-style-guide) in every way possible.
 
 In order to enforce this, the project will also have a [Swiftlint](https://github.com/realm/SwiftLint) build phase to run the linter everytime the app is built.
-
-
-## Project Structure
-
-The project follows this folder structure:
-
-```
-RideNiceRide
-├── AppDelegate.swift
-├── Models
-│   ├── RideNiceRide.xcmodel
-├── Views
-│   ├── TableViewCell
-├── ViewControllers
-│   ├── SlideMenu
-│   ├── PullUpView
-├── Storyboards
-├── API
-├── Enums
-├── Extensions
-├── Networking
-└── Resources
-    ├── Localizable.strings
-    └── Info.plist
-```
-
 
 ## Dependencies
 
@@ -79,5 +67,3 @@ RideNiceRide
 - [SwiftGen](https://github.com/AliSoftware/SwiftGen): A collection of Swift tools to generate Swift code (enums for your assets, storyboards, Localizable.strings, …)
 - [Fabric](https://docs.fabric.io/apple/fabric/overview.html): Fabric is a mobile platform with modular kits you can mix and match to build the best apps
 - [Crashlytics](https://fabric.io/kits/ios/crashlytics/install): The most powerful, yet lightest weight crash reporting solution
-- [Fastlane](https://github.com/fastlane/fastlane): The easiest way to automate building and releasing your iOS and Android apps
-
