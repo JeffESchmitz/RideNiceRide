@@ -88,7 +88,10 @@ class ContentViewController: UIViewController {
     hubwayAPI.getStations { (stations, error) in
       if let error = error {
         log.error("Error occured retreiving Stations from HubwayAPI. '\(error.localizedDescription)'")
-        HUD.flash(.error, delay: 1.0)
+        // Really wanted to use the labeled error as it shows the buzzed X with the message.
+        // Alas, if the message gets too long it is set in an amazingly small font.
+        // HUD.flash(.labeledError(title: "", subtitle: error.localizedDescription), delay: 2.5)
+        HUD.flash(.label(error.localizedDescription), delay: 2.5)
       } else if let stations = stations {
         log.info("stations returned from HubwayAPI: \(stations.count)")
         let stationViewModels = self.convertStationDataModelsToViewModels(stationDataModels: stations)

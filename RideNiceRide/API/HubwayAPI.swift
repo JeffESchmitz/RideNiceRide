@@ -5,6 +5,7 @@
 //  Created by Jeff Schmitz on 12/31/16.
 //  Copyright © 2016 Jeff Schmitz. All rights reserved.
 //
+
 import UIKit
 import DATAStack
 import Sync
@@ -15,6 +16,7 @@ enum HubwayAPIError: Error {
   case failedRequest
   case invalidResponse
   case syncChangeError
+  case networkError
 }
 
 class HubwayAPI: NSObject {
@@ -29,32 +31,67 @@ class HubwayAPI: NSObject {
     self.dataStack = dataStack
   }
 
+  //swiftlint:disable function_body_length
   func getStations(completionHandlerForStations: @escaping StationDataCompletion) {
     Alamofire.request(hubwayURL).responseJSON { response in
-
-      if let error = response.result.error {
-        log.error("AlamoFire Error: \(error)")
-        completionHandlerForStations(nil, error)
-      } else if let data = response.result.value as? [String: Any] {
-        log.debug("response.result.value: \(data)")
-        guard let json = data["stationBeanList"] as? [[String: Any]] else {
-          log.error("ERROR: Very bad, very, very bad. No JSON in the data returned in the response from Hubway???")
-          return
-        }
-        Sync.changes(json, inEntityNamed: self.stationName, dataStack: self.dataStack, completion: { (error) in
-          let dataModelStations = self.fetch(forEntityName: "Station", in: self.dataStack.mainContext)
-          guard let stations = dataModelStations as? [Station] else {
-            return completionHandlerForStations(nil, HubwayAPIError.failedRequest)
+      guard case let .failure(error) = response.result else {
+        let data = response.result.value as? [String: Any]
+        if let foo = data {
+          guard let json = foo["stationBeanList"] as? [[String: Any]] else {
+            log.error("ERROR: Very bad, very, very bad. No JSON in the data returned in the response from Hubway???")
+            return
           }
-          completionHandlerForStations(stations, nil)
-        })
+          Sync.changes(json, inEntityNamed: self.stationName, dataStack: self.dataStack, completion: { (error) in
+            let dataModelStations = self.fetch(forEntityName: "Station", in: self.dataStack.mainContext)
+            guard let stations = dataModelStations as? [Station] else {
+              return completionHandlerForStations(nil, HubwayAPIError.failedRequest)
+            }
+            completionHandlerForStations(stations, nil)
+          })
+        }
+        return
+      }
+
+      if let error = error as? AFError {
+        switch error {
+        case .invalidURL(let url):
+          print("Invalid URL: \(url) - \(error.localizedDescription)")
+        case .parameterEncodingFailed(let reason):
+          print("Parameter encoding failed: \(error.localizedDescription)")
+          print("Failure Reason: \(reason)")
+        case .multipartEncodingFailed(let reason):
+          print("Multipart encoding failed: \(error.localizedDescription)")
+          print("Failure Reason: \(reason)")
+        case .responseValidationFailed(let reason):
+          print("Response validation failed: \(error.localizedDescription)")
+          print("Failure Reason: \(reason)")
+
+          switch reason {
+          case .dataFileNil, .dataFileReadFailed:
+            print("Downloaded file could not be read")
+          case .missingContentType(let acceptableContentTypes):
+            print("Content Type Missing: \(acceptableContentTypes)")
+          case .unacceptableContentType(let acceptableContentTypes, let responseContentType):
+            print("Response content type: \(responseContentType) was unacceptable: \(acceptableContentTypes)")
+          case .unacceptableStatusCode(let code):
+            print("Response status code was unacceptable: \(code)")
+          }
+        case .responseSerializationFailed(let reason):
+          print("Response serialization failed: \(error.localizedDescription)")
+          print("Failure Reason: \(reason)")
+        }
+        print("Underlying error: \(error.underlyingError)")
+        completionHandlerForStations(nil, error)
+      } else if let error = error as? URLError {
+        print("URLError occurred: \(error)")
+        completionHandlerForStations(nil, error)
       } else {
-        completionHandlerForStations(nil, HubwayAPIError.unknown)
+        print("Unknown error: \(error)")
+        completionHandlerForStations(nil, error)
       }
     }
   }
 
-  //swiftlint:disable function_body_length
   func insertFavorite(forStation station: Station) -> NSManagedObject? {
     guard let stationName = station.stationName,
       let address1 = station.stAddress1,
@@ -101,7 +138,7 @@ class HubwayAPI: NSObject {
       fatalError("Unexpected error returning FavoriteStation for id: \(id). error: \(error.localizedDescription)")
     }
   }
-  //swiftlint:disable function_body_length
+  //swiftlint:enable function_body_length
 
   func fetch(forEntityName entityName: String, withId id: String = "", in context: NSManagedObjectContext) -> [NSManagedObject] {
     let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
@@ -151,15 +188,3 @@ class HubwayAPI: NSObject {
     }
   }
 }
-//class HubwayAPI {
-////  // Singleton code - TODO: bring back when DATASTack is working...
-////  var testVariable = ""
-////  class func sharedInstance() -> HubwayAPI {
-////    //swiftlint:disable nesting
-////    struct Singleton {
-////      static var sharedInstance = HubwayAPI()
-////    }
-////    //swiftlint:enable nesting
-////    return Singleton.sharedInstance
-////  }
-//}

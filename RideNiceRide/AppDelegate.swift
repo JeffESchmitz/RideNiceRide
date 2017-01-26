@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     WillowConfiguration.configure(appLogLevels: [.info, .event, .warn, .error], asynchronous: false)
 
     // Override point for customization after application launch.
-    Fabric.with([Crashlytics.self])
+//    Fabric.with([Crashlytics.self])
 
     self.createMenuView()
 
