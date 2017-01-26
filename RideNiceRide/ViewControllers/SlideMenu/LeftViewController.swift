@@ -30,7 +30,7 @@ class LeftViewController: UIViewController {
   var rentalHistoryViewController: UIViewController!
   var imageHeaderView: ImageHeaderView!
 
-  let niceRideLoginUrlString = "https://secure.niceridemn.org/profile/login"
+  let hubwayProfileUrlString = "https://secure.thehubway.com/profile/"
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -67,7 +67,7 @@ extension LeftViewController: LeftMenuProtocol {
     case .favorites:
       self.slideMenuController()?.changeMainViewController(self.favoritesViewController, close: true)
     case .rentalHistory:
-      guard let targetUrl = URL(string: niceRideLoginUrlString) else {
+      guard let targetUrl = URL(string: hubwayProfileUrlString) else {
         return
       }
       let safariViewController = SFSafariViewController(url: targetUrl)
