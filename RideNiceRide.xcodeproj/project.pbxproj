@@ -40,6 +40,7 @@
 		95BA8BA31DC2F1B700E60586 /* RideNiceRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8BA21DC2F1B700E60586 /* RideNiceRideTests.swift */; };
 		95BA8BAE1DC2F1B700E60586 /* RideNiceRideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA8BAD1DC2F1B700E60586 /* RideNiceRideUITests.swift */; };
 		95CAAF291DD362BB00809AB7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CAAF281DD362BB00809AB7 /* MainViewController.swift */; };
+		95CADC521E3B581800353EDA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CADC511E3B581800353EDA /* Constants.swift */; };
 		95DD35521E1843020038ECDA /* RideNiceRide.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95DD35501E1843020038ECDA /* RideNiceRide.xcdatamodeld */; };
 		95DD35551E184AFE0038ECDA /* WillowConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DD35541E184AFE0038ECDA /* WillowConfiguration.swift */; };
 		95DD92181E1D1AAD00856AAA /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DD92171E1D1AAD00856AAA /* ContentViewModel.swift */; };
@@ -110,6 +111,7 @@
 		95BA8BAD1DC2F1B700E60586 /* RideNiceRideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideNiceRideUITests.swift; sourceTree = "<group>"; };
 		95BA8BAF1DC2F1B700E60586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95CAAF281DD362BB00809AB7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		95CADC511E3B581800353EDA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		95DD35511E1843020038ECDA /* RideNiceRide.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RideNiceRide.xcdatamodel; sourceTree = "<group>"; };
 		95DD35541E184AFE0038ECDA /* WillowConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WillowConfiguration.swift; sourceTree = "<group>"; };
 		95DD92171E1D1AAD00856AAA /* ContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 		95BA8B8C1DC2F1B700E60586 /* RideNiceRide */ = {
 			isa = PBXGroup;
 			children = (
+				95CADC531E3B584700353EDA /* App */,
 				95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */,
 				9579A6CC1DC759540010F621 /* ViewControllers */,
 				9579A6CD1DC7595E0010F621 /* Views */,
@@ -306,6 +309,7 @@
 				95DD35531E184AD20038ECDA /* Configuration */,
 				9579A6C81DC5A0990010F621 /* Resources */,
 				95AB792A1E17FA7F00A28A7D /* Supporting Files */,
+				95CADC511E3B581800353EDA /* Constants.swift */,
 			);
 			path = RideNiceRide;
 			sourceTree = "<group>";
@@ -327,6 +331,13 @@
 				95BA8BAF1DC2F1B700E60586 /* Info.plist */,
 			);
 			path = RideNiceRideUITests;
+			sourceTree = "<group>";
+		};
+		95CADC531E3B584700353EDA /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 		95DD35531E184AD20038ECDA /* Configuration */ = {
@@ -664,6 +675,7 @@
 				9579A6B91DC559520010F621 /* String.swift in Sources */,
 				95DD92181E1D1AAD00856AAA /* ContentViewModel.swift in Sources */,
 				9579A6C41DC56D1A0010F621 /* UIImageView.swift in Sources */,
+				95CADC521E3B581800353EDA /* Constants.swift in Sources */,
 				95B41DA31E19788C00E157BA /* FavoriteStation.swift in Sources */,
 				95CAAF291DD362BB00809AB7 /* MainViewController.swift in Sources */,
 				95E475041DD5EB550027765C /* LeftViewController.swift in Sources */,

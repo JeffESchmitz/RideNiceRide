@@ -53,14 +53,6 @@ class ContentViewController: UIViewController {
     }
   }
 
-
-  // MARK: - Properties (private)
-  fileprivate var currentLocation: CLLocation? {
-    didSet {
-      //      fetchWeatherData()
-    }
-  }
-
   // MARK: - View Life Cycle
   required init?(coder aDecoder: NSCoder) {
     //swiftlint:disable force_cast
@@ -75,11 +67,7 @@ class ContentViewController: UIViewController {
 
     setupView()
 
-    // Hard Code the location to Boston - obviously don't want this hard coded
-    let location = CLLocationCoordinate2D(latitude: 42.360083, longitude: -71.05888)
-    let span = MKCoordinateSpanMake(0.05, 0.05)
-    let region = MKCoordinateRegion(center: location, span: span)
-    self.mapView.setRegion(region, animated: true)
+    centerMapOnLastLocation()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -129,7 +117,6 @@ class ContentViewController: UIViewController {
     }
   }
 
-
   // MARK: - Helper methods
   private func convertStationDataModelsToViewModels(stationDataModels: [Station]) -> [StationViewModel] {
     var result = [StationViewModel]()
@@ -162,8 +149,36 @@ class ContentViewController: UIViewController {
     }
     return result
   }
+
+  private func centerMapOnLastLocation() {
+    let userDefaults = UserDefaults.standard
+    guard userDefaults.object(forKey: K.Map.Latitude) != nil
+      && userDefaults.object(forKey: K.Map.Longitude) != nil else {
+
+        // If code execution reached this point,
+        // no region has been set (likely first run of app after install),
+        // so default the location to center of Boston.
+        let location = CLLocationCoordinate2D(latitude: 42.360083, longitude: -71.05888)
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let region = MKCoordinateRegion(center: location, span: span)
+        self.mapView.setRegion(region, animated: true)
+        return
+    }
+
+    let latitude = userDefaults.double(forKey: K.Map.Latitude)
+    let longitude = userDefaults.double(forKey: K.Map.Longitude)
+    let latitudeDelta = userDefaults.double(forKey: K.Map.LatitudeDelta)
+    let longitudeDelta = userDefaults.double(forKey: K.Map.LongitudeDelta)
+
+    let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    let coordinateSpan = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
+    let coordinateRegion = MKCoordinateRegionMake(location, coordinateSpan)
+
+    mapView.setRegion(coordinateRegion, animated: true)
+  }
 }
 
+// MARK: - ISHPullUpContentDelegate
 extension ContentViewController: ISHPullUpContentDelegate {
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, update edgeInsets: UIEdgeInsets, forContentViewController contentVC: UIViewController) {
 
@@ -176,6 +191,7 @@ extension ContentViewController: ISHPullUpContentDelegate {
   }
 }
 
+// MARK: - MKMapViewDelegate
 extension ContentViewController: MKMapViewDelegate {
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     log.debug("Inside \(#function)")
@@ -218,8 +234,20 @@ extension ContentViewController: MKMapViewDelegate {
     self.selectedAnnotationView = nil
     pullUpViewDelegate?.setPullUpViewHeight(bottomHeight: 0, animated: true)
   }
+
+  func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    let userDefaults = UserDefaults.standard
+
+    userDefaults.set(mapView.region.center.latitude, forKey: K.Map.Latitude)
+    userDefaults.set(mapView.region.center.longitude, forKey: K.Map.Longitude)
+
+    userDefaults.set(mapView.region.span.latitudeDelta, forKey: K.Map.LatitudeDelta)
+    userDefaults.set(mapView.region.span.longitudeDelta, forKey: K.Map.LongitudeDelta)
+    userDefaults.synchronize()
+  }
 }
 
+// MARK: - ManageFavoriteDelegate
 extension ContentViewController: ManageFavoriteDelegate {
   func addFavoriteStation() {
     log.debug("Inside \(#function)")
