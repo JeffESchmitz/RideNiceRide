@@ -13,8 +13,6 @@ import Foundation
 //swiftlint:disable nesting
 struct K {
   struct Map {
-    static let foo      = "bar"
-    
     static let Latitude          = "MapLatitude"
     static let LatitudeDelta     = "MapLatitudeDelta"
     static let Longitude         = "MapLongitude"

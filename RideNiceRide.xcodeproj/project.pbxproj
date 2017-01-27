@@ -101,7 +101,7 @@
 		95B41DA21E19788C00E157BA /* FavoriteStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteStation.swift; sourceTree = "<group>"; };
 		95BA03F61DDDD273007825CD /* BottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
 		95BA8B8A1DC2F1B700E60586 /* RideNiceRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideNiceRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = RideNiceRide/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		95BA8B921DC2F1B700E60586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95BA8B941DC2F1B700E60586 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95BA8B9E1DC2F1B700E60586 /* RideNiceRideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RideNiceRideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +111,7 @@
 		95BA8BAD1DC2F1B700E60586 /* RideNiceRideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideNiceRideUITests.swift; sourceTree = "<group>"; };
 		95BA8BAF1DC2F1B700E60586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95CAAF281DD362BB00809AB7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		95CADC511E3B581800353EDA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		95CADC511E3B581800353EDA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Constants.swift; sourceTree = "<group>"; };
 		95DD35511E1843020038ECDA /* RideNiceRide.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RideNiceRide.xcdatamodel; sourceTree = "<group>"; };
 		95DD35541E184AFE0038ECDA /* WillowConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WillowConfiguration.swift; sourceTree = "<group>"; };
 		95DD92171E1D1AAD00856AAA /* ContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
@@ -298,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				95CADC531E3B584700353EDA /* App */,
-				95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */,
 				9579A6CC1DC759540010F621 /* ViewControllers */,
 				9579A6CD1DC7595E0010F621 /* Views */,
 				9579A6CB1DC7594B0010F621 /* Storyboards */,
@@ -309,7 +308,6 @@
 				95DD35531E184AD20038ECDA /* Configuration */,
 				9579A6C81DC5A0990010F621 /* Resources */,
 				95AB792A1E17FA7F00A28A7D /* Supporting Files */,
-				95CADC511E3B581800353EDA /* Constants.swift */,
 			);
 			path = RideNiceRide;
 			sourceTree = "<group>";
@@ -336,8 +334,10 @@
 		95CADC531E3B584700353EDA /* App */ = {
 			isa = PBXGroup;
 			children = (
+				95BA8B8D1DC2F1B700E60586 /* AppDelegate.swift */,
+				95CADC511E3B581800353EDA /* Constants.swift */,
 			);
-			name = App;
+			path = App;
 			sourceTree = "<group>";
 		};
 		95DD35531E184AD20038ECDA /* Configuration */ = {
