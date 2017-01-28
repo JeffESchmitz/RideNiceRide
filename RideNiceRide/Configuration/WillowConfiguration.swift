@@ -88,7 +88,6 @@ struct WillowConfiguration {
       writers: writers,
       executionMethod: executionMethod
     )
-
     //        Database.log = configureLogger(
     //            emoji: "🗃🗃🗃",
     //            name: "Database",

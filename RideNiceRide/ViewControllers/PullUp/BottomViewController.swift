@@ -26,8 +26,6 @@ enum FavoriteViewState: Int {
  */
 protocol PanoramaViewDelegate {
   func moveNearCoordinate(coordinate: CLLocationCoordinate2D)
-  // didSelect annotationView
-  // didDeselect annotationView
   func didSelect(StationViewModel viewModel: StationViewModel)
   func didDeselect()
 

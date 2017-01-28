@@ -16,14 +16,6 @@
   typealias Image = NSImage
 #endif
 
-//enum Asset: String {
-//  case Menu_Hamburger = "menu-hamburger"
-//
-//  var image: Image {
-//    return Image(asset: self)
-//  }
-//}
-
 // swiftlint:disable file_length
 // swiftlint:disable line_length
 // swiftlint:disable trailing_whitespace

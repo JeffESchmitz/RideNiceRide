@@ -100,8 +100,7 @@ class ContentViewController: UIViewController {
     self.mapView.delegate = self
 
     layoutAnnotationLabel.layer.cornerRadius = 2
-    // the mapView should use the rootView's layout margins to
-    // correctly update the legal label and coordinate region
+    // the mapView should use the rootView's layout margins to correctly update the legal label and coordinate region
     mapView.preservesSuperviewLayoutMargins = true
   }
 
@@ -116,8 +115,7 @@ class ContentViewController: UIViewController {
   private func updateView() {
     if let viewModel = viewModel {
       // just for test debugging of viewmodel - replace by populating an Annotation here
-      let numberOfStations = viewModel.hubwayData.count
-      log.info("There are \(numberOfStations) number of Stations in Hubway.")
+      log.info("There are \(viewModel.hubwayData.count) number of Stations in Hubway.")
     }
   }
 
