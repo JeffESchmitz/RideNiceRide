@@ -27,7 +27,6 @@ class LeftViewController: UIViewController {
   var menus = ["Map", "Favorites", "Rental History"]
   var mainViewController: UIViewController!
   var favoritesViewController: UIViewController!
-  var rentalHistoryViewController: UIViewController!
   var imageHeaderView: ImageHeaderView!
 
   let hubwayProfileUrlString = "https://secure.thehubway.com/profile/"
