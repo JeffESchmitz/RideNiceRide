@@ -12,7 +12,7 @@ import ISHPullUp
 import ReachabilitySwift
 
 class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
-
+  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     commonInit()
@@ -23,7 +23,7 @@ class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
     commonInit()
   }
 
-  private func commonInit() {
+  fileprivate func commonInit() {
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     // swiftlint:disable force_cast
     let contentVC = storyBoard.instantiateViewController(withIdentifier: "content") as! ContentViewController
@@ -56,6 +56,8 @@ class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.setNavigationBarItem()
+    let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshButtonHandler))
+    self.navigationItem.rightBarButtonItem = refresh
     ReachabilityManager.shared.addListener(listener: self)
   }
 
@@ -69,6 +71,10 @@ class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
     self.setBottomHeight(bottomHeight, animated: animated)
   }
 
+  func refreshButtonHandler() {
+    log.warn("Inside \(#function)")
+    (self.contentViewController as? ContentViewController)?.reloadStationsOnMapView()
+  }
 }
 
 extension MainViewController: SlideMenuControllerDelegate {

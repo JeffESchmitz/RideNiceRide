@@ -71,6 +71,10 @@ class ContentViewController: UIViewController {
   }
 
   override func viewWillAppear(_ animated: Bool) {
+    reloadStationsOnMapView()
+  }
+
+  func reloadStationsOnMapView() {
     HUD.show(.progress)
 
     hubwayAPI.getStations { (stations, error) in
