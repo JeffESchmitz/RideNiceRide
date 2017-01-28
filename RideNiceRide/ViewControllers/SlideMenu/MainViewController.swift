@@ -77,6 +77,7 @@ class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
   }
 }
 
+// MARK: - SlideMenuControllerDelegate
 extension MainViewController: SlideMenuControllerDelegate {
 
   func leftWillOpen() {
@@ -112,6 +113,7 @@ extension MainViewController: SlideMenuControllerDelegate {
   }
 }
 
+// MARK: - NetworkStatusListener
 extension MainViewController: NetworkStatusListener {
 
   func networkStatusDidChange(status: Reachability.NetworkStatus) {

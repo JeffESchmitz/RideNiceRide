@@ -28,8 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     self.createMenuView()
 
-    // Temp key, need to generate new project key for 'RideNiceRide'
-    GMSServices.provideAPIKey("AIzaSyBCHjbd41ZVXvy3HBu-J1c8rn6d3Or6AFk")
+    // Google Maps API key. Log into Google API Dev console (https://console.developers.google.com/apis), and create a new API key for app and add that key here.
+      GMSServices.provideAPIKey(K.GoogleServices.APIKey)
+
     return true
   }
 

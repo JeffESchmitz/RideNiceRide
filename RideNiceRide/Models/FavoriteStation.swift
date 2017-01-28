@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 
 extension FavoriteStation {
-
     convenience init(stationName: String = "Unknown",
                      address1: String = "",
                      address2: String = "",

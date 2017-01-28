@@ -29,8 +29,6 @@ class LeftViewController: UIViewController {
   var favoritesViewController: UIViewController!
   var imageHeaderView: ImageHeaderView!
 
-  let hubwayProfileUrlString = "https://secure.thehubway.com/profile/"
-
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
@@ -58,6 +56,7 @@ class LeftViewController: UIViewController {
   }
 }
 
+// MARK: - LeftMenuProtocol
 extension LeftViewController: LeftMenuProtocol {
   func changeViewController(_ menu: LeftMenu) {
     switch menu {
@@ -66,7 +65,7 @@ extension LeftViewController: LeftMenuProtocol {
     case .favorites:
       self.slideMenuController()?.changeMainViewController(self.favoritesViewController, close: true)
     case .rentalHistory:
-      guard let targetUrl = URL(string: hubwayProfileUrlString) else {
+      guard let targetUrl = URL(string: K.HubwayAPI.hubwayProfileUrlString) else {
         return
       }
       let safariViewController = SFSafariViewController(url: targetUrl)
@@ -81,12 +80,13 @@ extension LeftViewController: LeftMenuProtocol {
   }
 }
 
+// MARK: - SFSafariViewControllerDelegate
 extension LeftViewController: SFSafariViewControllerDelegate {
   func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
     controller.dismiss(animated: true, completion: nil)
   }
 }
-
+// MARK: - UITableViewDelegate
 extension LeftViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     if let menu = LeftMenu(rawValue: indexPath.row) {
@@ -105,6 +105,7 @@ extension LeftViewController: UITableViewDelegate {
   }
 }
 
+// MARK: - UITableViewDataSource
 extension LeftViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return menus.count

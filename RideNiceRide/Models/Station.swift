@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 
 extension Station {
-
     convenience init(name: String = "Unknown",
                      address: String = "none",
                      bikes: String = "0",

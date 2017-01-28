@@ -12,12 +12,21 @@ import Foundation
 //swiftlint:disable type_body_length
 //swiftlint:disable nesting
 struct K {
+
   struct Map {
     static let Latitude          = "MapLatitude"
     static let LatitudeDelta     = "MapLatitudeDelta"
     static let Longitude         = "MapLongitude"
     static let LongitudeDelta    = "MapLongitudeDelta"
+  }
 
+  struct HubwayAPI {
+    static let hubwayURL = "https://feeds.thehubway.com/stations/stations.json"
+    static let hubwayProfileUrlString = "https://secure.thehubway.com/profile/"
+  }
+
+  struct GoogleServices {
+    static let APIKey = "AIzaSyBCHjbd41ZVXvy3HBu-J1c8rn6d3Or6AFk"
   }
 }
 //swiftlint:enable nesting

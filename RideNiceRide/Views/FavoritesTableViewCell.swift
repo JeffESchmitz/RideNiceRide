@@ -11,6 +11,7 @@ import Willow
 
 class FavoritesTableViewCell: UITableViewCell {
 
+  // MARK: - Properties (public)
   class var identifier: String { return String.className(self) }
 
   @IBOutlet weak var addressLabel: UILabel!

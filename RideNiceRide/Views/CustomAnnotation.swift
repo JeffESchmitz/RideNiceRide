@@ -9,6 +9,7 @@ import MapKit
 
 class CustomAnnotation: NSObject, MKAnnotation {
 
+  // MARK: - Properties (public)
   var coordinate: CLLocationCoordinate2D
 
   var stationId: String?

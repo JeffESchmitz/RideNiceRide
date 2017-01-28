@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIColor {
-
     // swiftlint:disable variable_name
     convenience init(hex: String) {
         self.init(hex: hex, alpha:1)

@@ -8,7 +8,6 @@
 import UIKit
 
 public extension UITableView {
-
     // swiftlint:disable missing_docs
     func registerCellClass(_ cellClass: AnyClass) {
         let identifier = String.className(cellClass)

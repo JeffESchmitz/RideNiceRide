@@ -185,8 +185,8 @@ class BottomViewController: UIViewController, PanoramaViewDelegate {
   }
 }
 
+// MARK: - GMSPanoramaViewDelegate
 extension BottomViewController: GMSPanoramaViewDelegate {
-  // MARK: - GMSPanoramaViewDelegate
   func panoramaView(_ view: GMSPanoramaView, error: Error, onMoveNearCoordinate coordinate: CLLocationCoordinate2D) {
     log.event("Moving near coordinate (\(coordinate.latitude),\(coordinate.longitude) error: \(error.localizedDescription)")
   }
@@ -200,6 +200,7 @@ extension BottomViewController: GMSPanoramaViewDelegate {
   }
 }
 
+// MARK: - ISHPullUpSizingDelegate
 extension BottomViewController: ISHPullUpSizingDelegate {
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, maximumHeightForBottomViewController bottomVC: UIViewController, maximumAvailableHeight: CGFloat) -> CGFloat {
     let totalHeight = rootView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
@@ -232,6 +233,7 @@ extension BottomViewController: ISHPullUpSizingDelegate {
   }
 }
 
+// MARK: - ISHPullUpStateDelegate
 extension BottomViewController: ISHPullUpStateDelegate {
   func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, didChangeTo state: ISHPullUpState) {
     topLabel.text = textForState(state)

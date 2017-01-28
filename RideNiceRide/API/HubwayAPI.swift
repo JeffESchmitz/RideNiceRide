@@ -23,7 +23,7 @@ class HubwayAPI: NSObject {
 
   typealias StationDataCompletion = ([Station]?, Error?) -> ()
 
-  let hubwayURL = "https://feeds.thehubway.com/stations/stations.json"
+  // MARK: - Properties (public)
   let dataStack: DATAStack
   let stationName = "Station"
 
@@ -33,7 +33,7 @@ class HubwayAPI: NSObject {
 
   //swiftlint:disable function_body_length
   func getStations(completionHandlerForStations: @escaping StationDataCompletion) {
-    Alamofire.request(hubwayURL).responseJSON { response in
+    Alamofire.request(K.HubwayAPI.hubwayURL).responseJSON { response in
       guard case let .failure(error) = response.result else {
         let data = response.result.value as? [String: Any]
         if let foo = data {

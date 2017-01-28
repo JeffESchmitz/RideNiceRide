@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIViewController {
-
   func setNavigationBarItem() {
     self.addLeftBarButtonWithImage(Asset.Menu_Hamburger.image)
     self.slideMenuController()?.removeLeftGestures()

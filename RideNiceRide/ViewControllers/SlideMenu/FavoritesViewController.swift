@@ -16,13 +16,14 @@ import MapKit
 
 class FavoritesViewController: UIViewController {
 
+  // MARK: - Properties (public)
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var emptyTableMessage: UILabel!
   lazy var hubwayAPI: HubwayAPI = HubwayAPI(dataStack: self.dataStack)
   unowned var dataStack: DATAStack
   var tableData: [FavoriteStation] = []
 
-
+  // MARK: - View Life Cycle
   required init?(coder aDecoder: NSCoder) {
     //swiftlint:disable force_cast
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
@@ -31,7 +32,6 @@ class FavoritesViewController: UIViewController {
     super.init(coder: aDecoder)
   }
 
-  // MARK: - View Lifecycle functions
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -56,7 +56,6 @@ class FavoritesViewController: UIViewController {
     self.tableView.reloadData()
   }
 
-
   // MARK: - Helper/utility functions
   //swiftlint:disable force_cast
   //swiftlint:disable force_try
@@ -79,6 +78,8 @@ class FavoritesViewController: UIViewController {
   //swiftlint:enable force_cast
   //swiftlint:enable force_try
 }
+
+// MARK: - UITableViewDataSource
 extension FavoritesViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.tableData.count
@@ -103,6 +104,7 @@ extension FavoritesViewController: UITableViewDataSource {
   }
 }
 
+// MARK: - UITableViewDelegate
 extension FavoritesViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return true

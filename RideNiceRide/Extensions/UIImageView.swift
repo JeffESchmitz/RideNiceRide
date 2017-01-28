@@ -10,7 +10,6 @@ import UIKit
 
 
 extension UIImageView {
-
     func setRandomDownloadImage(_ width: Int, height: Int) {
         if self.image != nil {
             self.alpha = 1
