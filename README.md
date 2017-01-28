@@ -1,4 +1,5 @@
 # RideNiceRide
+![AppIcon](https://github.com/JeffESchmitz/RideNiceRide/blob/master/RideNiceRide/Resources/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5%402x.png)
 
 ### [Udacity iOS Developer Nanodegree](https://www.udacity.com/course/ios-developer-nanodegree--nd003) Capstone Project
 In this capstone project, students will create an app of their own design that showcases our iOS development skills.
