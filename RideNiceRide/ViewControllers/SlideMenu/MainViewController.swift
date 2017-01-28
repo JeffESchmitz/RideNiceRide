@@ -12,7 +12,7 @@ import ISHPullUp
 import ReachabilitySwift
 
 class MainViewController: ISHPullUpViewController, PullUpViewDelegate {
-  
+
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     commonInit()
@@ -118,12 +118,14 @@ extension MainViewController: NetworkStatusListener {
     switch status {
     case .notReachable:
       debugPrint("MainViewController: Network became unreachable")
+      self.navigationItem.rightBarButtonItem?.isEnabled = false
     case .reachableViaWiFi:
       debugPrint("MainViewController: Network reachable through WiFi")
+      self.navigationItem.rightBarButtonItem?.isEnabled = true
     case .reachableViaWWAN:
       debugPrint("MainViewController: Network reachable through Cellular Data")
+      self.navigationItem.rightBarButtonItem?.isEnabled = true
     }
-
     // Update any UI elements here (disable buttons, labels etc.)
   }
 }
