@@ -88,7 +88,7 @@ Data provided by [Hubway](https://www.thehubway.com) at [http://thehubway.com/da
 ## Technical Details
 ### Getting Started
 
-Xcode 8 (using Swift 3) is required in order open, build and run the application in a simulator or on a device.
+Xcode 8+, iOS 9/0+ Swift 3+ is required in order open, build and run the application in a simulator or on a device.
 
 Before opening the workspace, navigate to the directory where the RideNiceRide.xcodeproj is located and run the following command to populate the required CocoaPods.
 ```bash
