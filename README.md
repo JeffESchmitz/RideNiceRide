@@ -37,7 +37,7 @@ Green | 10 to 16 bikes
 - Favorites is a view allowing the user to view a list of all of stored favorite stations.
 - While on the Favorites view, users can remove a favorite by swiping left on the specified row.
 - Also, tapping on a specific Favorite map view will launch the iOS Map application allowing the user to map directions and see what businesses are around their chosen station.
-- Rental History is a view that will open up a new screen allowing the user to enter their HubWay credentials and access their HubWay account details. 
+- Rental History opens the browser for the Users Hubway profile at https://secure.thehubway.com/profile/ allowing the user to enter their HubWay credentials and access their HubWay account details. 
 
 ### App Specifications
 
